@@ -1,0 +1,13 @@
+.activities{
+    display: flex;
+}
+
+.activities app-filter-container{
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.activities app-list-container{
+    flex-grow: 4;
+    flex-basis: 0;
+}

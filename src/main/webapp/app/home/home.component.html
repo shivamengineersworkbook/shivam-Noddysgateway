@@ -1,0 +1,63 @@
+<section class="section-1">
+  <div class="section-1_text-1">Book your child’s next</div>
+  <div #rotatingText class="section-1_text-2"></div>
+  <div class="section-1_text-3">Drop-ins, semesters, camps and events—discover it all on Noddy</div>
+  <div>
+    <form>
+      <mat-form-field>
+          <input type="text" matInput placeholder="Search Events" [(ngModel)]="eventName" name="eventName">
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field>
+          <mat-select [(ngModel)]="eventDate" name="eventDate">
+            <mat-option *ngFor="let date of dates" [value]="date.value">
+              {{date.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        &nbsp;&nbsp;
+        <button mat-raised-button color="warn" (click)="displayActivities()">Search</button>
+  </form>
+  </div>
+</section>
+<section class="section-2">
+  <div class="section-2_img">
+      <img src="/assets/images/img2.png" alt="">
+  </div>    
+  <div class="section-2_text">
+    <h2>Mom and dad’s go-to tool</h2>
+    <p>Newfound web-scheduling convenience gives you deserved support as you book and manage your children’s wonder-full schedules at home or on the go.</p>
+  </div> 
+</section>
+<section class="section-3">
+  <h3>Sawyer partners with the best-in-class providers in each community who teach everything from ballet curtsies to science experiments</h3>
+  <h4>FOR MINI MOVERS | 0 - 2 YRS</h4>
+  <div class="section-3_provider-items">
+    <div class="section-3_provider-item section-3_provider-items_1">
+      <div>Area Kids Club</div>
+    </div>
+    <div class="section-3_provider-item section-3_provider-items_2">
+      <div>Cumbe Dance</div>
+    </div>
+    <div class="section-3_provider-item section-3_provider-items_3">
+      <div>Funikijam</div>
+    </div>
+  </div>
+  <div class="section-3_provider-items">
+      <div class="section-3_provider-item section-3_provider-items_4">
+        <div>Lavender Blues</div>
+      </div>
+      <div class="section-3_provider-item section-3_provider-items_5">
+        <div>The Playroom NYC</div>
+      </div>
+      <div class="section-3_provider-item section-3_provider-items_6">
+        <div>14th Street Y</div>
+      </div>
+  </div>
+  <div>
+      <button mat-raised-button color="warn" (click)="displayActivities()">View All 0 - 2 yrs</button>  
+  </div>  
+</section>
+<section class="section-4">
+
+</section>
