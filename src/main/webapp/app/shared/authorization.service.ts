@@ -15,7 +15,7 @@ export class AuthorizationService {
 
   constructor() { }
 
-  register(email, password) {
+  register(username ,email, password) {
     console.log(email);
 
     const attributeList = [];
@@ -25,7 +25,7 @@ export class AuthorizationService {
     }));
 
     return Observable.create(observer => {
-      userPool.signUp('username',password, attributeList, null, (err, result) => {
+      userPool.signUp(username,password, attributeList, null, (err, result) => {
         if (err) {
           console.log("signUp error", err);
           observer.error(err);
