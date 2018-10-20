@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatSelectModule, MatInputModule, MatButtonModule, MatGridListModule, MatExpansionModule, MatCheckboxModule, MatCardModule } from '@angular/material';
 import { NouisliderModule } from 'ng2-nouislider';
 import { HttpModule } from "@angular/http";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,20 +16,12 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { FilterContainerComponent } from './activities/filter-container/filter-container.component';
 import { ListContainerComponent } from './activities/list-container/list-container.component';
 import { AuthorizationService } from "./shared/authorization.service";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
-const routes:Routes=[
-  {
-    path:'',
-    component:HomeComponent
-  },
-  {
-    path:'activities',
-    component:ActivitiesComponent
-  }
-]
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, NavbarComponent, ActivitiesComponent, FilterContainerComponent, ListContainerComponent],
+    declarations: [AppComponent, HomeComponent, NavbarComponent, ActivitiesComponent, FilterContainerComponent, ListContainerComponent, LoginComponent, RegisterComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -42,8 +35,8 @@ const routes:Routes=[
         MatExpansionModule,
         MatCardModule,
         NouisliderModule,
-        RouterModule.forRoot(routes),
-        HttpModule
+        HttpModule,
+        AppRoutingModule
     ],
     providers: [AuthorizationService],
     bootstrap: [AppComponent]
