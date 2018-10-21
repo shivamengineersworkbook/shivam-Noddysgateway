@@ -90,6 +90,7 @@ export class AuthorizationService {
     });
   }
 
+  
   isLoggedIn() {    
     return userPool.getCurrentUser() != null;
   }

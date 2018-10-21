@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
   </span>
-  <span class="toolbar_login">Log In</span>
+  <span class="toolbar_login"><a *ngIf="!_auth.isLoggedIn()" routerLink="/login">Log In</a></span>
 </mat-toolbar> 
 
 
