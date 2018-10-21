@@ -28,4 +28,7 @@ export class LoginComponent {
       this.emailVerificationMessage = true;
     });
   }
+
+
+
 }
