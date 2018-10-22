@@ -1,51 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
-import { AuthorizationService } from "../shared/authorization.service";
-import { Router } from '@angular/router';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { UserRegistrationService } from "../service/user-registration.service";
+import { CognitoCallback } from "../service/cognito.service";
 
+export class RegistrationUser {
+  name: string;
+  email: string;
+  phone_number: string;
+  password: string;
+}
+/**
+ * This component is responsible for displaying and controlling
+ * the registration of the user.
+ */
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'awscognito-angular2-app',
+  templateUrl: './register.component.html'
 })
-export class RegisterComponent {
+export class RegisterComponent implements CognitoCallback {
+  registrationUser: RegistrationUser;
+  router: Router;
+  errorMessage: string;
 
-  confirmCode: boolean = false;
-  codeWasConfirmed: boolean = false;
-  error: string = "";
-
-  constructor(private auth: AuthorizationService,
-    private _router: Router) { }
-
-  register(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    const username = form.value.username;
-    console.log(email,password,username);
-    this.auth.register(username,email, password).subscribe(
-      (data) => {
-        this.confirmCode = true;
-      },
-      (err) => {
-        console.log(err);
-        this.error = "Registration Error has occurred";
-      }
-    );
+  constructor(public userRegistration: UserRegistrationService, router: Router) {
+    this.router = router;
+    this.onInit();
   }
 
-  validateAuthCode(form: NgForm) {
-    const code = form.value.code;
-
-    this.auth.confirmAuthCode(code).subscribe(
-      (data) => {
-        //this._router.navigateByUrl('/');
-        this.codeWasConfirmed = true;
-        this.confirmCode = false;
-      },
-      (err) => {
-        console.log(err);
-        this.error = "Confirm Authorization Error has occurred";
-      });
+  onInit() {
+    this.registrationUser = new RegistrationUser();
+    this.errorMessage = null;
   }
 
+  onRegister() {
+    this.errorMessage = null;
+    this.userRegistration.register(this.registrationUser, this);
+  }
+
+  cognitoCallback(message: string, result: any) {
+    if (message != null) { //error
+      this.errorMessage = message;
+      console.log("result: " + this.errorMessage);
+    } else { //success
+      //move to the next step
+      console.log("redirecting");
+      this.router.navigate(['/home/confirmRegistration', result.user.username]);
+    }
+  }
 }
