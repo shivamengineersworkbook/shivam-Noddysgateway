@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { UserRegistrationService } from "./service/user-registration.service";
 import { UserParametersService } from "./service/user-parameters.service";
+import { LogoutComponent, RegistrationConfirmationComponent } from "./confirm/confirm.component";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatSelectModule, MatInputModule, MatButtonModule, MatGridListModule, MatExpansionModule, MatCheckboxModule, MatCardModule } from '@angular/material';
@@ -23,10 +24,13 @@ import { RegisterComponent } from './register/register.component';
 import { NewPasswordComponent } from "./newpassword/newpassword.component";
 import { UserLoginService } from "./service/user-login.service";
 import { CognitoUtil } from "./service/cognito.service";
-import { ForgotPasswordStep1Component } from "./forgot/forgot.component";
-import { LogoutComponent } from "./confirm/confirm.component";
+import { ForgotPasswordStep1Component, ForgotPassword2Component } from "./forgot/forgot.component";
 import { MFAComponent } from "./mfa/mfa.component";
-
+import { ResendCodeComponent } from "./resend/resend.component";
+import { SecureHomeComponent } from "./secure/landing/securehome.component";
+import { MyProfileComponent } from "./secure/profile/myprofile.component";
+import { JwtComponent } from "./secure/jwttokens/jwt.component";
+import { UseractivityComponent } from "./secure/useractivity/useractivity.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +45,14 @@ import { MFAComponent } from "./mfa/mfa.component";
     NewPasswordComponent,
     ForgotPasswordStep1Component,
     LogoutComponent,
-    MFAComponent
+    MFAComponent,
+    RegistrationConfirmationComponent,
+    ResendCodeComponent,
+    ForgotPassword2Component,
+    UseractivityComponent,
+    JwtComponent,
+    MyProfileComponent,
+    SecureHomeComponent
   ],
   imports: [
     BrowserModule,

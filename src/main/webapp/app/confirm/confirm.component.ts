@@ -18,10 +18,10 @@ export class LogoutComponent implements LoggedInCallback {
   isLoggedIn(message: string, isLoggedIn: boolean) {
     if (isLoggedIn) {
       this.userService.logout();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 }
 
@@ -64,7 +64,7 @@ export class RegistrationConfirmationComponent implements OnInit, OnDestroy {
       //move to the next step
       console.log("Moving to securehome");
       // this.configs.curUser = result.user;
-      this.router.navigate(['/securehome']);
+      this.router.navigate(['/login']);
     }
   }
 }

@@ -1,11 +1,27 @@
-<h1 class="page-header">My Profile Parameters</h1>
+<ul class="nav navbar-top-links navbar-right">
+
+    <!-- /.dropdown -->
+    <!-- <li class="dropdown"> -->
+    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a> -->
+    <!-- <ul class="dropdown-menu dropdown-user"> -->
+    <li><a [routerLink]="['/myprofile']"><i class="fa fa-user fa-fw"></i> User
+            Profile</a>
+    </li>
+    <!-- <li class="divider"></li> -->
+    <li><a [routerLink]="['/logout']">Logout</a></li>
+    <!-- </ul> -->
+    <!-- /.dropdown-user -->
+    <!-- </li> -->
+    <!-- /.dropdown -->
+</ul>
+
+<h1 class="page-header">My Profile</h1>
 
 <div class="table-responsive">
     <table class="table table-hover table-striped">
-        <tr>
-            <th>Name</th>
-            <th>Value</th>
-        </tr>
+
         <tr *ngFor="let parameter of parameters" class="active">
             <td>{{ parameter.name }}</td>
             <td>{{ parameter.value }}</td>
