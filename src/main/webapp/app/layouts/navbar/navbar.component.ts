@@ -34,15 +34,24 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
+  links = [
+      {
+          value: "logout",
+          routerlink: "/logout"    
+    },
+    {
+        value:"my profile",
+        routerlink: "/myprofile"
+    }
+  ];
+
   constructor(public router: Router, public userService: UserLoginService) {
-      this.userService.isAuthenticated(this);
-      console.log("SecureHomeComponent: constructor");
+    this.userService.isAuthenticated(this);
+    console.log("SecureHomeComponent: constructor");
   }
 
   isLoggedIn(message: string, isLoggedIn: boolean) {
-    if (isLoggedIn) {
-      this.router.navigate(["/securehome"]);
-    }
+    return isLoggedIn;
   }
 
   ngOnInit() {}

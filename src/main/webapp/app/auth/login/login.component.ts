@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { UserLoginService } from "../service/user-login.service";
-import { ChallengeParameters, CognitoCallback, LoggedInCallback } from "../service/cognito.service";
-import { DynamoDBService } from "../service/ddb.service";
+import { UserLoginService } from "../../service/user-login.service";
+import { ChallengeParameters, CognitoCallback, LoggedInCallback } from "../../service/cognito.service";
+import { DynamoDBService } from "../../service/ddb.service";
 
 @Component({
   selector: 'awscognito-angular2-app',
