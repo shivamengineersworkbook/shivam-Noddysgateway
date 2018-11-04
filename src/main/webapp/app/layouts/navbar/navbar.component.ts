@@ -5,11 +5,11 @@ import {
 import { Router } from "@angular/router";
 import { UserLoginService } from "../../service/user-login.service";
 import {
-  ChallengeParameters,
   CognitoCallback,
+  CognitoUtil,
   LoggedInCallback
 } from "../../service/cognito.service";
-import { DynamoDBService } from "../../service/ddb.service";
+
 
 
 @Component({
@@ -18,7 +18,7 @@ import { DynamoDBService } from "../../service/ddb.service";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
-  Logged: boolean;
+  bAuthenticated = false;
   cities = [
     {
       value: "Delhi",
@@ -43,26 +43,42 @@ export class NavbarComponent implements OnInit {
   ];
 
   links = [
-      {
-          value: "logout",
-          routerlink: "/logout"    
+    {
+      value: "logout",
+      routerlink: "/logout"
     },
     {
-        value:"my profile",
-        routerlink: "/myprofile"
+      value: "my profile",
+      routerlink: "/myprofile"
     }
   ];
 
-  constructor(public router: Router, public userService: UserLoginService) {
-    this.userService.isAuthenticated(this);
+  constructor(
+    public router: Router,
+    public userService: UserLoginService,
+    public cognitoutil: CognitoUtil
+  ) {
     console.log("constructor");
-    this.Logged = userService.islogged();
   }
+
+
+
+  ngOnInit() {
+    
+    
+  }
+
+  
+
 
   isLoggedIn() {
-    console.log(this.Logged)
-    return this.Logged;
+    let cognitoUser = this.cognitoutil.getCurrentUser();
+    if (cognitoUser == null) {
+      this.bAuthenticated = false;
+    } else {
+      this.bAuthenticated = true;
+    }
+    console.log(this.bAuthenticated);
+    return this.bAuthenticated;
   }
-
-  ngOnInit() {}
 }

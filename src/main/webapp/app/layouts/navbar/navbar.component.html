@@ -11,7 +11,7 @@
     </mat-form-field>
   </span>
   <span *ngIf="!isLoggedIn()" class="toolbar_login "><a routerLink="/home/login">Log In</a></span>
-  <span *ngIf="isLoggedIn()" class="toolbar_login "><a routerLink="/logout">Logout</a></span>
+  <span *ngIf="isLoggedIn()" class="toolbar_login "><a [routerLink]="['/logout']">Logout</a></span>
 
 
 

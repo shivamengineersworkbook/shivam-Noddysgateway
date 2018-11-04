@@ -9,7 +9,6 @@ import * as STS from "aws-sdk/clients/sts";
 @Injectable()
 export class UserLoginService {
 
-    public lo: boolean;
 
     private onLoginSuccess = (callback: CognitoCallback, session: CognitoUserSession) => {
 
@@ -128,27 +127,19 @@ export class UserLoginService {
 
         if (cognitoUser != null) {
             cognitoUser.getSession(function (err, session) {
-                if (err) {
-                        //    this.lo = false;
+                if (err) {  
                            console.log("UserLoginService: Couldn't get the session: " + err, err.stack);
                            callback.isLoggedIn(err, false);
                          }
                 else {
-                    
                     console.log("UserLoginService: Session is " + session.isValid());
+                    
                     callback.isLoggedIn(err, session.isValid());
-                    // this.lo = true;
                 }
             });
         } else {
-            
             console.log("UserLoginService: can't retrieve the current user");
             callback.isLoggedIn("Can't retrieve the CurrentUser", false);
-            // this.logged = false;
         }
-    }
-
-    islogged(): boolean {
-        return this.lo;
     }
 }
