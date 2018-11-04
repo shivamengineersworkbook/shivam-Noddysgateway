@@ -18,7 +18,6 @@ import {
 } from "./auth/auth.component";
 
 const appRoutes: Routes = [
-  { path: "login", component: LoginComponent },
   {
     path: "",
     component: HomeComponent
@@ -28,26 +27,6 @@ const appRoutes: Routes = [
     component: ActivitiesComponent
   },
   {
-    path: "register",
-    component: RegisterComponent
-  },
-  {
-    path: "forgotPassword/:email",
-    component: ForgotPassword2Component
-  },
-  {
-    path: "forgotPassword",
-    component: ForgotPasswordStep1Component
-  },
-  {
-    path: "confirmRegistration/:username",
-    component: RegistrationConfirmationComponent
-  },
-  {
-    path: "resendCode",
-    component: ResendCodeComponent
-  },
-  {
     path: "securehome",
     component: SecureHomeComponent
   },  
@@ -55,9 +34,20 @@ const appRoutes: Routes = [
   { path: "jwttokens", component: JwtComponent },
   { path: "myprofile", component: MyProfileComponent },
   { path: "useractivity", component: UseractivityComponent },
-  { path: 'homelanding', component: HomeLandingComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'homeover', component: HomeOverComponent}
+
+
+  {
+    path: 'home',
+    component: HomeOverComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'confirmRegistration/:username', component: RegistrationConfirmationComponent },
+      { path: 'resendCode', component: ResendCodeComponent },
+      { path: 'forgotPassword/:email', component: ForgotPassword2Component },
+      { path: 'forgotPassword', component: ForgotPasswordStep1Component }
+    ]
+  }
 ];
 
 

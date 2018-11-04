@@ -5,7 +5,7 @@ import { ChallengeParameters, CognitoCallback, LoggedInCallback } from "../../se
 import { DynamoDBService } from "../../service/ddb.service";
 
 @Component({
-  selector: 'awscognito-angular2-app',
+  selector: 'Login-component',
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit {

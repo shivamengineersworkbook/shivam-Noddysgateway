@@ -23,7 +23,8 @@ export class HomeLandingComponent {
 
 @Component({
   selector: 'awscognito-angular2-app',
-  templateUrl: './home.html'
+  templateUrl: './home.html',
+  styleUrls: ["./auth.component.css"]
 })
 export class HomeOverComponent implements OnInit {
 
