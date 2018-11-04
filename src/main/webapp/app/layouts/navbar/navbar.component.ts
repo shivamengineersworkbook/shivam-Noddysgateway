@@ -4,6 +4,13 @@ import {
 } from '@angular/core';
 import { Router } from "@angular/router";
 import { UserLoginService } from "../../service/user-login.service";
+import {
+  ChallengeParameters,
+  CognitoCallback,
+  LoggedInCallback
+} from "../../service/cognito.service";
+import { DynamoDBService } from "../../service/ddb.service";
+
 
 @Component({
   selector: "app-navbar",
@@ -11,6 +18,7 @@ import { UserLoginService } from "../../service/user-login.service";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+  Logged: boolean;
   cities = [
     {
       value: "Delhi",
@@ -47,11 +55,13 @@ export class NavbarComponent implements OnInit {
 
   constructor(public router: Router, public userService: UserLoginService) {
     this.userService.isAuthenticated(this);
-    console.log("SecureHomeComponent: constructor");
+    console.log("constructor");
+    this.Logged = userService.islogged();
   }
 
-  isLoggedIn(message: string, isLoggedIn: boolean) {
-    return isLoggedIn;
+  isLoggedIn() {
+    console.log(this.Logged)
+    return this.Logged;
   }
 
   ngOnInit() {}

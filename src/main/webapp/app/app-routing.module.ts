@@ -13,8 +13,7 @@ import { JwtComponent } from "./secure/jwttokens/jwt.component";
 import { UseractivityComponent } from "./secure/useractivity/useractivity.component";
 import {
   AboutComponent,
-  HomeOverComponent,
-  HomeLandingComponent
+  HomeOverComponent
 } from "./auth/auth.component";
 
 const appRoutes: Routes = [
@@ -29,23 +28,25 @@ const appRoutes: Routes = [
   {
     path: "securehome",
     component: SecureHomeComponent
-  },  
+  },
   { path: "logout", component: LogoutComponent },
   { path: "jwttokens", component: JwtComponent },
   { path: "myprofile", component: MyProfileComponent },
   { path: "useractivity", component: UseractivityComponent },
 
-
   {
-    path: 'home',
+    path: "home",
     component: HomeOverComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'confirmRegistration/:username', component: RegistrationConfirmationComponent },
-      { path: 'resendCode', component: ResendCodeComponent },
-      { path: 'forgotPassword/:email', component: ForgotPassword2Component },
-      { path: 'forgotPassword', component: ForgotPasswordStep1Component }
+      { path: "login", component: LoginComponent },
+      { path: "register", component: RegisterComponent },
+      {
+        path: "confirmRegistration/:username",
+        component: RegistrationConfirmationComponent
+      },
+      { path: "resendCode", component: ResendCodeComponent },
+      { path: "forgotPassword/:email", component: ForgotPassword2Component },
+      { path: "forgotPassword", component: ForgotPasswordStep1Component }
     ]
   }
 ];

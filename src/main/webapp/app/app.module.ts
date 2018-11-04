@@ -31,7 +31,7 @@ import { SecureHomeComponent } from "./secure/landing/securehome.component";
 import { MyProfileComponent } from "./secure/profile/myprofile.component";
 import { JwtComponent } from "./secure/jwttokens/jwt.component";
 import { UseractivityComponent } from "./secure/useractivity/useractivity.component";
-import { AboutComponent, HomeOverComponent, HomeLandingComponent } from "./auth/auth.component";
+import { AboutComponent, HomeOverComponent } from "./auth/auth.component";
 
 @NgModule({
   declarations: [
@@ -55,8 +55,7 @@ import { AboutComponent, HomeOverComponent, HomeLandingComponent } from "./auth/
     MyProfileComponent,
     SecureHomeComponent,
     AboutComponent,
-    HomeOverComponent,
-    HomeLandingComponent
+    HomeOverComponent
   ],
   imports: [
     BrowserModule,

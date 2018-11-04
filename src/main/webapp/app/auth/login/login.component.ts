@@ -10,6 +10,7 @@ import { DynamoDBService } from "../../service/ddb.service";
 })
 export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit {
   email: string;
+  logged: boolean;
   password: string;
   errorMessage: string;
   mfaStep = false;
@@ -71,12 +72,19 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit
 
   isLoggedIn(message: string, isLoggedIn: boolean) {
     if (isLoggedIn) {
-      this.router.navigate(['/securehome']);
+      this.logged = true;
+      this.router.navigate(["/activities"]);
     }
+    this.logged = false;
   }
 
   cancelMFA(): boolean {
     this.mfaStep = false;
     return false;   //necessary to prevent href navigation
   }
+
+  retlogged(): boolean {
+    return this.logged;
+  }
+
 }

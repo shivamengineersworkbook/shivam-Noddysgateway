@@ -11,15 +11,6 @@ export class AboutComponent {
 
 }
 
-@Component({
-  selector: 'awscognito-angular2-app',
-  templateUrl: './landinghome.html'
-})
-export class HomeLandingComponent {
-  constructor() {
-    console.log("HomeLandingComponent constructor");
-  }
-}
 
 @Component({
   selector: 'awscognito-angular2-app',
