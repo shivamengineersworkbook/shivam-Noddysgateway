@@ -32,6 +32,8 @@ import { MyProfileComponent } from "./secure/profile/myprofile.component";
 import { JwtComponent } from "./secure/jwttokens/jwt.component";
 import { UseractivityComponent } from "./secure/useractivity/useractivity.component";
 import { AboutComponent, HomeOverComponent } from "./auth/auth.component";
+import { HttpClientModule } from "@angular/common/http"
+import { EventsService } from './service/events.list.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import { AboutComponent, HomeOverComponent } from "./auth/auth.component";
     MatCardModule,
     NouisliderModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     CognitoUtil,
@@ -79,7 +82,8 @@ import { AboutComponent, HomeOverComponent } from "./auth/auth.component";
     DynamoDBService,
     UserRegistrationService,
     UserLoginService,
-    UserParametersService
+    UserParametersService,
+    EventsService
   ],
   bootstrap: [AppComponent]
 })

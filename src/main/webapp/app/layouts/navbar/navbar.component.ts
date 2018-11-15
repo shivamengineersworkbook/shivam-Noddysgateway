@@ -78,7 +78,6 @@ export class NavbarComponent implements OnInit {
     } else {
       this.bAuthenticated = true;
     }
-    console.log(this.bAuthenticated);
     return this.bAuthenticated;
   }
 }
