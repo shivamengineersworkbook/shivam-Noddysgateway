@@ -12,7 +12,11 @@ export class ListContainerComponent implements OnInit {
   constructor(public events: EventsService) { }
 
   ngOnInit() {
-     this.records = this.events.getfilteredevents()
+     this.events.getfilteredevents().subscribe((data) => {
+       this.records = data;
+       
+     })
+    console.log(this.records);     
   }
 
 }

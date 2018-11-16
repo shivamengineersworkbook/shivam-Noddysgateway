@@ -9,12 +9,8 @@ export class EventsService {
   constructor(private http: HttpClient) { }
 
   getfilteredevents() {
-    return this.http
-      .get("https://7b3724b6.ngrok.io/events")
-      .subscribe(data => {
-        console.log(data);
-      });
-  }
+    return this.http.get("https://09272844.ngrok.io/events");
 
+  }
 
 }

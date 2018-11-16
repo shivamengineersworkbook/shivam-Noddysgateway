@@ -1,19 +1,22 @@
 <div class="list-container">
   <h3 style="margin-top: 0">Sunday, September 2</h3>
-  <mat-card>
-    Event 1
+  <mat-card *ngFor="let record of records.events">
+    <div class="row"> 
+        <div class="media col-sm-6">
+          <figure class="pull-left">
+            <img class="media-object img-rounded img-responsive" src={{record.event_image_url}} alt="placehold.it/350x250" width="350px" length="250px">
+          </figure>
+        </div>
+        <div class="col-sm-3">
+          <h4 class="list-group-item-heading heading_txt"> {{record.event_name}} </h4>
+          <p class="list-group-item-text"> {{record.event_description}}
+          </p>
+        </div>
+        <div class="col-sm-3 text-center">
+          <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
+          <button type="button" class="btn btn-default btn-lg btn-block" ><a href={{record.event_booking.url}}> Register now </a></button>
+        </div>
+    </div>  
   </mat-card>
 
-  <mat-card>
-    Event 2
-  </mat-card>
-
-
-  <mat-card>
-    Event 3
-  </mat-card>
-
-  <mat-card>
-    Event 4
-  </mat-card>
 </div>
