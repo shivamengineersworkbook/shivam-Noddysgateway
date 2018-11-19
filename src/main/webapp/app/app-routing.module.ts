@@ -15,6 +15,9 @@ import {
   AboutComponent,
   HomeOverComponent
 } from "./auth/auth.component";
+import { ManageeventsComponent } from "./manageevents/manageevents.component";
+import { AddeventComponent } from './manageevents/addevent/addevent.component';
+import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +36,14 @@ const appRoutes: Routes = [
   { path: "jwttokens", component: JwtComponent },
   { path: "myprofile", component: MyProfileComponent },
   { path: "useractivity", component: UseractivityComponent },
+  { path: "manageevents", component:ManageeventsComponent,
+    children: [
+
+      { path: "addevent", component:AddeventComponent },
+      {
+        path: "dashboard", component:DashboardComponent
+      }
+    ]},
 
   {
     path: "home",

@@ -34,6 +34,9 @@ import { UseractivityComponent } from "./secure/useractivity/useractivity.compon
 import { AboutComponent, HomeOverComponent } from "./auth/auth.component";
 import { HttpClientModule } from "@angular/common/http"
 import { EventsService } from './service/events.list.service';
+import { ManageeventsComponent } from './manageevents/manageevents.component';
+import { AddeventComponent } from './manageevents/addevent/addevent.component';
+import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { EventsService } from './service/events.list.service';
     MyProfileComponent,
     SecureHomeComponent,
     AboutComponent,
-    HomeOverComponent
+    HomeOverComponent,
+    ManageeventsComponent,
+    AddeventComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

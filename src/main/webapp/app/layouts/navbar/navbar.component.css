@@ -22,6 +22,13 @@
     font-size: 0.9em;
 }
 
+.toolbar_login_events{
+    color: #f44336;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+
 .toolbar_logout{
     color: #f44336;
     font-weight: bold;

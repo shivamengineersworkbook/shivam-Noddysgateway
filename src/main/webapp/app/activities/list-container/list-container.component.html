@@ -1,22 +1,26 @@
-<div class="list-container">
-  <h3 style="margin-top: 0">Sunday, September 2</h3>
+<div class="container list-container">
+  <h3 style="margin-top: 0">{{nowDate}}</h3>
   <mat-card *ngFor="let record of records.events">
     <div class="row"> 
-        <div class="media col-sm-6">
+        <div class="media col-lg-6">
           <figure class="pull-left">
-            <img class="media-object img-rounded img-responsive" src={{record.event_image_url}} alt="placehold.it/350x250" width="350px" length="250px">
+            <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/350x250">
           </figure>
         </div>
-        <div class="col-sm-3">
-          <h4 class="list-group-item-heading heading_txt"> {{record.event_name}} </h4>
-          <p class="list-group-item-text"> {{record.event_description}}
+        <div class="col-lg-3">
+          <a href="modalLogin"><h4 class="list-group-item-heading heading_txt"> {{record.event_name}} </h4></a>
+          <p class="list-group-item-text"> {{record.event_min_age}} yrs to {{record.event_max_age}} yrs
+          </p>
+          <p class ="list-group-item-text">
+            Rs {{record.event_price}} 
           </p>
         </div>
-        <div class="col-sm-3 text-center">
+        <div class="col-lg-3 text-center">
           <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
-          <button type="button" class="btn btn-default btn-lg btn-block" ><a href={{record.event_booking.url}}> Register now </a></button>
+          <a href={{record.event_booking.url}}><button type="button" class="btn btn-default btn-lg btn-block" > Register now </button></a>
         </div>
     </div>  
   </mat-card>
-
 </div>
+
+
