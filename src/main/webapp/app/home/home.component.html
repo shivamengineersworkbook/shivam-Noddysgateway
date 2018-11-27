@@ -31,27 +31,29 @@
 </section>
 <section class="section-3">
   <h3>Sawyer partners with the best-in-class providers in each community who teach everything from ballet curtsies to science experiments</h3>
-  <h4>FOR MINI MOVERS | 0 - 2 YRS</h4>
+  <div>
+  <button mat-raised-button color="warn" (click)="displayActivities()">FOR MINI MOVERS | 0 - 2 YRS</button>
+</div>
   <div class="section-3_provider-items">
-    <div class="section-3_provider-item section-3_provider-items_1">
-      <div>{{categorie[0]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_1" *ngIf="records.categories[0]">
+      <div>{{records.categories[0]}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_2">
-      <div>{{categorie[1]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_2" *ngIf="records.categories[1]">
+      <div>{{records.categories[1]}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_3">
-      <div>{{categorie[2]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_3" *ngIf="records.categories[2]">
+      <div>{{records.categories[2]}}</div>
     </div>
   </div>
   <div class="section-3_provider-items">
-      <div class="section-3_provider-item section-3_provider-items_4">
-        <div>{{categorie[3]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_4" *ngIf="records.categories[3]">
+        <div>{{records.categories[3]}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_5">
-        <div>{{categorie[4]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_5"*ngIf="records.categories[4]">
+        <div>{{records.categories[4]}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_6">
-        <div>{{categorie[7]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_6" *ngIf="records.categories[5]">
+        <div>{{records.categories[5]}}</div>
       </div>
   </div>
   <div>

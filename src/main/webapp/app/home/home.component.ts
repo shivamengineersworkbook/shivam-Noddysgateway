@@ -67,12 +67,17 @@ export class HomeComponent implements AfterViewInit {
     public categories: EventsService
   ) {}
 
-categorie = {};
+records = {};
 
   ngOnInit() {
     this.categories.getcategories().subscribe(data => {
-      this.categorie = data;
-      console.log(this.categorie);
+      if(data){
+        this.records = data;
+        console.log(this.records);
+      } else {
+        console.log("no data")
+      }
+      
     });
   }
 
@@ -82,7 +87,7 @@ categorie = {};
       this.renderer.setProperty(
         this.rotatingText.nativeElement,
         "innerHTML",
-        this.categorie[i]
+        this.records.categories[i]
       );
       i++;
       if (i == 8) i = 0;

@@ -58,33 +58,9 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>CATEGORY</mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="filter-container_category-panel">
+            <div class="filter-container_category-panel" >
                 <div class="filter-container_category-panel-left">
-                    <mat-checkbox>Academic</mat-checkbox>
-                    <mat-checkbox>Camp</mat-checkbox>
-                    <mat-checkbox>Dance</mat-checkbox>
-                    <mat-checkbox>Exercise</mat-checkbox>
-                    <mat-checkbox>Gym</mat-checkbox>
-                    <mat-checkbox>Martial Arts</mat-checkbox>
-                    <mat-checkbox>Gym</mat-checkbox>
-                    <mat-checkbox>Martial Arts</mat-checkbox>
-                    <mat-checkbox>Nature</mat-checkbox>
-                    <mat-checkbox>Outdoor</mat-checkbox>
-                    <mat-checkbox>Reading</mat-checkbox>
-                    <mat-checkbox>Sports</mat-checkbox>
-                    <mat-checkbox>Theater</mat-checkbox>
-                </div>
-                <div class="filter-container_category-panel-right">
-                    <mat-checkbox>Art</mat-checkbox>
-                    <mat-checkbox>Cooking</mat-checkbox>
-                    <mat-checkbox>Events</mat-checkbox>
-                    <mat-checkbox>Free Activity</mat-checkbox>
-                    <mat-checkbox>Language</mat-checkbox>
-                    <mat-checkbox>Music</mat-checkbox>
-                    <mat-checkbox>Open Play</mat-checkbox>
-                    <mat-checkbox>Private Lessons</mat-checkbox>
-                    <mat-checkbox>Science</mat-checkbox>
-                    <mat-checkbox>Swim</mat-checkbox>
+                    <mat-checkbox *ngFor="let categorie of records.categories">{{categorie}}</mat-checkbox>
                 </div>
             </div>
         </mat-expansion-panel>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService} from '../../service/events.list.service';
 
 @Component({
   selector: 'app-filter-container',
@@ -7,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterContainerComponent implements OnInit {
 
+  records = {}
   inputSpeedRange=[4,9];
   
-  constructor() { }
+  constructor(public events: EventsService) { }
 
   ngOnInit() {
+    this.events.getcategories().subscribe(data => {
+      if(data){
+        console.log(this.records);
+        this.records = data;
+      } else {
+        console.log("no categories available");
+      }
+
+    });
+    
   }
 
 }
