@@ -18,6 +18,7 @@ import {
 import { ManageeventsComponent } from "./manageevents/manageevents.component";
 import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
+import {UpdateComponent} from './manageevents/update/update.component';
 
 const appRoutes: Routes = [
   {
@@ -42,6 +43,9 @@ const appRoutes: Routes = [
       { path: "addevent", component:AddeventComponent },
       {
         path: "dashboard", component:DashboardComponent
+      },
+      {
+        path: "update", component:UpdateComponent
       }
     ]},
 

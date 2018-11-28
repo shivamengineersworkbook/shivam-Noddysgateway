@@ -1,6 +1,7 @@
 <div class="container list-container">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
-  <mat-card *ngFor="let record of records.events">
+  <mat-card *ngFor="let record of records.events"  >
+    <mat-card-header (click)="collapsed=false">
     <div class="row"> 
         <div class="media col-lg-6">
           <figure class="pull-left">
@@ -8,7 +9,7 @@
           </figure>
         </div>
         <div class="col-lg-3">
-          <a href="modalLogin"><h4 class="list-group-item-heading heading_txt"> {{record.event_name}} </h4></a>
+          <h4 class="list-group-item-heading heading_txt" > {{record.event_name}} </h4>
           <p class="list-group-item-text"> {{record.event_min_age}} yrs to {{record.event_max_age}} yrs
           </p>
           <p class ="list-group-item-text">
@@ -19,7 +20,17 @@
           <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
           <a href={{record.event_booking.url}}><button type="button" class="btn btn-default btn-lg btn-block" > Register now </button></a>
         </div>
-    </div>  
+    </div>
+  </mat-card-header>
+  <mat-card-content *ngIf="!collapsed">
+      <div class="col-lg-9">
+        <h3>Description</h3>
+          <h4 class="list-group-item-heading heading_txt" > {{record.event_description}} </h4>
+        <h3>Venue</h3>
+          <h4 class="list-group-item-heading heading_txt" > {{record.event_location.address.city}}, {{record.event_location.address.street}}, {{record.event_location.address.pincode}} </h4>  
+        </div>
+      <button mat-button (click)="collapsed=true">collapse Card</button>
+  </mat-card-content>
   </mat-card>
 </div>
 

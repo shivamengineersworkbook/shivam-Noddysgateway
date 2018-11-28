@@ -37,6 +37,7 @@ import { EventsService } from './service/events.list.service';
 import { ManageeventsComponent } from './manageevents/manageevents.component';
 import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
+import { UpdateComponent } from './manageevents/update/update.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DashboardComponent } from './manageevents/dashboard/dashboard.component
     HomeOverComponent,
     ManageeventsComponent,
     AddeventComponent,
-    DashboardComponent
+    DashboardComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import { DashboardComponent } from './manageevents/dashboard/dashboard.component
     NouisliderModule,
     HttpModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
   ],
   providers: [
     CognitoUtil,

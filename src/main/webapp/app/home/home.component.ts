@@ -81,13 +81,14 @@ records = {};
     });
   }
 
+  categor = ['Art','Cooking','EventsFree' ,'Activity','Language','Music','Open Play','Private Lessons','Science','Swim']
   ngAfterViewInit() {
     let i = 0;
     setInterval(() => {
       this.renderer.setProperty(
         this.rotatingText.nativeElement,
         "innerHTML",
-        this.records.categories[i]
+        this.categor[i]
       );
       i++;
       if (i == 8) i = 0;

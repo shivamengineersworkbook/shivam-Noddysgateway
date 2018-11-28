@@ -37,8 +37,14 @@ export class ListContainerComponent implements OnInit {
 
   ngOnInit() {
     this.events.getfilteredevents().subscribe(data => {
-      this.records = data;
+      if(data){
+
+        this.records = data;
+      } else {
+        console.log("no data")
+      }
     });
     console.log(this.records);
   }
+
 }
