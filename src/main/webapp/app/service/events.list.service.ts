@@ -20,6 +20,13 @@ export class EventsService {
 
     return this.http.post(`http://localhost:8000/user/${userId.username}/events`, body);
   }
+  getuserevents(userId){
+    return this.http.get(`http://localhost:8000/user/${userId.username}/events`)
+  }
+
+  deleteuserevents(userId,eventId) {
+    return this.http.delete(`http://localhost:8000/user/${userId.username}/events/${eventId}`)
+  }
   
 
 }
