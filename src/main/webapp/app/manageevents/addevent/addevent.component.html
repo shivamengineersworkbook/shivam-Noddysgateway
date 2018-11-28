@@ -1,10 +1,10 @@
-<div _ngcontent-c1="" class="row">
+<div  class="row">
          
       
       
       
-    <div _ngcontent-c1="" class="col-sm-9">
-      <form _ngcontent-c1="" class="form-vertical ng-untouched ng-pristine ng-invalid" novalidate="">
+    <div  class="col-sm-9">
+      <form  class="form-vertical ng-untouched ng-pristine ng-invalid" (submit)="OnSubmit()" novalidate="">
 
         
 
@@ -12,61 +12,22 @@
 
 
 
-        <div _ngcontent-c1="" class="panel panel-default">
+        <div  class="panel panel-default">
           
-          <div _ngcontent-c1="" class="panel-heading">Event details</div>
-          <div _ngcontent-c1="" class="panel-body">
-            <div _ngcontent-c1="" class="form-group">
-              <div _ngcontent-c1="" class="row">
+          <div  class="panel-heading">Event details</div>
+          <div  class="panel-body">
+            <div  class="form-group">
+              <div  class="row">
 
-                <div _ngcontent-c1="" class="col-sm-12">
-                  <label _ngcontent-c1="">Title </label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="title" name="title" required="" type="text">
+                <div  class="col-sm-12">
+                  <label  >Title </label>
+                  <input  [(ngModel)]="event.event_name"  [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid"  required="" type="text">
                   <!---->
                 </div>
-                <div _ngcontent-c1="" class="col-sm-12">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Description </label>
-                  <textarea _ngcontent-c1="" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" formcontrolname="description" name="description" required="" rows="6" style="width: 99%"></textarea>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div _ngcontent-c1="" class="panel panel-default">
-          <div _ngcontent-c1="" class="panel-heading">Event Category</div>
-          <div _ngcontent-c1="" class="panel-body">
-
-            <div _ngcontent-c1="" class="form-group">
-              <div _ngcontent-c1="" class="row">
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">Category</label>
-                  <select _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="category" id="category" name="category">
-                    <option _ngcontent-c1="" value="">Choose a category</option>
-                    <!----><option _ngcontent-c1="">Indoors/Arts &amp; Crafts</option><option _ngcontent-c1="">Sports &amp; Outdoors</option><option _ngcontent-c1="">Science &amp; Tech</option><option _ngcontent-c1="">Live Events</option><option _ngcontent-c1="">Performing Arts</option>
-
-                  </select>
-
-                </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">Sub_category</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="anyOtherCategory" name="anyOtherCategory" type="text">
-                </div>
-                <div _ngcontent-c1="" formgroupname="age" class="ng-untouched ng-pristine ng-invalid">
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <br _ngcontent-c1="">
-                    <label _ngcontent-c1="">Age (in Yrs) From </label>
-                    <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="startAge" min="0" name="startAge" required="" type="number">
-                    <!---->
-                  </div>
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <br _ngcontent-c1="">
-                    <label _ngcontent-c1="">To </label>
-                    <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="endAge" min="1" name="endAge" required="" type="number">
-                    <!---->
-                  </div>
+                <div  class="col-sm-12">
+                  <br >
+                  <label  >Description </label>
+                  <textarea  [(ngModel)]="event.event_description" [ngModelOptions]="{standalone: true}" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" required="" rows="6" style="width: 99%"></textarea>
                   <!---->
                 </div>
               </div>
@@ -74,71 +35,110 @@
           </div>
         </div>
 
-        <div _ngcontent-c1="" class="panel panel-default">
-          <div _ngcontent-c1="" class="panel-heading">Event Occurrence</div>
-          <div _ngcontent-c1="" class="panel-body">
+        <div  class="panel panel-default">
+          <div  class="panel-heading" >Event Category</div>
+          <div  class="panel-body">
 
-            <div _ngcontent-c1="" class="form-group">
-              <div _ngcontent-c1="" class="row">
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">Start Date</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="startDate" name="startDate" type="date">
+            <div  class="form-group">
+              <div  class="row">
+                <div  class="col-sm-6">
+                  <label >Category</label>
+                  <select [(ngModel)]="event.event_category" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="category">
+                    <option  value="" >Choose a category</option>
+                    <!----><option  >Indoors/Arts &amp; Crafts</option><option >Sports &amp; Outdoors</option><option >Science &amp; Tech</option><option >Live Events</option><option >Performing Arts</option>
+
+                  </select>
+
+                </div>
+                <div  class="col-sm-6">
+                  <label >Sub_category</label>
+                  <input  [(ngModel)]="event.event_subcategory" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="text">
+                </div>
+                <div  formgroupname="age" class="ng-untouched ng-pristine ng-invalid">
+                  <div  class="col-sm-6">
+                    <br >
+                    <label >Age (in Yrs) From </label>
+                    <input  [(ngModel)]="event.event_Min_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="0"  required="" type="number">
+                    <!---->
+                  </div>
+                  <div  class="col-sm-6">
+                    <br >
+                    <label >To </label>
+                    <input  [(ngModel)]="event.event_Max_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="1" required="" type="number">
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div  class="panel panel-default">
+          <div  class="panel-heading">Event Occurrence</div>
+          <div  class="panel-body">
+
+            <div  class="form-group">
+              <div  class="row">
+                <div  class="col-sm-6">
+                  <label >Start Date</label>
+                  <input  [(ngModel)]="event.event_start_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
                   
 
                 </div>
 
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">End Date</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="endDate" name="endDate" type="date">
+                <div  class="col-sm-6">
+                  <label >End Date</label>
+                  <input  [(ngModel)]="event.event_end_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
                   
                 </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Start Time</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="startTime" name="startTime" type="time">
+                <div  class="col-sm-6">
+                  <br >
+                  <label >Start Time</label>
+                  <input  [(ngModel)]="event.event_start_time" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="time">
                 </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">End Time</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="endTime" name="endTime" type="time">
+                <div  class="col-sm-6">
+                  <br >
+                  <label >End Time</label>
+                  <input  [(ngModel)]="event.event_end_time" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="time">
                 </div>
 
-                <div _ngcontent-c1="" class="col-sm-12">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Event Venue</label>
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">City</label>
-                  <select _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="city" id="cityDropdown" name="city">
-                    <option _ngcontent-c1="" value="">Choose a city</option>
-                    <!----><option _ngcontent-c1="">Bangalore</option><option _ngcontent-c1="">Chennai</option><option _ngcontent-c1="">Delhi NCR</option><option _ngcontent-c1="">Goa</option><option _ngcontent-c1="">Hyderabad</option><option _ngcontent-c1="">Kochi</option><option _ngcontent-c1="">Kolkata</option><option _ngcontent-c1="">Mumbai</option><option _ngcontent-c1="">New York</option><option _ngcontent-c1="">Pune</option><option _ngcontent-c1="">Singapore</option><option _ngcontent-c1="">Tokyo</option>
+                <div  class="col-sm-12">
+                  <br >
+                  <label >Event Venue</label>
+                  <br >
+                  <label  >City</label>
+                  <select  [(ngModel)]="event.event_city" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="cityDropdown">
+                    <option  value="" >Choose a city</option>
+                    <!----><option >Bangalore</option><option >Chennai</option><option >Delhi NCR</option><option >Goa</option><option >Hyderabad</option><option >Kochi</option><option >Kolkata</option><option >Mumbai</option><option >New York</option><option >Pune</option><option >Singapore</option><option >Tokyo</option>
                   </select>
                 </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Place</label>
-                  <select _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="place" id="place" name="place">
-                    <option _ngcontent-c1="" value="">Choose a place</option>
-                    <!----><option _ngcontent-c1="">Delhi NCR</option>
+                <div  class="col-sm-6">
+                  <br >
+                  <label >Place</label>
+                  <select  [(ngModel)]="event.event_place" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="place">
+                    <option  value="">Choose a place</option>
+                    <!----><option >Delhi NCR</option>
                   </select>
                 </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Any Other Place</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="anyOtherPlace" name="anyOtherPlace" type="text">
+                <div  class="col-sm-6">
+                  <br >
+                  <label >Any Other Place</label>
+                  <input [(ngModel)]="event.event_street" [ngModelOptions]="{standalone: true}"class="form-control ng-untouched ng-pristine ng-valid" type="text">
                 </div>
 
 
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Address</label>
-                  <textarea _ngcontent-c1="" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" formcontrolname="address" name="address" rows="1" style="width: 99%"></textarea>
+                <div  class="col-sm-6">
+                  <br >
+                  <label >Address</label>
+                  <textarea  [(ngModel)]="event.event_address" [ngModelOptions]="{standalone: true}" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" rows="1" style="width: 99%"></textarea>
                   <!---->
                 </div>
 
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <br _ngcontent-c1="">
-                  <label _ngcontent-c1="">Pincode</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="pinCode" name="pinCode" type="number">
+                <div  class="col-sm-6">
+                  <br >
+                  <label >Pincode</label>
+                  <input  [(ngModel)]="event.event_pincode" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="number">
                 </div>
 
               </div>
@@ -149,33 +149,33 @@
         
         
 
-        <div _ngcontent-c1="" class="panel panel-default">
-          <div _ngcontent-c1="" class="panel-heading">Contact Details</div>
-          <div _ngcontent-c1="" class="panel-body">
+        <div  class="panel panel-default">
+          <div  class="panel-heading">Contact Details</div>
+          <div  class="panel-body">
 
-            <div _ngcontent-c1="" class="form-group">
-                <div _ngcontent-c1="" class="row">
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <label _ngcontent-c1="">Organizer Name</label>
-                    <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="O_name" id="O_name" name="O_name">
+            <div  class="form-group">
+                <div  class="row">
+                  <div  class="col-sm-6">
+                    <label  >Organizer Name</label>
+                    <input  [(ngModel)]="event.event_organiser_name" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="O_name">
                   </div>
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <label _ngcontent-c1="">Organizer Website</label>
-                    <input _ngcontent-c1="" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="website" name="website">
+                  <div  class="col-sm-6">
+                    <label >Organizer Website</label>
+                    <input  [(ngModel)]="event.event_organizer_website" [ngModelOptions]="{standalone: true}" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid">
                     <!---->
                   </div>
   
                 </div>
               </div>
-            <div _ngcontent-c1="" class="form-group">
-              <div _ngcontent-c1="" class="row">
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">Phone</label>
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="phone" id="phone" name="phone" pattern="^[789]\d{9}$" placeholder="123-4567-890" type="tel">
+            <div  class="form-group">
+              <div  class="row">
+                <div  class="col-sm-6">
+                  <label >Phone</label>
+                  <input  [(ngModel)]="event.event_phone" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="phone" pattern="^[789]\d{9}$" placeholder="123-4567-890" type="tel">
                 </div>
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <label _ngcontent-c1="">E-mail</label>
-                  <input _ngcontent-c1="" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="email" name="email" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" placeholder="Email address" type="email">
+                <div  class="col-sm-6">
+                  <label >E-mail</label>
+                  <input  [(ngModel)]="event.event_email" [ngModelOptions]="{standalone: true}" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" placeholder="Email address" type="email">
                   <!---->
                 </div>
 
@@ -184,27 +184,27 @@
           </div>
         </div>
 
-        <div _ngcontent-c1="" class="panel panel-default">
-            <div _ngcontent-c1="" class="panel-heading">URLs</div>
-            <div _ngcontent-c1="" class="panel-body">
+        <div  class="panel panel-default">
+            <div  class="panel-heading">URLs</div>
+            <div  class="panel-body">
   
-              <div _ngcontent-c1="" class="form-group">
-                <div _ngcontent-c1="" class="row">
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <label _ngcontent-c1="">Image url</label>
-                    <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="I_url" id="I_url" name="I_url">
+              <div  class="form-group">
+                <div  class="row">
+                  <div  class="col-sm-6">
+                    <label >Image url</label>
+                    <input  [(ngModel)]="event.event_Image_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="I_url">
                   </div>
-                  <div _ngcontent-c1="" class="col-sm-6">
-                    <label _ngcontent-c1="">Booking Url</label>
-                    <input _ngcontent-c1="" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="B_url" name="B_url">
+                  <div  class="col-sm-6">
+                    <label >Booking Url</label>
+                    <input   [(ngModel)]="event.event_booking_url" [ngModelOptions]="{standalone: true}" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid" >
                     <!---->
                   </div>
   
                 </div>
-                <div _ngcontent-c1="" class="row">
-                    <div _ngcontent-c1="" class="col-sm-6">
-                      <label _ngcontent-c1="">Enquiry Url</label>
-                      <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="E_url" id="E_url" name="E_url">
+                <div  class="row">
+                    <div  class="col-sm-6">
+                      <label >Enquiry Url</label>
+                      <input  [(ngModel)]="event.event_enquiry_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="E_url">
                     </div>
     
                   </div>
@@ -215,13 +215,13 @@
 
 
 
-        <div _ngcontent-c1="" class="panel panel-default">
-          <div _ngcontent-c1="" class="panel-heading">Your price</div>
-          <div _ngcontent-c1="" class="panel-body">
-            <div _ngcontent-c1="" class="form-group">
-              <div _ngcontent-c1="" class="row">
-                <div _ngcontent-c1="" class="col-sm-6">
-                  <input _ngcontent-c1="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="price" min="0" name="price" placeholder="How much do you want it to be listed for?" type="number">
+        <div  class="panel panel-default">
+          <div  class="panel-heading">Your price</div>
+          <div  class="panel-body">
+            <div  class="form-group">
+              <div  class="row">
+                <div  class="col-sm-6">
+                  <input  name ="event" [(ngModel)]="event.event_price" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid"  min="0" placeholder="How much do you want it to be listed for?" type="number">
                   <!---->
                 </div>
               </div>
@@ -232,17 +232,17 @@
 
 
 
-        <div _ngcontent-c1="">
+        <div >
 
           
 
 
           
-          <input _ngcontent-c1="" class="btn btn-primary" type="submit" value="Submit" (click)="isLoggedIn()">
-          <br _ngcontent-c1="">
-          <p _ngcontent-c1="" class=" hidden-xs">
-            <small _ngcontent-c1="">* event will be published
-              <br _ngcontent-c1=""> once our team approves it </small>
+          <input  class="btn btn-primary" type="submit" value="Submit">
+          <br >
+          <p  class=" hidden-xs">
+            <small >* event will be published
+              <br > once our team approves it </small>
           </p>
         </div>
 
@@ -251,8 +251,4 @@
 
       </form>
     </div>
-
-
-
-
   </div>

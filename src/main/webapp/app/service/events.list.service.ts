@@ -16,4 +16,10 @@ export class EventsService {
     return this.http.get("http://localhost:8000/categories");
   }
 
+  addUserEvents(userId,body){
+
+    return this.http.post(`http://localhost:8000/user/${userId.username}/events`, body);
+  }
+  
+
 }
