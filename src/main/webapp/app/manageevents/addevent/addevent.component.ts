@@ -8,6 +8,10 @@ import { Router } from "@angular/router";
 import { UserLoginService } from "../../service/user-login.service";
 import { EventsService} from '../../service/events.list.service';
 import { CognitoUser } from 'amazon-cognito-identity-js';
+import { HttpResponse } from '@angular/common/http';
+import { Event } from './../../interfaces/postuserevent';
+import { getViewData } from '@angular/core/src/render3/instructions';
+import { validateConfig } from '@angular/router/src/config';
 
 
 @Component({
@@ -16,12 +20,13 @@ import { CognitoUser } from 'amazon-cognito-identity-js';
   styleUrls: ['./addevent.component.css']
 })
 export class AddeventComponent implements OnInit {
+  errorMessage:string;
 
   constructor(public router: Router,
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
-    public userEvent: EventsService) { }
-
+    public userEvent: EventsService) {
+     }
 
   event = {
     event_name:"",
@@ -47,15 +52,17 @@ export class AddeventComponent implements OnInit {
     event_booking_url:"",
     event_enquiry_url:"",
     event_price:""    
-}  
+};
 
   ngOnInit() {
+    this.errorMessage= null;
   }
 
   cognitoUser= {}
   isLoggedIn() {
     let cognitoUser = this.cognitoutil.getCurrentUser();
     if (cognitoUser == null) {
+      this.errorMessage = "You need to sign in first";
       this.router.navigateByUrl("/home/login");
     } else {
       this.cognitoUser = cognitoUser;
@@ -63,17 +70,54 @@ export class AddeventComponent implements OnInit {
     }
   }
 
-  reply = {};
+  validateData(){
+    if(this.event.event_name == ""){
+      this.errorMessage = "enter event name"
+    } else if(this.event.event_description == ""){
+      this.errorMessage = "enter event description"
+    }else if(this.event.event_category==""){
+      this.errorMessage = "enter event category"
+    }else if(this.event.event_subcategory==""){
+      this.errorMessage = "enter event sub category"
+    }else if(this.event.event_Min_age==""){
+      this.errorMessage = "enter event min age"
+    }else if(this.event.event_Max_age==""){
+      this.errorMessage = "enter event max age"
+    }else if(this.event.event_start_date==""){
+      this.errorMessage = "enter event start date"
+    }else if(this.event.event_end_time==""){
+      this.errorMessage = "enter event end time"
+    }else if(this.event.event_end_date==""){
+      this.errorMessage = "enter event end date"
+    }else if(this.event.event_city==""){
+      this.errorMessage = "enter event city"
+    }else if(this.event.event_email==""){
+      this.errorMessage = "enter event email"
+    }else if(this.event.event_booking_url==""){
+      this.errorMessage = "enter event booking url"
+    }else if( this.event.event_address==""){
+      this.errorMessage = "enter event address"
+    }
+  }
+
+  res = {};
   OnSubmit() {
     this.cognitoUser = this.isLoggedIn();
-  this.userEvent.addUserEvents(this.cognitoUser,this.event).subscribe((data) => {
-    if(data) {
-      this.reply = data;
-      console.log(this.reply)
-    }  else {
-      this.reply = "Server is Down Come Back Later";
+    this.validateData()
+    if(this.errorMessage){
+      console.log("no request made")
+    } else {
+      this.userEvent.addUserEvents(this.cognitoUser,this.event).subscribe((data) => {
+        console.log(data);
+        if(data) {
+          this.res = data;
+          console.log(this.res)
+        }  else {
+          this.errorMessage = "Server is Down Come Back Later";
+        }
+        });
     }
-    });
+  
   }
 
 }

@@ -38,6 +38,8 @@ import { ManageeventsComponent } from './manageevents/manageevents.component';
 import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import { UpdateComponent } from './manageevents/update/update.component';
+import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefinal.component';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { UpdateComponent } from './manageevents/update/update.component';
     ManageeventsComponent,
     AddeventComponent,
     DashboardComponent,
-    UpdateComponent
+    UpdateComponent,
+    UpdatefinalComponent
   ],
   imports: [
     BrowserModule,

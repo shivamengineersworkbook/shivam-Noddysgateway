@@ -15,6 +15,9 @@ import {
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
+  errorMessage:string;
+  res= {};
+  update:boolean;
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -23,6 +26,8 @@ export class UpdateComponent implements OnInit {
 
   records ={};
   ngOnInit() {
+    this.update = false;
+    this.errorMessage = null;
     this.cognitoUser = this.isLoggedIn();
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
     if(data){
@@ -49,16 +54,22 @@ export class UpdateComponent implements OnInit {
   reply = {};
   deleteevent(eventid) {
     this.userEvent.deleteuserevents(this.cognitoUser,eventid).subscribe((data) => {
+      console.log(this.cognitoUser);
       
-      if(data.error){
-        alert(data.error);
+      if(data){
+        this.res = data;  
       }else if(!data) {
-        alert("event cannot be deleted");
-      } else  {
-        this.reply = data;
-       
+        this.errorMessage = "event cannot be deleted";
       }
     });
   }
 
+  Updateevent(eventid) {
+    // this.userEvent.updateuserevents(this.cognitoUser,eventid,body).subscribe((data) => {
+      
+    // })
+    this.update = true;
+    this.userEvent.savingDetails(this.cognitoUser,eventid);
+
+  }
 }

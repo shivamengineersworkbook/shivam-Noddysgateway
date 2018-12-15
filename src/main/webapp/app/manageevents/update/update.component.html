@@ -1,4 +1,14 @@
-<div class="container list-container">
+<div  class="row" *ngIf="!update">
+<div  class="col-sm-9">
+<div *ngIf="errorMessage!=null" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+<div *ngIf="res.event!=null" class="alert alert-danger">
+  {{ res.event }}
+</div>
+</div>
+</div>
+<div class="container list-container" *ngIf="!update">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
   <mat-card *ngFor="let record of records.events"  >
     <mat-card-header (click)="collapsed=false">
@@ -30,11 +40,15 @@
         <h3>Venue</h3>
           <h4 class="list-group-item-heading heading_txt" > {{record.event_location.address.city}}, {{record.event_location.address.street}}, {{record.event_location.address.pincode}} </h4>  
         </div>
-      <button mat-button (click)="collapsed=true">collapse Card</button>
       <button mat-button (click)="deleteevent(record._id)">Delete Event</button>
-      <button mat-button (click)="Updateevent()">Update Event</button>
+      <button mat-button (click)="Updateevent(record._id)">Update Event</button>
       
       
   </mat-card-content>
   </mat-card>
 </div>
+<div  class="row" *ngIf="update">
+  <div  class="col-sm-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>    

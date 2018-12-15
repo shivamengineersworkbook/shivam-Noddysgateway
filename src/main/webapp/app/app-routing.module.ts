@@ -19,6 +19,7 @@ import { ManageeventsComponent } from "./manageevents/manageevents.component";
 import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import {UpdateComponent} from './manageevents/update/update.component';
+import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component'
 
 const appRoutes: Routes = [
   {
@@ -45,7 +46,12 @@ const appRoutes: Routes = [
         path: "dashboard", component:DashboardComponent
       },
       {
-        path: "update", component:UpdateComponent
+        path: "update", component:UpdateComponent,
+        children:[
+          {
+            path:"updateid", component:UpdatefinalComponent
+          }
+        ]
       }
     ]},
 
@@ -71,6 +77,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule {}

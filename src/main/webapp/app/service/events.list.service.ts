@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-
+import { Event } from './../interfaces/postuserevent'
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +18,7 @@ export class EventsService {
 
   addUserEvents(userId,body){
 
-    return this.http.post(`http://localhost:8000/user/${userId.username}/events`, body);
+    return this.http.post<Event>(`http://localhost:8000/user/${userId.username}/events`, body)
   }
   getuserevents(userId){
     return this.http.get(`http://localhost:8000/user/${userId.username}/events`)
@@ -26,6 +26,18 @@ export class EventsService {
 
   deleteuserevents(userId,eventId) {
     return this.http.delete(`http://localhost:8000/user/${userId.username}/events/${eventId}`)
+  }
+
+  updateuserevents(userId,eventId,body) {
+    return this.http.put(`http://localhost:8000/user/${userId.username}/events/${eventId}`,body)
+  }
+
+  user:string
+  event:string
+  savingDetails(userId,eventId) {
+      this.user = userId.username,
+      this.event = eventId
+    return this.user,this.event; 
   }
   
 
