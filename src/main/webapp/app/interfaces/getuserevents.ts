@@ -1,0 +1,37 @@
+export interface Record{
+    events:[{
+        _id:String,
+        event_category:String,
+        event_subcategory:String,
+        event_location:{
+            longitude:String,
+            latitude:String,
+            address:{
+                id:String,
+                city:String,
+                street:String,
+                pin:String
+            },
+            within:String
+        },
+        event_name:String,
+        event_description:String,
+        event_image_url:String,
+        event_start_date:String,
+        event_last_date:String,
+        event_start_time:String,
+        event_end_time:String,
+        event_min_age:String,
+        event_max_age:String,
+        event_price:String,
+        event_booking:{
+            url:String,
+            inquiry_url:String
+        },
+        event_organizer:{
+            name:String,
+            url:String
+        }
+    }]
+   
+}

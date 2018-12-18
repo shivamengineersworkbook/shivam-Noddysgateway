@@ -7,6 +7,8 @@ import {
 import { Router } from "@angular/router";
 import { UserLoginService } from "../../../service/user-login.service";
 import { EventsService} from '../../../service/events.list.service';
+import { Record } from './../../../interfaces/getuserevents';
+import { Response } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-updatefinal',
@@ -15,6 +17,9 @@ import { EventsService} from '../../../service/events.list.service';
 })
 export class UpdatefinalComponent implements OnInit {
   errorMessage:string;
+  records = {};
+  eventId:string;
+  mainrecord = {};
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -50,6 +55,25 @@ export class UpdatefinalComponent implements OnInit {
 
 ngOnInit() {
   this.errorMessage= null;
+  this.eventId = this.userEvent.returningDetails()
+  this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
+    if(data){
+
+      this.records = data;
+      for(var i =0; i<data.events.length; i++){
+        if(data.events[i]._id == this.eventId){
+          this.mainrecord = data.events[i];
+          console.log(this.mainrecord);
+        }
+      }
+     
+      console.log(this.records);
+    } else {
+      console.log("no data")
+    }
+  });
+
+
 }
 
 cognitoUser= {}
