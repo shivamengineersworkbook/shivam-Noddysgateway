@@ -13,8 +13,23 @@
     </div>
     <h4>TIME</h4>
     <div>
-        <nouislider [connect]="true" [min]="0" [max]="15" [(ngModel)]="inputSpeedRange"></nouislider>
+        <nouislider [connect]="true" [min]="5" [max]="22" [(ngModel)]="inputSpeedRange"></nouislider>
     </div>
+    <div _ngcontent-c1="" class="col-sm-6">
+            <div _ngcontent-c1="" class="input-group">
+              <span _ngcontent-c1="" class="input-group-addon">₹</span>
+              <input _ngcontent-c1="" class="form-control price-input" id="minPriceInputdesk" placeholder="min" type="number">
+            </div>
+          </div>
+          <div _ngcontent-c1="" class="col-sm-6">
+                <div _ngcontent-c1="" class="input-group">
+                  <span _ngcontent-c1="" class="input-group-addon">₹</span>
+                  <input _ngcontent-c1="" class="form-control price-input" id="maxPriceInputdesk" placeholder="max" type="number">
+                </div>
+              </div>
+    <!-- <div>
+        {{values}}
+    </div> -->
     <div>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -22,32 +37,20 @@
             </mat-expansion-panel-header>
             <div class="filter-container_age-panel">
                 <div class="filter-container_age-panel-left">
-                    <mat-checkbox>0 - 3 mo</mat-checkbox>
-                    <mat-checkbox>6 - 9 mo</mat-checkbox>
-                    <mat-checkbox>1 - 1.5 yrs</mat-checkbox>
-                    <mat-checkbox>2 - 2.5 yrs</mat-checkbox>
-                    <mat-checkbox>3 - 4 yrs</mat-checkbox>
-                    <mat-checkbox>5 - 6 yrs</mat-checkbox>
-                    <mat-checkbox>7 - 8 yrs</mat-checkbox>
-                    <mat-checkbox>9 - 10 yrs</mat-checkbox>
-                    <mat-checkbox>11 - 12 yrs</mat-checkbox>
-                    <mat-checkbox>13 - 14 yrs</mat-checkbox>
-                    <mat-checkbox>15 - 16 yrs</mat-checkbox>
-                    <mat-checkbox>17 - 18 yrs</mat-checkbox>
+                    <mat-checkbox>less than 2</mat-checkbox>
+                    <mat-checkbox>less than 6</mat-checkbox>
+                    <mat-checkbox>less than 10</mat-checkbox>
+                    <mat-checkbox>less than 14</mat-checkbox>
+                    <mat-checkbox>less than 18</mat-checkbox>
+                    <mat-checkbox>less than 22</mat-checkbox>
                     <mat-checkbox>No Adult Required</mat-checkbox>
                 </div>
                 <div class="filter-container_age-panel-right">
-                    <mat-checkbox>3 - 6 mo</mat-checkbox>
-                    <mat-checkbox>9 mo - 1 yr</mat-checkbox>
-                    <mat-checkbox>1.5 - 2 yrs</mat-checkbox>
-                    <mat-checkbox>2.5 - 3 yrs</mat-checkbox>
-                    <mat-checkbox>4 - 5 yrs</mat-checkbox>
-                    <mat-checkbox>6 - 7 yrs</mat-checkbox>
-                    <mat-checkbox>8 - 9 yrs</mat-checkbox>
-                    <mat-checkbox>10 - 11 yrs</mat-checkbox>
-                    <mat-checkbox>12 - 13 yrs</mat-checkbox>
-                    <mat-checkbox>14 - 15 yrs</mat-checkbox>
-                    <mat-checkbox>16 - 17 yrs</mat-checkbox>
+                    <mat-checkbox>less than 4</mat-checkbox>
+                    <mat-checkbox>less than 8</mat-checkbox>
+                    <mat-checkbox>less than 12</mat-checkbox>
+                    <mat-checkbox>less than 16</mat-checkbox>
+                    <mat-checkbox>less than 20</mat-checkbox>
                     <mat-checkbox>Adult</mat-checkbox>
                 </div>
             </div>
@@ -70,11 +73,16 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>PROVIDERS</mat-panel-title>
             </mat-expansion-panel-header>
-
+            <div class="filter-container_category-panel" >
+                    <div class="filter-container_category-panel-left">
+                        <mat-checkbox *ngFor="let event of allevents.events">{{event.event_organizer.name}}</mat-checkbox>
+                    </div>
+            </div>
         </mat-expansion-panel>
     </div>
     <br>
     <div>
         <button mat-raised-button color="warn">Clear All Filters</button>
+        <button mat-raised-button color="warn" style="margin-left:2px ">Apply</button>
     </div>
 </div>

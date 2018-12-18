@@ -8,8 +8,9 @@ import { EventsService} from '../../service/events.list.service';
 })
 export class FilterContainerComponent implements OnInit {
 
-  records = {}
-  inputSpeedRange=[4,9];
+  records = {};
+  allevents ={};
+  inputSpeedRange=[5,15];
   
   constructor(public events: EventsService) { }
 
@@ -23,6 +24,14 @@ export class FilterContainerComponent implements OnInit {
       }
 
     });
+
+    this.events.getfilteredevents().subscribe(data => {
+      if(data){
+        this.allevents = data
+      } else {
+        console.log("no providers available");
+      }
+    })
     
   }
 
