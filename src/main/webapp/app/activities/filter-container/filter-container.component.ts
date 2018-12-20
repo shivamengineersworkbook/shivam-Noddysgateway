@@ -13,7 +13,9 @@ export class FilterContainerComponent implements OnInit {
   inputSpeedRange=[5,15];
   featureArr: any = { "provider": [],
                     "categories":[],
-                    "ages":[] }
+                    "ages":[],
+                    "timeinputs":[],
+                    "" }
   
   constructor(public events: EventsService) { }
 
@@ -38,10 +40,32 @@ export class FilterContainerComponent implements OnInit {
     
   }
 
+  
+
   onChangeProvider(event, cat: any){ // Use appropriate model type instead of any
-    this.featureArr.provider.push(cat.name);
+    this.featureArr.provider.push(cat.event_organizer.name);
     console.log(this.featureArr)
+  }
+
+  onChangeCategorie(event, cat: any){ // Use appropriate model type instead of any
+    this.featureArr.categories.push(cat);
+    console.log(this.featureArr)
+  }
+
+  onChangeAges(event, cat: any){ // Use appropriate model type instead of any
+    this.featureArr.ages.push(cat);
+    console.log(this.featureArr)
+  }
+
+  onChangetimes(event, cat: any){ // Use appropriate model type instead of any
+    this.featureArr.timeinputs.push(cat);
+    console.log(this.featureArr)
+  }
+
+  onApplyChanges(){
 
   }
+
+
 
 }

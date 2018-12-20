@@ -13,7 +13,7 @@
     </div>
     <h4>TIME</h4>
     <div>
-        <nouislider [connect]="true" [min]="5" [max]="22" [(ngModel)]="inputSpeedRange"></nouislider>
+        <nouislider [connect]="true" [min]="0" [max]="24" [(ngModel)]="inputSpeedRange"></nouislider>
     </div>
     <!-- <div>
         {{values}}
@@ -25,21 +25,21 @@
             </mat-expansion-panel-header>
             <div class="filter-container_age-panel">
                 <div class="filter-container_age-panel-left">
-                    <mat-checkbox>less than 2</mat-checkbox>
-                    <mat-checkbox>less than 6</mat-checkbox>
-                    <mat-checkbox>less than 10</mat-checkbox>
-                    <mat-checkbox>less than 14</mat-checkbox>
-                    <mat-checkbox>less than 18</mat-checkbox>
-                    <mat-checkbox>less than 22</mat-checkbox>
-                    <mat-checkbox>No Adult Required</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '2')" >less than 2</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '6')">less than 6</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '10')">less than 10</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '14')">less than 14</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '18')">less than 18</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '22')">less than 22</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, 'No Adult Required')">No Adult Required</mat-checkbox>
                 </div>
                 <div class="filter-container_age-panel-right">
-                    <mat-checkbox>less than 4</mat-checkbox>
-                    <mat-checkbox>less than 8</mat-checkbox>
-                    <mat-checkbox>less than 12</mat-checkbox>
-                    <mat-checkbox>less than 16</mat-checkbox>
-                    <mat-checkbox>less than 20</mat-checkbox>
-                    <mat-checkbox>Adult</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '4')">less than 4</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '8')">less than 8</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '12')">less than 12</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '16')">less than 16</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, '20')">less than 20</mat-checkbox>
+                    <mat-checkbox (change)="onChangeAges($event, 'Adult')">Adult</mat-checkbox>
                 </div>
             </div>
         </mat-expansion-panel>
@@ -51,7 +51,7 @@
             </mat-expansion-panel-header>
             <div class="filter-container_category-panel" >
                 <div class="filter-container_category-panel-left">
-                    <mat-checkbox *ngFor="let categorie of records.categories">{{categorie}}</mat-checkbox>
+                    <mat-checkbox *ngFor="let categorie of records.categories" (change)="onChangeCategorie($event, categorie)">{{categorie}}</mat-checkbox>
                 </div>
             </div>
         </mat-expansion-panel>
