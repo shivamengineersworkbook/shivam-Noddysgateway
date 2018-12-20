@@ -8,7 +8,7 @@
     <h4>LOCATION</h4>
     <div class="filter-container_location">
         <mat-form-field>
-            <input type="text" matInput placeholder="Enter address or neighbor">
+            <input type="text" [(ngModel)]="location" matInput placeholder="Enter address or neighbor">
         </mat-form-field>
     </div>
     <h4>TIME</h4>
@@ -71,6 +71,6 @@
     <br>
     <div>
         <button mat-raised-button color="warn">Clear All Filters</button>
-        <button mat-raised-button color="warn" style="margin-left:2px ">Apply</button>
+        <button mat-raised-button color="warn" style="margin-left:2px " (click)="onApplyChanges()">Apply</button>
     </div>
 </div>

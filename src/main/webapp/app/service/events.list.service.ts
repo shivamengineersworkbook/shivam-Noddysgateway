@@ -11,7 +11,8 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
-  getfilteredevents(homedetails,) {
+  getfilteredevents(details) {
+    console.log(details);
     return this.http.get("http://localhost:8000/events");
   }
 

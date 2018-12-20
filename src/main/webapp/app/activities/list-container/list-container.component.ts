@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
 import { HomefiltercatcherService } from '../../service/homefiltercatcher.service';
+import { ServicefilterService } from './../../service/servicefilter.service';
 
 @Component({
   selector: "app-list-container",
@@ -11,6 +12,7 @@ export class ListContainerComponent implements OnInit {
   records = {};
   curDate = new Date();
   curMonth = this.curDate.getMonth() + 1;
+  changed = false;
   dates = [
     "January",
     "Febuary",
@@ -35,7 +37,8 @@ export class ListContainerComponent implements OnInit {
     this.curDate.getFullYear();
 
   constructor(public events: EventsService,
-    public homefilters:HomefiltercatcherService) {}
+    public homefilters:HomefiltercatcherService,
+    public filterService:ServicefilterService) {}
 
   homedetails = {}
   ngOnInit() {
@@ -49,7 +52,11 @@ export class ListContainerComponent implements OnInit {
         console.log("no data")
       }
     });
-    console.log(this.records);
   }
+  
+
+  
+
+
 
 }
