@@ -15,18 +15,6 @@
     <div>
         <nouislider [connect]="true" [min]="5" [max]="22" [(ngModel)]="inputSpeedRange"></nouislider>
     </div>
-    <div _ngcontent-c1="" class="col-sm-6">
-            <div _ngcontent-c1="" class="input-group">
-              <span _ngcontent-c1="" class="input-group-addon">₹</span>
-              <input _ngcontent-c1="" class="form-control price-input" id="minPriceInputdesk" placeholder="min" type="number">
-            </div>
-          </div>
-          <div _ngcontent-c1="" class="col-sm-6">
-                <div _ngcontent-c1="" class="input-group">
-                  <span _ngcontent-c1="" class="input-group-addon">₹</span>
-                  <input _ngcontent-c1="" class="form-control price-input" id="maxPriceInputdesk" placeholder="max" type="number">
-                </div>
-              </div>
     <!-- <div>
         {{values}}
     </div> -->
@@ -75,7 +63,7 @@
             </mat-expansion-panel-header>
             <div class="filter-container_category-panel" >
                     <div class="filter-container_category-panel-left">
-                        <mat-checkbox *ngFor="let event of allevents.events">{{event.event_organizer.name}}</mat-checkbox>
+                        <mat-checkbox *ngFor="let event of allevents.events" (change)="onChangeProvider($event, event)">{{event.event_organizer.name}}</mat-checkbox>
                     </div>
             </div>
         </mat-expansion-panel>

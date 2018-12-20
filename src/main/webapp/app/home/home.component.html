@@ -16,7 +16,7 @@
           </mat-select>
         </mat-form-field>
         &nbsp;&nbsp;
-        <button mat-raised-button color="warn" (click)="displayActivities()">Search</button>
+        <button mat-raised-button color="warn" (click)="savefilters(eventName,eventDate)" [routerLink]="['/activities']">Search</button>
   </form>
   </div>
 </section>
@@ -32,32 +32,32 @@
 <section class="section-3">
   <h3>Sawyer partners with the best-in-class providers in each community who teach everything from ballet curtsies to science experiments</h3>
   <div>
-  <button mat-raised-button color="warn" (click)="displayActivities()">FOR MINI MOVERS | 0 - 2 YRS</button>
+  <button mat-raised-button color="warn" (click)="savefilters('','','2')" [routerLink]="['/activities']">FOR MINI MOVERS | 0 - 2 YRS</button>
 </div>
   <div class="section-3_provider-items">
-    <div class="section-3_provider-item section-3_provider-items_1" *ngIf="records.categories[0]">
+    <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records.categories[0]">
       <div>{{records.categories[0]}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_2" *ngIf="records.categories[1]">
+    <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records.categories[1]">
       <div>{{records.categories[1]}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_3" *ngIf="records.categories[2]">
+    <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records.categories[2]">
       <div>{{records.categories[2]}}</div>
     </div>
   </div>
   <div class="section-3_provider-items">
-      <div class="section-3_provider-item section-3_provider-items_4" *ngIf="records.categories[3]">
+      <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records.categories[3]">
         <div>{{records.categories[3]}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_5"*ngIf="records.categories[11]">
+      <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records.categories[11]">
         <div>{{records.categories[4]}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_6" *ngIf="records.categories[5]">
+      <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records.categories[5]">
         <div>{{records.categories[5]}}</div>
       </div>
   </div>
   <div>
-      <button mat-raised-button color="warn" (click)="displayActivities()">View All 0 - 2 yrs</button>  
+      <button mat-raised-button color="warn" [routerLink]="['/activities']" (click)="savefilters('','','2')">View All 0 - 2 yrs</button>  
   </div>  
 </section>
 <section class="section-4">

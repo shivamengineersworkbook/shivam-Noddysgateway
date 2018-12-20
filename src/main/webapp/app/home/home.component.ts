@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { EventsService } from '../service/events.list.service'
 import { Router } from '@angular/router';
+import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
 
 @Component({
   selector: "app-home",
@@ -29,6 +30,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild("rotatingText") rotatingText: ElementRef;
 
   eventName = "";
+
   dates = [
     {
       value: "All Dates",
@@ -64,7 +66,8 @@ export class HomeComponent implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    public categories: EventsService
+    public categories: EventsService,
+    public homefilters:HomefiltercatcherService
   ) {}
 
 records = {};
@@ -95,9 +98,42 @@ records = {};
     }, 500);
   }
 
-  displayActivities() {
-    this.router.navigateByUrl("/activities");
+  filters={
+    search:"",
+    date:"",
+    age:"",
+    categorie:""
+  }
+ savefilters(search="", date="", age="",categorie="") {
+  if(search == ""){
+    console.log("empty serach")
+  } else {
+    console.log(search);
+    this.filters.search = search;
   }
 
- 
+  if(date == ""){
+    console.log("empty date")
+  } else {
+    console.log(date);
+    this.filters.date = date;
+  }
+
+  if(age == ""){
+    console.log("empty age")
+  } else {
+    console.log(age);
+    this.filters.age = age;
+  }
+
+  if(categorie == ""){
+    console.log("empty categorie")
+  } else {
+    console.log(categorie);
+    this.filters.categorie = categorie;
+  }
+
+  this.homefilters.sendingfilters(this.filters);
+ }
+
 }

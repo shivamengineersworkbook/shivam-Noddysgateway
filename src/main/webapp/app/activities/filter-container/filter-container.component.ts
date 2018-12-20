@@ -11,6 +11,9 @@ export class FilterContainerComponent implements OnInit {
   records = {};
   allevents ={};
   inputSpeedRange=[5,15];
+  featureArr: any = { "provider": [],
+                    "categories":[],
+                    "ages":[] }
   
   constructor(public events: EventsService) { }
 
@@ -25,7 +28,7 @@ export class FilterContainerComponent implements OnInit {
 
     });
 
-    this.events.getfilteredevents().subscribe(data => {
+    this.events.getfilteredevents("").subscribe(data => {
       if(data){
         this.allevents = data
       } else {
@@ -33,6 +36,12 @@ export class FilterContainerComponent implements OnInit {
       }
     })
     
+  }
+
+  onChangeProvider(event, cat: any){ // Use appropriate model type instead of any
+    this.featureArr.provider.push(cat.name);
+    console.log(this.featureArr)
+
   }
 
 }

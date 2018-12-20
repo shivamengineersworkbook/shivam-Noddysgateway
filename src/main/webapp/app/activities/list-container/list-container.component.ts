@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
+import { HomefiltercatcherService } from '../../service/homefiltercatcher.service';
 
 @Component({
   selector: "app-list-container",
@@ -33,10 +34,14 @@ export class ListContainerComponent implements OnInit {
     ", " +
     this.curDate.getFullYear();
 
-  constructor(public events: EventsService) {}
+  constructor(public events: EventsService,
+    public homefilters:HomefiltercatcherService) {}
 
+  homedetails = {}
   ngOnInit() {
-    this.events.getfilteredevents().subscribe(data => {
+    this.homedetails = this.homefilters.returningfilters();
+    console.log(this.homedetails);
+    this.events.getfilteredevents(this.homedetails).subscribe(data => {
       if(data){
 
         this.records = data;
