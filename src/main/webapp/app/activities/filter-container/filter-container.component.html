@@ -1,9 +1,9 @@
 <div class="filter-container">
     <h4>BOOKING TYPE</h4>
     <div>
-        <button mat-raised-button color="warn">Drop-in</button>
-        <button mat-raised-button >Semester</button>
-        <button mat-raised-button>Camp</button>
+        <button mat-raised-button (click)="onBookingType('Drop-in')">Drop-in</button>
+        <button mat-raised-button (click)="onBookingType('Semester')">Semester</button>
+        <button mat-raised-button (click)="onBookingType('Camp')">Camp</button>
     </div>
     <h4>LOCATION</h4>
     <div class="filter-container_location">

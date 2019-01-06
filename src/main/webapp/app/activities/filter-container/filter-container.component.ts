@@ -15,7 +15,8 @@ export class FilterContainerComponent implements OnInit {
                     "categories":[],
                     "ages":[],
                     "timerange":String,
-                    "location":String };
+                    "location":String,
+                    "bookingType":String };
   location:string="";
   
   constructor(public events: EventsService,
@@ -76,7 +77,12 @@ export class FilterContainerComponent implements OnInit {
     this.featureArr.ages="";
     this.featureArr.timeinputs="";
     this.featureArr.location ="";
+    this.featureArr.bookingType="";
     console.log(this.featureArr);
     this.filter.sendfilters(this.featureArr);
+  }
+
+  onBookingType(data){
+    this.featureArr.bookingType = data;
   }
 }
