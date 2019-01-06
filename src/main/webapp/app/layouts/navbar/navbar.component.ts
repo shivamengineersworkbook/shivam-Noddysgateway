@@ -9,6 +9,8 @@ import {
   CognitoUtil,
   LoggedInCallback
 } from "../../service/cognito.service";
+import { EventsService} from '../../service/events.list.service';
+import {ServicefilterService} from '../../service/servicefilter.service';
 
 
 
@@ -56,7 +58,9 @@ export class NavbarComponent implements OnInit {
   constructor(
     public router: Router,
     public userService: UserLoginService,
-    public cognitoutil: CognitoUtil
+    public cognitoutil: CognitoUtil,
+    public events: EventsService,
+    public filter: ServicefilterService
   ) {
     console.log("constructor");
   }
@@ -66,10 +70,16 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     
     
-  }
+  }  
 
   
 
+  changeLoc(data){
+    console.log(data.value);
+    this.filter.sendnavfilters(data.value);
+  }
+
+  
 
   isLoggedIn() {
     let cognitoUser = this.cognitoutil.getCurrentUser();

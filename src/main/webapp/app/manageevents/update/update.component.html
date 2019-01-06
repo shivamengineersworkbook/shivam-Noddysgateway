@@ -10,7 +10,7 @@
 </div>
 <div class="container list-container" *ngIf="!update">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
-  <mat-card *ngFor="let record of records.events"  >
+  <mat-card *ngFor="let record of records.posted"  >
     <mat-card-header (click)="collapsed=false">
     <div class="row"> 
         <div class="media col-lg-6">

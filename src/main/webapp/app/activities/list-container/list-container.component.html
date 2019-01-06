@@ -1,7 +1,7 @@
 <div class="container list-container">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
   <mat-card *ngFor="let record of records.events"  >
-    <mat-card-header (click)="collapsed=false">
+    <mat-card-header >
     <div class="row"> 
         <div class="media col-lg-6">
           <figure class="pull-left">
@@ -18,7 +18,8 @@
         </div>
         <div class="col-lg-3 text-center">
           <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
-          <a href={{record.event_booking.url}}><button type="button" class="btn btn-default btn-lg btn-block" > Register now </button></a>
+          <a href={{record.event_booking.url}}><button type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+          <h4 style="margin-top:4px" (click)="collapsed=false" *ngIf="collapsed" >Expand Card</h4>
         </div>
     </div>
   </mat-card-header>
@@ -33,5 +34,4 @@
   </mat-card-content>
   </mat-card>
 </div>
-
 

@@ -60,7 +60,7 @@ ngOnInit() {
     if(data){
 
       this.records = data;
-      for(var i =0; i<data.events.length; i++){
+      for(var i =0; i<data.events.posted.length; i++){
         if(data.events[i]._id == this.eventId){
           this.mainrecord = data.events[i];
           console.log(this.mainrecord);

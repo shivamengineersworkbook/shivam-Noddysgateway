@@ -30,9 +30,9 @@ export class UpdateComponent implements OnInit {
     this.errorMessage = null;
     this.cognitoUser = this.isLoggedIn();
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
-    if(data){
+    if(data){  
 
-      this.records = data;
+      this.records = data.events;
     } else {
       console.log("no data")
     }
