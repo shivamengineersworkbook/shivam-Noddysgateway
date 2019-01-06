@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
 import { HomefiltercatcherService } from '../../service/homefiltercatcher.service';
 import { ServicefilterService } from './../../service/servicefilter.service';
+import { UserLoginService } from "../../service/user-login.service";
+import { Router } from "@angular/router";
+import {
+  CognitoCallback,
+  CognitoUtil,
+  LoggedInCallback
+} from "../../service/cognito.service";
 
 @Component({
   selector: "app-list-container",
@@ -17,7 +24,7 @@ export class ListContainerComponent implements OnInit {
     "January",
     "Febuary",
     "March",
-    "April",
+    "April",    
     "May",
     "June",
     "July",
@@ -38,9 +45,14 @@ export class ListContainerComponent implements OnInit {
 
   constructor(public events: EventsService,
     public homefilters:HomefiltercatcherService,
-    public filterService:ServicefilterService) {}
+    public filterService:ServicefilterService,
+    public userService: UserLoginService,
+    public cognitoutil: CognitoUtil,
+    public router: Router
+    ) {}
 
   homedetails = {}
+  bAuthenticated = false;
   ngOnInit() {
     this.homedetails = this.homefilters.returningfilters();
     console.log(this.homedetails);
@@ -52,6 +64,18 @@ export class ListContainerComponent implements OnInit {
         console.log("no data")
       }
     });
+
+    this.isLoggedIn();
+  }
+
+  isLoggedIn() {
+    let cognitoUser = this.cognitoutil.getCurrentUser();
+    if (cognitoUser == null) {
+      this.bAuthenticated = false;
+    } else {
+      this.bAuthenticated = true;
+    }
+    return this.bAuthenticated;
   }
   
 

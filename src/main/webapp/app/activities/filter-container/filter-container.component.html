@@ -18,7 +18,7 @@
     <!-- <div>
         {{values}}
     </div> -->
-    <div>
+    <div>   
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>AGE</mat-panel-title>
@@ -70,7 +70,7 @@
     </div>
     <br>
     <div>
-        <button mat-raised-button color="warn">Clear All Filters</button>
+        <button mat-raised-button color="warn" (click)="onClearFilters()">Clear All Filters</button>
         <button mat-raised-button color="warn" style="margin-left:2px " (click)="onApplyChanges()">Apply</button>
     </div>
 </div>
