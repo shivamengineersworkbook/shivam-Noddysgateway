@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
     if(data){
 
-      this.records = data;
+      this.records = data.events;
     } else {
       console.log("no data")
     }
