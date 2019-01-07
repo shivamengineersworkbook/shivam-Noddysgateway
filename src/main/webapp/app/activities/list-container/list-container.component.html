@@ -20,7 +20,11 @@
           <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
           <a href={{record.event_booking.url}}><button *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
-          <h4 style="margin-top:4px" (click)="collapsed=false" *ngIf="collapsed" >Expand Card</h4>
+          <div class="row" style="margin:4px"> 
+            <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
+            <button class="btn btn-dark" style="margin:4px" (click)="collapsed=false" *ngIf="collapsed" ><i class="fa fa-plus"></i></button>
+          </div>
+         
         </div>
     </div>
   </mat-card-header>

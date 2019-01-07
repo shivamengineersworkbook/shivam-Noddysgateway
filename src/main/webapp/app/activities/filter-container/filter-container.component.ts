@@ -74,7 +74,7 @@ export class FilterContainerComponent implements OnInit {
     this.featureArr.timerange = [];
     this.featureArr.provider =[];
     this.featureArr.categories=[];
-    this.featureArr.ages="";
+    this.featureArr.ages=[];
     this.featureArr.timeinputs="";
     this.featureArr.location ="";
     this.featureArr.bookingType="";
