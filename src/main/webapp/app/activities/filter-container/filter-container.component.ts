@@ -26,7 +26,7 @@ export class FilterContainerComponent implements OnInit {
     this.events.getcategories().subscribe(data => {
       if(data){
         console.log(this.records);
-        this.records = data;
+        this.records = data.categories;
       } else {
         console.log("no categories available");
       }

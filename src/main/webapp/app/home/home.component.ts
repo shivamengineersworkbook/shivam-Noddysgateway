@@ -66,16 +66,16 @@ export class HomeComponent implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    public categories: EventsService,
+    public eventcategories: EventsService,
     public homefilters:HomefiltercatcherService
   ) {}
 
-records = {};
+records = [];
 
   ngOnInit() {
-    this.categories.getcategories().subscribe(data => {
+    this.eventcategories.getcategories().subscribe(data => {
       if(data){
-        this.records = data;
+        this.records = data.categories;
         console.log(this.records);
       } else {
         console.log("no data")

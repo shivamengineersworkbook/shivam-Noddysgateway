@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-3 text-center">
           <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
-          <a href={{record.event_booking.url}}><button *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+          <a target="_blank" href={{record.event_booking.url}}><button *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
           <div class="row" style="margin:4px"> 
             <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>

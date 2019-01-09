@@ -49,7 +49,7 @@ export class ListContainerComponent implements OnInit {
     public filterService:ServicefilterService,
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
-    // private facebookService: FacebookService,
+    private facebookService: FacebookService,
     public router: Router
     ) {
 
@@ -60,6 +60,12 @@ export class ListContainerComponent implements OnInit {
       // };
   
       // facebookService.init(initParams);
+
+      facebookService.init({
+        appId: '1950221055301408',
+        xfbml: true,
+        version: 'v2.9'
+      });
     }
 
   homedetails = {}
@@ -91,52 +97,69 @@ export class ListContainerComponent implements OnInit {
   
 
   
-  // share(url: string, title: string, imgUrl: string, venueName: string, price, date) {
-  //   url = url.split(" ").join("%20");
+  share(url: string, title: string, imgUrl: string, venueName: string, price, date) {
+    url = url.split(" ").join("%20");
 
-  //   /* let params: UIParams = {
-  //    // href: 'https://github.com/zyra/ngx-facebook',
-  //     href:url,
-  //     method: 'share'
-  //   }; */
+    /* let params: UIParams = {
+     // href: 'https://github.com/zyra/ngx-facebook',
+      href:url,
+      method: 'share'
+    }; */
 
 
-  //   let params: UIParams = {
-  //     // href: 'https://github.com/zyra/ngx-facebook',
-  //     // href:url,
-  //     method: 'share_open_graph',
-  //     action_type: 'og.shares',
-  //     action_properties: JSON.stringify({
-  //       object: {
-  //         'og:url': url,
-  //         'og:title': title,
-  //         'og:description': "Price: ₹ " + price + " Date: " + date + " Venue: " + venueName,
-  //         // 'og:image': url + '/assets/images/logo.png',
-  //         'og:image': imgUrl,
-  //         'og:image:width': '1200',
-  //         'og:image:height': '630',
-  //         // 'og:image:type': 'image/jpeg'
-  //       }
-  //     })
+    let params: UIParams = {
+      // href: 'https://github.com/zyra/ngx-facebook',
+      // href:url,
+      method: 'share_open_graph',
+      action_type: 'og.shares',
+      action_properties: JSON.stringify({
+        object: {
+          'og:url': url,
+          'og:title': title,
+          'og:description': "Price: ₹ " + price + " Date: " + date + " Venue: " + venueName,
+          // 'og:image': url + '/assets/images/logo.png',
+          'og:image': imgUrl,
+          'og:image:width': '1200',
+          'og:image:height': '630',
+          // 'og:image:type': 'image/jpeg'
+        }
+      })
+    };
+
+    /* let params: UIParams = {
+     // href: 'https://github.com/zyra/ngx-facebook',
+     // href:url,
+     //  method: 'share_open_graph',
+     method: 'share',
+           href: url,
+           'description': "Price: ₹ " + price + " Date: " + date + " Venue: " + venueName,
+           // 'og:image': url + '/assets/images/logo.png',
+           'picture': imgUrl,
+           // 'og:image:width': '1200',
+           // 'og:image:height': '630',
+           // 'og:image:type': 'image/jpeg'
+    }; */
+
+    this.facebookService.ui(params)
+      .then((res: UIResponse) => console.log(res))
+      .catch((e: any) => console.error(e));
+
+  }
+
+  // share() {
+
+  //   const options: UIParams = {
+  //     method: 'share',
+  //     href: 'https://github.com/zyramedia/ng2-facebook-sdk'
   //   };
 
-  //   /* let params: UIParams = {
-  //    // href: 'https://github.com/zyra/ngx-facebook',
-  //    // href:url,
-  //    //  method: 'share_open_graph',
-  //    method: 'share',
-  //          href: url,
-  //          'description': "Price: ₹ " + price + " Date: " + date + " Venue: " + venueName,
-  //          // 'og:image': url + '/assets/images/logo.png',
-  //          'picture': imgUrl,
-  //          // 'og:image:width': '1200',
-  //          // 'og:image:height': '630',
-  //          // 'og:image:type': 'image/jpeg'
-  //   }; */
-
-  //   this.facebookService.ui(params)
-  //     .then((res: UIResponse) => console.log(res))
-  //     .catch((e: any) => console.error(e));
+  //   this.facebookService.ui(options)
+  //     .then((res: UIResponse) => {
+  //       console.log('Got the users profile', res);
+  //     })
+  //     .catch((error)=> {
+  //       console.log(error)
+  //     });
 
   // }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Event } from './../interfaces/postuserevent';
 import { userInfo } from 'os';
 import { Record } from './../interfaces/getuserevents';
+import { category } from './../interfaces/eventcategories';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class EventsService {
   }
 
   getcategories(){
-    return this.http.get("http://localhost:8000/categories");
+    return this.http.get<category>("http://localhost:8000/categories");
   }
 
   addUserEvents(userId,body){

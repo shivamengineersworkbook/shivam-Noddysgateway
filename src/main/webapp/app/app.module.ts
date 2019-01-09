@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserRegistrationService } from "./service/user-registration.service";
 import { UserParametersService } from "./service/user-parameters.service";
 import { LogoutComponent, RegistrationConfirmationComponent } from "./auth/confirm/confirm.component";
-
+import { FacebookModule } from 'ngx-facebook';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatSelectModule, MatInputModule, MatButtonModule, MatGridListModule, MatExpansionModule, MatCheckboxModule, MatCardModule } from '@angular/material';
 import { NouisliderModule } from 'ng2-nouislider';
@@ -86,7 +86,8 @@ import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefi
     HttpModule,
     AppRoutingModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FacebookModule.forRoot()
   ],
   providers: [
     CognitoUtil,

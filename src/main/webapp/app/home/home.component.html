@@ -35,25 +35,25 @@
   <button mat-raised-button color="warn" (click)="savefilters('','','2')" [routerLink]="['/activities']">FOR MINI MOVERS | 0 - 2 YRS</button>
 </div>
   <div class="section-3_provider-items">
-    <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records.categories[0]">
-      <div>{{records.categories[0]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
+      <div>{{records[0].category}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records.categories[1]">
-      <div>{{records.categories[1]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
+      <div>{{records[1].category}}</div>
     </div>
-    <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records.categories[2]">
-      <div>{{records.categories[2]}}</div>
+    <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
+      <div>{{records[2].category}}</div>
     </div>
   </div>
   <div class="section-3_provider-items">
-      <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records.categories[3]">
-        <div>{{records.categories[3]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
+        <div>{{records[3].category}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records.categories[11]">
-        <div>{{records.categories[4]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
+        <div>{{records[4].category}}</div>
       </div>
-      <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records.categories[5]">
-        <div>{{records.categories[5]}}</div>
+      <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
+        <div>{{records[5].category}}</div>
       </div>
   </div>
   <div>
