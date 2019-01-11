@@ -19,7 +19,6 @@ export class UpdatefinalComponent implements OnInit {
   errorMessage:string;
   records = {};
   eventId:string;
-  mainrecord = {};
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -53,6 +52,32 @@ export class UpdatefinalComponent implements OnInit {
     event_price:""    
 };
 
+mainrecord = {
+  event_name:"",
+  event_description:"",
+  event_category:"",
+  event_subcategory:"",
+  event_Min_age:"",
+  event_Max_age:"",
+  event_start_date:"",
+  event_end_date:"",
+  event_start_time:"",
+  event_end_time:"",
+  event_city:"",
+  event_place:"",
+  event_street:"",
+  event_address:"",
+  event_pincode:"",
+  event_organiser_name:"",
+  event_organizer_website:"",
+  event_phone:"",
+  event_email:"",
+  event_Image_url:"",
+  event_booking_url:"",
+  event_enquiry_url:"",
+  event_price:""    
+};
+
 ngOnInit() {
   this.errorMessage= null;
   this.eventId = this.userEvent.returningDetails()
@@ -62,11 +87,36 @@ ngOnInit() {
       this.records = data;
       for(var i =0; i<data.events.posted.length; i++){
         if(data.events[i]._id == this.eventId){
-          this.mainrecord = data.events[i];
           console.log(this.mainrecord);
+          this.mainrecord = {
+            event_name:data.events[i].event_name,
+            event_description:data.events[i].event_description,
+            event_category:data.events[i].event_category,
+            event_subcategory:data.events[i].event_subcategory,
+            event_Min_age:data.events[i].event_Min_age,
+            event_Max_age:data.events[i].event_Max_age,
+            event_start_date:data.events[i].event_start_date,
+            event_end_date:data.events[i].event_end_date,
+            event_start_time:data.events[i].event_start_time,
+            event_end_time:data.events[i].event_end_time,
+            event_city:data.events[i].event_location.address.city,
+            event_place:"",
+            event_street:"",
+            event_address:"",
+            event_pincode:"",
+            event_organiser_name:"",
+            event_organizer_website:"",
+            event_phone:"",
+            event_email:"",
+            event_Image_url:"",
+            event_booking_url:"",
+            event_enquiry_url:"",
+            event_price:data.events[i].event_price    
+          };
         }
       }
      
+
       console.log(this.records);
     } else {
       console.log("no data")
@@ -129,7 +179,7 @@ OnSubmit() {
     this.userEvent.updateuserevents(this.cognitoUser,this.event,this.event).subscribe((data) => {
       console.log(data);
       if(data) {
-        this.res = data;
+        this.res = data.event;
         console.log(this.res)
       }  else {
         this.errorMessage = "Server is Down Come Back Later";

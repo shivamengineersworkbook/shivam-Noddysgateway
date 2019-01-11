@@ -21,6 +21,7 @@ import {ServicefilterService} from '../../service/servicefilter.service';
 })
 export class NavbarComponent implements OnInit {
   bAuthenticated = false;
+  LocationNav: String;
   cities = [
     {
       value: "Delhi",
@@ -75,12 +76,13 @@ export class NavbarComponent implements OnInit {
   
 
   changeLoc(data){
+    console.log(this.LocationNav);
     console.log(data.value);
     this.filter.sendnavfilters(data.value);
   }
 
   
-
+   
   isLoggedIn() {
     let cognitoUser = this.cognitoutil.getCurrentUser();
     if (cognitoUser == null) {

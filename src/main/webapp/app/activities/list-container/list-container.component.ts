@@ -76,7 +76,7 @@ export class ListContainerComponent implements OnInit {
     this.events.getfilteredevents(this.homedetails).subscribe(data => {
       if(data){
 
-        this.records = data;
+        this.records = data.events;
       } else {
         console.log("no data")
       }

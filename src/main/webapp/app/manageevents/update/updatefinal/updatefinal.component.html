@@ -57,13 +57,13 @@
                   <div  class="col-sm-6">
                     <br >
                     <label >Age (in Yrs) From </label>
-                    <input value="{{mainrecord.event_min_age}}" name="event_Min_age" [(ngModel)]="event.event_Min_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="0"  required="" type="number">
+                    <input value="{{mainrecord.event_Min_age}}" name="event_Min_age" [(ngModel)]="event.event_Min_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="0"  required="" type="number">
                     <!---->
                   </div>
                   <div  class="col-sm-6">
                     <br >
                     <label >To </label>
-                    <input value="{{mainrecord.event_max_age}}" name="event_Max_age" [(ngModel)]="event.event_Max_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="1" required="" type="number">
+                    <input value="{{mainrecord.event_Max_age}}" name="event_Max_age" [(ngModel)]="event.event_Max_age" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-invalid" min="1" required="" type="number">
                     <!---->
                   </div>
                   <!---->
@@ -88,7 +88,7 @@
 
                 <div  class="col-sm-6">
                   <label >End Date</label>
-                  <input value="{{mainrecord.event_last_date}}" name="event_end_date" [(ngModel)]="event.event_end_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
+                  <input value="{{mainrecord.event_end_date}}" name="event_end_date" [(ngModel)]="event.event_end_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
                   
                 </div>
                 <div  class="col-sm-6">
@@ -130,14 +130,14 @@
                 <div  class="col-sm-6">
                   <br >
                   <label >Address</label>
-                  <textarea  value="{{mainrecord.event_location.address.street}}" name="event_address" [(ngModel)]="event.event_address" [ngModelOptions]="{standalone: true}" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" rows="1" style="width: 99%"></textarea>
+                  <textarea  value="{{mainrecord.event_street}}" name="event_address" [(ngModel)]="event.event_address" [ngModelOptions]="{standalone: true}" class="form-control col-sm-8 expand ng-untouched ng-pristine ng-invalid" rows="1" style="width: 99%"></textarea>
                   <!---->
                 </div>
 
                 <div  class="col-sm-6">
                   <br >
                   <label >Pincode</label>
-                  <input value="{{mainrecord.event_loaction.address.pin}}" name="event_pincode" [(ngModel)]="event.event_pincode" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="number">
+                  <input value="{{mainrecord.event_pincode}}" name="event_pincode" [(ngModel)]="event.event_pincode" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="number">
                 </div>
 
               </div>
@@ -156,11 +156,11 @@
                 <div  class="row">
                   <div  class="col-sm-6">
                     <label  >Organizer Name</label>
-                    <input value="{{mainrecord.event_organizer.name}}" name="event_organizer_name" [(ngModel)]="event.event_organiser_name" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="O_name">
+                    <input value="{{mainrecord.event_organiser_name}}" name="event_organizer_name" [(ngModel)]="event.event_organiser_name" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="O_name">
                   </div>
                   <div  class="col-sm-6">
                     <label >Organizer Website</label>
-                    <input value="{{mainrecord.event_organizer.url}}" name="event_organizer_url" [(ngModel)]="event.event_organizer_website" [ngModelOptions]="{standalone: true}" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid">
+                    <input value="{{mainrecord.event_organizer_website}}" name="event_organizer_url" [(ngModel)]="event.event_organizer_website" [ngModelOptions]="{standalone: true}" autocomplete="new-password" class="form-control ng-untouched ng-pristine ng-valid">
                     <!---->
                   </div>
   
@@ -191,7 +191,7 @@
                 <div  class="row">
                   <div  class="col-sm-6">
                     <label >Image url</label>
-                    <input value="{{mainrecord.event_image_url}}" name="event_image_url" [(ngModel)]="event.event_Image_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="I_url">
+                    <input value="{{mainrecord.event_Image_url}}" name="event_image_url" [(ngModel)]="event.event_Image_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="I_url">
                   </div>
                   <div  class="col-sm-6">
                     <label >Booking Url</label>
@@ -232,8 +232,8 @@
         <div *ngIf="errorMessage!=null" class="alert alert-danger">
           {{ errorMessage }}
         </div>
-        <div *ngIf="res.event!=null" class="alert alert-danger">
-          {{ res.event }}
+        <div *ngIf="res!=null" class="alert alert-danger">
+          {{ res}}
         </div>
 
         <div >

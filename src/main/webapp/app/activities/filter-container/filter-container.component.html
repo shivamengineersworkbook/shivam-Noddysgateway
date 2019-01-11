@@ -57,13 +57,14 @@
         </mat-expansion-panel>
     </div>
     <div>
+
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>PROVIDERS</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="filter-container_category-panel" >
                     <div class="filter-container_category-panel-left">
-                        <mat-checkbox *ngFor="let event of allevents.events" (change)="onChangeProvider($event, event)">{{event.event_organizer.name}}</mat-checkbox>
+                        <mat-checkbox *ngFor="let event of allevents" (change)="onChangeProvider($event, event)">{{event.event_organizer.name}}</mat-checkbox>
                     </div>
             </div>
         </mat-expansion-panel>

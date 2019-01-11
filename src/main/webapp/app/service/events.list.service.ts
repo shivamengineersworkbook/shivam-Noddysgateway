@@ -4,6 +4,7 @@ import { Event } from './../interfaces/postuserevent';
 import { userInfo } from 'os';
 import { Record } from './../interfaces/getuserevents';
 import { category } from './../interfaces/eventcategories';
+import { MainEvent } from './../interfaces/getallevents';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class EventsService {
 
   getfilteredevents(details) {
     console.log(details);
-    return this.http.get("http://localhost:8000/events");
+    return this.http.get<MainEvent>("http://localhost:8000/events");
   }
 
   getcategories(){
@@ -34,7 +35,7 @@ export class EventsService {
   }
 
   updateuserevents(userId,eventId,body) {
-    return this.http.put(`http://localhost:8000/user/${userId.username}/events/${eventId}`,body)
+    return this.http.put<Event>(`http://localhost:8000/user/${userId.username}/events/${eventId}`,body)
   }
 
   user:string

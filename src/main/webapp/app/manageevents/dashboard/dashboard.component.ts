@@ -22,12 +22,16 @@ export class DashboardComponent implements OnInit {
     public userEvent: EventsService) { }
 
     records ={};
+    subscribed =[];
+    posted =[];
   ngOnInit() {
     this.cognitoUser = this.isLoggedIn();
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
     if(data){
 
       this.records = data.events;
+      this.subscribed = data.events.subscribed;
+      this.posted = data.events.posted;
     } else {
       console.log("no data")
     }

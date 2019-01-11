@@ -110,7 +110,7 @@ export class AddeventComponent implements OnInit {
       this.userEvent.addUserEvents(this.cognitoUser,this.event).subscribe((data) => {
         console.log(data);
         if(data) {
-          this.res = data;
+          this.res = data.event;
           console.log(this.res)
         }  else {
           this.errorMessage = "Server is Down Come Back Later";

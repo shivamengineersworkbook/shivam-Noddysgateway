@@ -35,7 +35,7 @@ export class FilterContainerComponent implements OnInit {
 
     this.events.getfilteredevents("").subscribe(data => {
       if(data){
-        this.allevents = data
+        this.allevents = data.events;
       } else {
         console.log("no providers available");
       }

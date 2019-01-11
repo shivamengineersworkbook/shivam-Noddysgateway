@@ -1,6 +1,5 @@
 <div class="container list-container">
-  <h3 style="margin-top: 0">{{nowDate}}</h3>
-  <mat-card *ngFor="let record of records.subscribed">
+  <mat-card *ngFor="let record of subscribed">
     <mat-card-header (click)="collapsed=false">
     <div class="row"> 
         <div class="media col-lg-6">
@@ -8,6 +7,7 @@
             <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/350x250">
           </figure>
         </div>
+
         <div class="col-lg-3">
           <h4 class="list-group-item-heading heading_txt" > {{record.event_name}} </h4>
           <p class="list-group-item-text"> {{record.event_min_age}} yrs to {{record.event_max_age}} yrs
@@ -34,7 +34,7 @@
   </mat-card-content>
   </mat-card>
 
-  <mat-card *ngFor="let record of records.posted">
+  <mat-card *ngFor="let record of posted">
     <mat-card-header (click)="collapsed=false">
     <div class="row"> 
         <div class="media col-lg-6">
