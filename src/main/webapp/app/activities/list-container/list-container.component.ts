@@ -17,7 +17,7 @@ import {
   styleUrls: ["./list-container.component.css"]
 })
 export class ListContainerComponent implements OnInit {
-  records = {};
+  records = {}; 
   curDate = new Date();
   curMonth = this.curDate.getMonth() + 1;
   changed = false;

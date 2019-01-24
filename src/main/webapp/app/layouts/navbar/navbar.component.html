@@ -3,14 +3,15 @@
   <span>|</span>
   <span class="toolbar_city">
     <mat-form-field>
-      <mat-select placeholder="Select City" [(ngModel)]="LocationNav" (change)="changeLoc($event)">
+      <mat-select [(value)]="LocationNav">
         <mat-option *ngFor="let city of cities" [value]="city.value" >
           {{city.viewValue}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </span>
-  <span *ngIf="!isLoggedIn()" class="toolbar_login "><a routerLink="/home/login">Log In</a></span>
+  <span *ngIf="!isLoggedIn()" class="toolbar_login"><a routerLink="/home/login" class="toolbar_login_events ">Log In</a></span>
+  <span class="toolbar_login_events"><a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login_events "><a [routerLink]="['/manageevents/dashboard']" class="toolbar_login_events ">Manage Events  </a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login "><a [routerLink]="['/logout']"  class="toolbar_login ">Logout</a></span>
 </mat-toolbar>

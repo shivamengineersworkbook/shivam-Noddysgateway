@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CarouselModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -87,7 +88,8 @@ import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefi
     AppRoutingModule,
     HttpClientModule,
     MatExpansionModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [
     CognitoUtil,

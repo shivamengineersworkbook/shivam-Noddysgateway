@@ -21,7 +21,7 @@ import {ServicefilterService} from '../../service/servicefilter.service';
 })
 export class NavbarComponent implements OnInit {
   bAuthenticated = false;
-  LocationNav: String;
+  LocationNav: String= "Delhi";
   cities = [
     {
       value: "Delhi",

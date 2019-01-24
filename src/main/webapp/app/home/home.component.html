@@ -29,10 +29,31 @@
     <p>Newfound web-scheduling convenience gives you deserved support as you book and manage your children’s wonder-full schedules at home or on the go.</p>
   </div> 
 </section>
+
+<section class="section-4 row">
+    <div class="location-box col-lg-4" *ngFor="let event of events">
+      <a href="ceremony.html"><img class="media-object img-rounded img-fluid" src={{event.event_image_url}} alt="image"></a>
+      <h3>{{event.event_name}}</h3>
+      <div>
+          {{event.event_description}}
+      </div>
+      <div class="pull-left date">
+          Wednesday, 1 January, 2014
+      </div>
+
+      <div class="pull-right time">
+          5pm - 6pm
+      </div>
+      <div class="clearfix">
+      </div>
+    </div>
+</section>
+
+
 <section class="section-3">
   <h3>Sawyer partners with the best-in-class providers in each community who teach everything from ballet curtsies to science experiments</h3>
   <div>
-  <button mat-raised-button color="warn" (click)="savefilters('','','2')" [routerLink]="['/activities']">FOR MINI MOVERS | 0 - 2 YRS</button>
+  <button mat-raised-button color="warn" (click)="savefilters('','','2','')" [routerLink]="['/activities']">FOR MINI MOVERS | 0 - 2 YRS</button>
 </div>
   <div class="section-3_provider-items">
     <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
@@ -60,6 +81,151 @@
       <button mat-raised-button color="warn" [routerLink]="['/activities']" (click)="savefilters('','','2')">View All 0 - 2 yrs</button>  
   </div>  
 </section>
-<section class="section-4">
 
-</section>
+
+    <mat-card class="mat-parent">
+        <carousel>
+            <div class="carousel-inner" role="listbox">
+    
+                <slide>
+                    <div class="carousel-item" style="display: block; width: 100%;">
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </slide>
+    
+                <slide >
+                    <div class="carousel-item" style="display: block; width: 100%;">
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card title</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </slide>
+                <slide class= "row">
+                    <div class="carousel-item">
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card 2</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card 2</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-card class="example-card">
+                                <img mat-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Photo of a Shiba Inu">
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Card 2</h4>
+                                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                                            content.
+                                        </p>
+                                        <button mat-raised-button color="primary">Primary</button>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </slide>
+            </div>
+        </carousel>
+    </mat-card>

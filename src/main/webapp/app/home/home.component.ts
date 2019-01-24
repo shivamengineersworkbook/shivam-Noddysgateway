@@ -28,7 +28,7 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   @ViewChild("rotatingText") rotatingText: ElementRef;
-
+  events = {};
   eventName = "";
 
   dates = [
@@ -81,6 +81,15 @@ records = [];
         console.log("no data")
       }
       
+    });
+
+    this.eventcategories.getfilteredevents("").subscribe(data => {
+      if(data){
+
+        this.events = data.events;
+      } else {
+        console.log("no data")
+      }
     });
   }
 
@@ -136,4 +145,5 @@ records = [];
   this.homefilters.sendingfilters(this.filters);
  }
 
+ 
 }

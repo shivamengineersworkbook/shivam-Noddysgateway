@@ -20,7 +20,7 @@ import { validateConfig } from '@angular/router/src/config';
   styleUrls: ['./addevent.component.css']
 })
 export class AddeventComponent implements OnInit {
-  errorMessage:string;
+  errorMessage:string= null;
 
   constructor(public router: Router,
     public userService: UserLoginService,
