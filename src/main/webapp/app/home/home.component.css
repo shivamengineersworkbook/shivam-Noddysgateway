@@ -63,6 +63,7 @@ section {
 .section-3{
     flex-direction: column;
     justify-content: flex-start;
+    background-color: #1e0a3c;
 }
 
 .section-3_provider-items{
@@ -83,6 +84,12 @@ section {
     color: white;
     font-weight: bolder;
     font-size: xx-large;
+}
+
+.text-color{
+    align-content: center;
+    color: white;
+    padding-top: 16px
 }
 
 .section-3_provider-item div{

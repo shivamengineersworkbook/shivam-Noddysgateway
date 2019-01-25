@@ -32,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   @ViewChild("rotatingText") rotatingText: ElementRef;
-  events = {};
+  events = [];
   eventName = "";
 
   dates = [

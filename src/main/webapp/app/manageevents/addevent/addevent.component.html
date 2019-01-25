@@ -53,7 +53,7 @@
                   <label >Sub_category</label>
                   <input  [(ngModel)]="event.event_subcategory" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="text">
                 </div>
-                <div  formgroupname="age" class="ng-untouched ng-pristine ng-invalid">
+                <div  formgroupname="age" class="row ng-untouched ng-pristine ng-invalid">
                   <div  class="col-sm-6">
                     <br >
                     <label >Age (in Yrs) From </label>
@@ -192,6 +192,7 @@
                   <div  class="col-sm-6">
                     <label >Image url</label>
                     <input  [(ngModel)]="event.event_Image_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="I_url">
+                    <input  class="btn btn-primary" type="button" value="Upload">
                   </div>
                   <div  class="col-sm-6">
                     <label >Booking Url</label>
