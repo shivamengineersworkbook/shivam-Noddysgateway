@@ -4,7 +4,7 @@
         <button mat-raised-button (click)="onBookingType('Drop-in')">Drop-in</button>
         <button mat-raised-button (click)="onBookingType('Semester')">Semester</button>
         <button mat-raised-button (click)="onBookingType('Camp')">Camp</button>
-    </div>
+    </div><br>
     <h4>LOCATION</h4>
     <div class="filter-container_location">
         <mat-form-field>
@@ -13,11 +13,19 @@
     </div>
     <h4>TIME</h4>
     <div>
-        <nouislider [connect]="true" [min]="0" [max]="24" [(ngModel)]="inputSpeedRange"></nouislider>
+        <nouislider [connect]="true" [min]="0" [step]="0.5" [max]="24" [(ngModel)]="inputSpeedRange"></nouislider>
     </div>
     <!-- <div>
         {{values}}
     </div> -->
+    <div class="row">
+            <div class="box col-md-2">
+                    {{inputSpeedRange[0]}}
+            </div>
+            <div class="box col-md-2">
+                    {{inputSpeedRange[1]}}
+             </div>
+    </div>
     <div>   
         <mat-expansion-panel>
             <mat-expansion-panel-header>

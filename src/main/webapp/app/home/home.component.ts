@@ -9,6 +9,10 @@ import { EventsService } from '../service/events.list.service'
 import { Router } from '@angular/router';
 import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
 
+declare var $: any;
+declare var require: any;
+
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -89,6 +93,30 @@ records = [];
         this.events = data.events;
       } else {
         console.log("no data")
+      }
+    });
+
+
+    $("#myCarousel").on("slide.bs.carousel", function(e) {
+      var $e = $(e.relatedTarget);
+      var idx = $e.index();
+      var itemsPerSlide = 3;
+      var totalItems = $(".carousel-item").length;
+
+      if (idx >= totalItems - (itemsPerSlide - 1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i = 0; i < it; i++) {
+          // append slides to end
+          if (e.direction == "left") {
+            $(".carousel-item")
+              .eq(i)
+              .appendTo(".carousel-inner");
+          } else {
+            $(".carousel-item")
+              .eq(0)
+              .appendTo($(this).find(".carousel-inner"));
+          }
+        }
       }
     });
   }

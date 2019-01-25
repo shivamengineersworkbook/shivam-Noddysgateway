@@ -16,3 +16,8 @@
     overflow: auto;
     background-color: #f3f0eb;
 }
+
+.box{
+    display: block;
+    padding: 2px;
+}
