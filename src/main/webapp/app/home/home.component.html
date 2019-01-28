@@ -22,9 +22,9 @@
 </section>
 
 <section class="section-3">
-    <h3 class="text-color">
+    <h2 class="text-color">
      Categories to explore
-    </h3>
+    </h2>
   <div class="scrollable section-3_provider-items">
     <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
       <div>{{records[0].category}}</div>
@@ -114,7 +114,14 @@
 </section>
 
 <footer class="section-3">
-<div class="text-color">Blog.Careers.ContactUs.About.Events.Holder.Providers</div>
+<div class="row">
+    <p class= "col-md-4 text-color">
+        @copyright 2019
+    </p>
+    <p class= "col-md-6 text-color">
+            Blog    .    Careers    .    Contact Us    .    About   .    Events    .    Holder   .  Providers 
+    </p>
+</div>
 </footer>
 
 
