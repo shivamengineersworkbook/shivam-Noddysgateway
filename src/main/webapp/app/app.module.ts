@@ -40,8 +40,8 @@ import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import { UpdateComponent } from './manageevents/update/update.component';
 import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefinal.component';
+import * as Material from "@angular/material";
 import { ModalComponent } from './modal/modal.component';
-
 
 @NgModule({
   declarations: [
@@ -91,7 +91,8 @@ import { ModalComponent } from './modal/modal.component';
     HttpClientModule,
     MatExpansionModule,
     FacebookModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    Material.MatDialogModule
   ],
   providers: [
     CognitoUtil,
@@ -102,6 +103,7 @@ import { ModalComponent } from './modal/modal.component';
     UserParametersService,
     EventsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ModalComponent]
 })
 export class AppModule {}

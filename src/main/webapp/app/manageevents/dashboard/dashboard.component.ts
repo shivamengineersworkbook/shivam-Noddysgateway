@@ -3,11 +3,13 @@ import { Router } from "@angular/router";
 import { UserLoginService } from "../../service/user-login.service";
 import { EventsService} from '../../service/events.list.service';
 import { CognitoUser } from 'amazon-cognito-identity-js';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {
   CognitoCallback,
   CognitoUtil,
   LoggedInCallback
 } from "../../service/cognito.service";
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +21,8 @@ export class DashboardComponent implements OnInit {
   constructor(public router: Router,
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
-    public userEvent: EventsService) { }
+    public userEvent: EventsService,
+    public dialog: MatDialog ) { }
 
     records ={};
     subscribed =[];
@@ -37,6 +40,11 @@ export class DashboardComponent implements OnInit {
     }
   });
   console.log(this.records);
+  }
+
+  OnOpen(id){
+    console.log(id);
+    this.dialog.open(ModalComponent);
   }
 
   cognitoUser= {}

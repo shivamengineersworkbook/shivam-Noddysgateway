@@ -38,6 +38,11 @@ export class EventsService {
     return this.http.put<Event>(`http://localhost:8000/user/${userId.username}/events/${eventId}`,body)
   }
 
+  getoneevent(id){
+    console.log(id);
+    return this.http.get(`http://localhost:8000/events/${id}`);
+  }
+
   user:string
   event:string
   savingDetails(userId,eventId) {

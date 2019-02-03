@@ -1,46 +1,75 @@
-<!-- <div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
-       [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header" >
-        <span *ngIf="display"><strong>{{allEvents[keyname]?.myDisplayTitle}}</strong></span>
-          <ng-content select=".app-modal-header"></ng-content>
-          
-        </div>
-        <div class="modal-body">
-        <div *ngIf="display">
-        <img [src]="allEvents[keyname]?.img_url">
-        <br><br>
-        <span *ngIf="allEvents[keyname].myCategory!=''"><b>Category: </b>{{allEvents[keyname]?.myCategory}}</span><br>
-        <span ><b>Age Group: </b>{{allEvents[keyname]?.myAge["lower"] + ' - ' + allEvents[keyname]?.myAge["upper"]}}  Yrs</span><br>
-        <span  style="font-size: 13px"><b>Price:</b> ₹ {{allEvents[keyname]?.price[0]['value']}}</span><br>
-        <span><b>Date: </b> {{allEvents[keyname]?.upcoming_occurrences[occurrence]["date"].split(':')[0] | amParse:'YYYY-MM-DD' | amDateFormat:'LL'}}</span>  
-        
-        <span><b>Starts: </b>{{(allEvents[keyname]?.upcoming_occurrences[occurrence]["start_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span>
-        <span><b>Ends: </b>{{(allEvents[keyname]?.upcoming_occurrences[occurrence]["end_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span><br>
-        <span><b>Venue: </b><span *ngIf="allEvents[keyname].venue['name']!=''">{{allEvents[keyname]?.venue["name"] + ", " }}<br></span></span>
-        <span>{{allEvents[keyname]?.venue["address"] + ", " + allEvents[keyname]?.venue["city"]}}</span><br>
-        <span *ngIf="allEvents[keyname].myLocation!=''"><b>Locality: </b>{{allEvents[keyname]?.myLocation}}</span>
-        <span *ngIf="allEvents[keyname].myPincode!=''"><b>Pincode: </b>{{ allEvents[keyname]?.myPincode}}</span><br>
-       
-        <span *ngIf="allEvents[keyname].myContactDetails['contactPerson']!=''"><b>Contact Person : </b>{{ allEvents[keyname]?.myContactDetails["contactPerson"]}}</span>
-        <span *ngIf="allEvents[keyname].myContactDetails['telephoneNo']!=''"><b>Tel : </b>{{ allEvents[keyname]?.myContactDetails["telephoneNo"]}}</span><br>
-        
-        <span  style="font-size: 13px" [innerHTML]="allEvents[keyname]?.description"></span>
-        <span *ngIf="allEvents[keyname].url!=''"><b>Booking Url : </b><a target="_blank" [href]="allEvents[keyname]?.url">{{allEvents[keyname]?.url}}</a></span>
-        
-        
-        
+<div class="container description-container" *ngIf="eventObj">
 
-        </div>
-        
-
-        <br>
-          <ng-content select=".app-modal-body"></ng-content>
-        </div>
-        <div class="modal-footer">
-          <ng-content select=".app-modal-footer"></ng-content>
-        </div>
-      </div>
-    </div>
-  </div> -->
+  <div class="container">
+  <br />
+  <div class="container">
+  <div class="row col-lg-12">
+    <h3 class="card-title"><b>{{eventObj.myDisplayTitle}}</b></h3>
+    <h5 class="card-subtitle text-muted" style="text-transform:uppercase; color:#a8a8a8;"><span *ngIf="eventObj.myCategory!=''">{{eventObj?.myCategory}}</span></h5>
+  
+  <hr></div>
+  
+  <div class="row col-lg-8 col-md-6 col-sm-12 col-xs-12"> <!--Image Div-->
+  <img style="max-height: auto; width: 100%; display: block; " [src]="eventObj.img_url" alt="Card image">
+  </div>
+  
+  
+  <div class="row col-lg-4 col-md-6 hidden-sm hidden-xs" style="margin-left:5px; font-size:15px;">
+          <span style="text-transform:uppercase; font-size:18px">
+  <i class="fa fa-calendar"></i> {{eventObj?.upcoming_occurrences[occurrence]["date"].split(':')[0] | amParse:'YYYY-MM-DD' | amDateFormat:'LL'}}</span><br /><br />
+  
+  <span style="text-transform:uppercase; font-size:14px"><i class="fa fa-child"></i> {{eventObj?.myAge["lower"] + ' - ' + eventObj?.myAge["upper"]}}  Years </span><br/> <br />
+  <span style="text-transform:uppercase; font-size:14px"><i class="fa fa-clock-o"></i>{{(eventObj?.upcoming_occurrences[occurrence]["start_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span>
+  <span> to {{(eventObj?.upcoming_occurrences[occurrence]["end_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span><br /><br />
+  
+  
+  <span><i class="fa fa-map-marker"></i> {{eventObj?.venue["name"] + ", " }} {{eventObj?.venue["address"] + ", " + eventObj?.venue["city"]}}</span><br /><br />
+  
+  <span><i class="fa fa-rupee"></i> {{eventObj?.price[0]['value']}}</span><br /><br />
+  
+  <span *ngIf="eventObj.url!=''"><a class="btn btn-danger" target="_blank" [href]="eventObj?.url"><i class="fa fa-external-link"></i> Book Here!</a></span>
+  
+  
+  </div>
+  <div class="row col-xs-12 col-sm-12 hidden-lg hidden-md hidden-sm" style="margin-top:5px; font-size:15px;">
+  <hr>
+          <span style="text-transform:uppercase; font-size:18px">
+  <i class="fa fa-calendar"></i> {{eventObj?.upcoming_occurrences[occurrence]["date"].split(':')[0] | amParse:'YYYY-MM-DD' | amDateFormat:'LL'}}</span><br /><br />
+  
+  <span style="text-transform:uppercase; font-size:14px"><i class="fa fa-child"></i> {{eventObj?.myAge["lower"] + ' - ' + eventObj?.myAge["upper"]}}  Years </span><br/> <br />
+  <span style="text-transform:uppercase; font-size:14px"><i class="fa fa-clock-o"></i>{{(eventObj?.upcoming_occurrences[occurrence]["start_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span>
+  <span> to {{(eventObj?.upcoming_occurrences[occurrence]["end_time"]| amParse:'hh:mm:ss' | amCalendar).split("at")[1]}}</span><br /><br />
+  
+  
+  <span><i class="fa fa-map-marker"></i> {{eventObj?.venue["name"] + ", " }} {{eventObj?.venue["address"] + ", " + eventObj?.venue["city"]}}</span><br /><br />
+  
+  <span><i class="fa fa-rupee"></i> {{eventObj?.price[0]['value']}}</span><br /><br />
+  
+  <!--URL HERE-->
+  
+  <span *ngIf="eventObj.url!=''"><a class="btn btn-danger" target="_blank" [href]="eventObj?.url"><i class="fa fa-external-link"></i> Book Here!</a></span> 
+  
+  
+  </div>
+  <hr>
+  
+  </div>
+  <div class="container">
+  <div class="row col-lg-12">
+  <hr>
+  <h4 style="text-transform:uppercase"><b>About this event</b></h4>
+  <p><span [innerHTML]="eventObj?.description"></span>
+  
+  </div>
+  <div class="row col-lg-12"> <!--Map Div-->
+  <hr> 
+  <!-- Map Goes Here-->
+  </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  </div>
+  
