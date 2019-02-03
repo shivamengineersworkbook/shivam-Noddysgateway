@@ -70,7 +70,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     
-    
   }  
 
   
@@ -81,6 +80,7 @@ export class NavbarComponent implements OnInit {
     this.filter.sendnavfilters(data.value);
   }
 
+  
   
    
   isLoggedIn() {

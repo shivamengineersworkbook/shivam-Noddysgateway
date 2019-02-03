@@ -77,7 +77,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-eximport { ModalComponent } from './modal/modal.component';
-ports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule {}

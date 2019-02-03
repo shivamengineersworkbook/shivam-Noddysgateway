@@ -11,7 +11,8 @@
     </mat-form-field>
   </span>
   <span *ngIf="!isLoggedIn()" class="toolbar_login"><a routerLink="/home/login" class="toolbar_login_events ">Log In</a></span>
-  <span class="toolbar_login_events"><a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
+  <span *ngIf="!isLoggedIn()" class="toolbar_login_events"><a routerLink="/home/login" class="toolbar_login_events ">Add Event</a></span>
+  <span *ngIf="isLoggedIn()" class="toolbar_login_events"><a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login_events "><a [routerLink]="['/manageevents/dashboard']" class="toolbar_login_events ">Manage Events  </a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login "><a [routerLink]="['/logout']"  class="toolbar_login ">Logout</a></span>
 </mat-toolbar>
