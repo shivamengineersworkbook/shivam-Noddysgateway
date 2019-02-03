@@ -40,6 +40,7 @@ import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import { UpdateComponent } from './manageevents/update/update.component';
 import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefinal.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefi
     AddeventComponent,
     DashboardComponent,
     UpdateComponent,
-    UpdatefinalComponent
+    UpdatefinalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ import { ManageeventsComponent } from "./manageevents/manageevents.component";
 import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import {UpdateComponent} from './manageevents/update/update.component';
-import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component'
+import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component';
 
 const appRoutes: Routes = [
   {
@@ -77,6 +77,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-exports: [RouterModule]
+eximport { ModalComponent } from './modal/modal.component';
+ports: [RouterModule]
 })
 export class AppRoutingModule {}
