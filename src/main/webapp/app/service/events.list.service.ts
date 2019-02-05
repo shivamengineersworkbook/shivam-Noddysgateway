@@ -40,7 +40,7 @@ export class EventsService {
 
   getoneevent(id){
     console.log(id);
-    return this.http.get(`http://localhost:8000/events/${id}`);
+    return this.http.get(`http://localhost:8000/event/${id}`);
   }
 
   user:string
@@ -54,4 +54,12 @@ export class EventsService {
      return this.event;
   }
   
+  id:string
+  singleIdDetails(holdId){
+    this.id = holdId;
+  }
+
+  returnsingleIdDetails(){
+    return this.id;
+  }
 }

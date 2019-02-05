@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
   OnOpen(id){
     console.log(id);
     this.dialog.open(ModalComponent);
+    this.userEvent.singleIdDetails(id);
   }
 
   cognitoUser= {}

@@ -18,6 +18,9 @@ a.list-group-item.active small {
     color:#fff;
 }
 
+.list-text{
+    margin: 0%;
+}
 .heading_txt{
     color: #f44336;
     font-weight: 600;
