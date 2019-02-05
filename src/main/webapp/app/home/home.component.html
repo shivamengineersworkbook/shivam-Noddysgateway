@@ -60,9 +60,16 @@
                     <div class="card">
                       <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100" alt="Card image cap">
                       <div class="card-body">
-                        <h4 class="card-title">{{events[0].event_name}}</h4>
-                        <p class="card-text">{{events[0].event_description}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="row">
+                          <div class="col-md-2">
+                              <p>{{events[0].event_last_date}}</p>
+                          </div>
+                          <div class="col-md-10">
+                              <h4 class="card-title">{{events[0].event_name}}</h4>
+                              <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                              <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -70,9 +77,18 @@
                     <div class="card">
                       
                       <img class="card-img-top img-fluid" src={{events[1].event_image_url}}  width="100" height="100" alt="Card image cap"><div class="card-body">
-                        <h4 class="card-title">{{events[1].event_name}}</h4>
-                        <p class="card-text">{{events[1].event_description}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <p>{{events[1].event_last_date}}</p>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4 class="card-title">{{events[1].event_name}}</h4>
+                                    <p class="card-text ">{{events[1].event_location.address.street}} , {{events[1].event_location.address.city}}</p>
+                                    <p class="card-text text-muted">{{events[1].event_start_time}} to {{events[1].event_end_time}}</p>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                     </div>
                   </div>
@@ -80,9 +96,18 @@
                     <div class="card">
                       
                       <img class="card-img-top img-fluid" src={{events[2].event_image_url}}  width="100" height="100" alt="Card image cap"><div class="card-body">
-                        <h4 class="card-title">{{events[2].event_name}}</h4>
-                        <p class="card-text">{{events[2].event_description}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <p>{{events[2].event_last_date}}</p>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4 class="card-title">{{events[2].event_name}}</h4>
+                                    <p class="card-text ">{{events[2].event_location.address.street}} , {{events[2].event_location.address.city}}</p>
+                                    <p class="card-text text-muted">{{events[2].event_start_time}} to {{events[2].event_end_time}}</p>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                     </div>
                   </div>
@@ -90,9 +115,18 @@
                     <div class="card">
                       
                       <img class="card-img-top img-fluid" src={{events[3].event_image_url}}  width="100" height="100" alt="Card image cap"><div class="card-body">
-                        <h4 class="card-title">{{events[3].event_name}}</h4>
-                        <p class="card-text">{{events[3].event_description}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <p>{{events[3].event_last_date}}</p>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4 class="card-title">{{events[3].event_name}}</h4>
+                                    <p class="card-text ">{{events[3].event_location.address.street}} , {{events[3].event_location.address.city}}</p>
+                                    <p class="card-text text-muted">{{events[3].event_start_time}} to {{events[3].event_end_time}}</p>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                     </div>
                   </div>

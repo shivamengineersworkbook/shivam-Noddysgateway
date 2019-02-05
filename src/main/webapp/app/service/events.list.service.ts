@@ -43,6 +43,13 @@ export class EventsService {
     return this.http.get(`http://localhost:8000/event/${id}`);
   }
 
+  postEventImage(fd,id){
+    console.log(fd);
+    const form =new FormData();
+    form.append('image',fd,fd.name);
+    return this.http.post(`http://localhost:8000/addevent/${id}`,form);
+  }
+
   user:string
   event:string
   savingDetails(userId,eventId) {

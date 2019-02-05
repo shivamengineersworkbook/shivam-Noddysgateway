@@ -21,6 +21,7 @@ import { validateConfig } from '@angular/router/src/config';
 })
 export class AddeventComponent implements OnInit {
   errorMessage:string= null;
+  selectedFile:File = null;
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -56,6 +57,17 @@ export class AddeventComponent implements OnInit {
 
   ngOnInit() {
     this.errorMessage= null;
+  }
+
+  OnFileSelected(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+  }
+
+  OnSubmitPhoto() {
+    this.userEvent.postEventImage(this.selectedFile,'361287973891').subscribe((data) => {
+      console.log(data);
+    });
   }
 
   cognitoUser= {}
