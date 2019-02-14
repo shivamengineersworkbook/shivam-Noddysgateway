@@ -20,11 +20,16 @@ import { AddeventComponent } from './manageevents/addevent/addevent.component';
 import { DashboardComponent } from './manageevents/dashboard/dashboard.component';
 import {UpdateComponent} from './manageevents/update/update.component';
 import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component';
+import {FooterComponent} from './layouts/footer/footer.component';
 
 const appRoutes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+  {
+    path:"test",
+    component: FooterComponent
   },
   {
     path: "activities",
@@ -77,6 +82,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

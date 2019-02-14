@@ -3,6 +3,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import {slick} from
 import { UserRegistrationService } from "./service/user-registration.service";
 import { UserParametersService } from "./service/user-parameters.service";
 import { LogoutComponent, RegistrationConfirmationComponent } from "./auth/confirm/confirm.component";
@@ -42,6 +43,8 @@ import { UpdateComponent } from './manageevents/update/update.component';
 import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefinal.component';
 import * as Material from "@angular/material";
 import { ModalComponent } from './modal/modal.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -71,10 +74,12 @@ import { ModalComponent } from './modal/modal.component';
     DashboardComponent,
     UpdateComponent,
     UpdatefinalComponent,
-    ModalComponent
+    ModalComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule,
+  import { slick } from 'node_modules/angular-slick';
+  BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MatToolbarModule,
