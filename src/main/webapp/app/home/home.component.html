@@ -23,30 +23,36 @@
 
 <section class="section-3">
     <h1 class="text-color">
-     Categories to explore
+    Categories to explore
     </h1>
-  <div class="scrollable section-3_provider-items">
-        <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
+  <div class="hello-categories section-3_provider-items">
+
+        <div class="section-3_provider-item section-3_provider-items_1 col-lg-6" style="background-image: url('/assets/images/img3.png')" (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
           <div>{{records[0].category}}</div>
         </div>
-        <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
+        <div class="section-3_provider-item section-3_provider-items_2 col-lg-6" style="background-image: url('/assets/images/img4.png')" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
           <div>{{records[1].category}}</div>
         </div>
-        <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
+        <div class="section-3_provider-item section-3_provider-items_3 col-lg-6" style="background-image: url('/assets/images/img5.png')" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
           <div>{{records[2].category}}</div>
         </div>
-        <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
+        <div class="section-3_provider-item section-3_provider-items_4 col-lg-6" style="background-image: url('/assets/images/img6.png')" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
             <div>{{records[3].category}}</div>
           </div>
-          <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
+          <div class="section-3_provider-item section-3_provider-items_5 col-lg-6" style="background-image: url('/assets/images/img7.png')" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
             <div>{{records[4].category}}</div>
           </div>
-          <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
+          <div class="section-3_provider-item section-3_provider-items_6 col-lg-6" style="background-image: url('/assets/images/img8.png')" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
             <div>{{records[5].category}}</div>
           </div>
   
    
     </div>
+</section>
+
+<section class="section-4">
+    <button class="backbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>
+    <button class="forbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
 </section>
 
 <div class="your-class">
@@ -189,8 +195,7 @@
                     </div>          
          
   </div>
-  <button class="backbut">left</button>
-  <button class="forbut">right</button>
+
 
 
 
@@ -293,16 +298,6 @@
 </section> -->
 
 
-<footer class="section-3">
-<div class="row">
-    <p class= "col-md-4 text-color">
-        @copyright 2019
-    </p>
-    <p class= "col-md-6 text-color">
-            Blog    .    Careers    .    Contact Us    .    About   .    Events    .    Holder   .  Providers 
-    </p>
-</div>
-</footer>
 
 
   

@@ -97,12 +97,36 @@ records = [];
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2
+            slidesToShow: 3
           }
         },
         {
           breakpoint: 480,
           settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+    $('.hello-categories').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 5,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            centerMode: true,
+            centerPadding: '40px',
             slidesToShow: 1
           }
         }
