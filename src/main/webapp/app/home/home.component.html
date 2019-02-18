@@ -22,34 +22,179 @@
 </section>
 
 <section class="section-3">
-    <h2 class="text-color">
+    <h1 class="text-color">
      Categories to explore
-    </h2>
+    </h1>
   <div class="scrollable section-3_provider-items">
-    <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
-      <div>{{records[0].category}}</div>
+        <div class="section-3_provider-item section-3_provider-items_1"  (click)="savefilters('','','2','0')" [routerLink]="['/activities']" *ngIf="records[0].category">
+          <div>{{records[0].category}}</div>
+        </div>
+        <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
+          <div>{{records[1].category}}</div>
+        </div>
+        <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
+          <div>{{records[2].category}}</div>
+        </div>
+        <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
+            <div>{{records[3].category}}</div>
+          </div>
+          <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
+            <div>{{records[4].category}}</div>
+          </div>
+          <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
+            <div>{{records[5].category}}</div>
+          </div>
+  
+   
     </div>
-    <div class="section-3_provider-item section-3_provider-items_2" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
-      <div>{{records[1].category}}</div>
-    </div>
-    <div class="section-3_provider-item section-3_provider-items_3" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
-      <div>{{records[2].category}}</div>
-    </div>
-    <div class="section-3_provider-item section-3_provider-items_4" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
-        <div>{{records[3].category}}</div>
-      </div>
-      <div class="section-3_provider-item section-3_provider-items_5" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
-        <div>{{records[4].category}}</div>
-      </div>
-      <div class="section-3_provider-item section-3_provider-items_6" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
-        <div>{{records[5].category}}</div>
-      </div>
-  </div> 
 </section>
 
+<div class="your-class">
+    <div class="carousel-item col-md-4" >
+        <div class="card">
+          <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                  <p>{{events[0].event_last_date}}</p>
+              </div>
+              <div class="col-md-10">
+                  <h4 class="card-title">{{events[0].event_name}}</h4>
+                  <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                  <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4" >
+          <div class="card">
+            <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2">
+                    <p>{{events[0].event_last_date}}</p>
+                </div>
+                <div class="col-md-10">
+                    <h4 class="card-title">{{events[0].event_name}}</h4>
+                    <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                    <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="carousel-item col-md-4" >
+            <div class="card">
+              <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-2">
+                      <p>{{events[0].event_last_date}}</p>
+                  </div>
+                  <div class="col-md-10">
+                      <h4 class="card-title">{{events[0].event_name}}</h4>
+                      <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                      <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+
+          <div class="carousel-item col-md-4" >
+              <div class="card">
+                <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                        <p>{{events[0].event_last_date}}</p>
+                    </div>
+                    <div class="col-md-10">
+                        <h4 class="card-title">{{events[0].event_name}}</h4>
+                        <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                        <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item col-md-4" >
+                <div class="card">
+                  <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2">
+                          <p>{{events[0].event_last_date}}</p>
+                      </div>
+                      <div class="col-md-10">
+                          <h4 class="card-title">{{events[0].event_name}}</h4>
+                          <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                          <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item col-md-4" >
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                            <p>{{events[0].event_last_date}}</p>
+                        </div>
+                        <div class="col-md-10">
+                            <h4 class="card-title">{{events[0].event_name}}</h4>
+                            <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                            <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4" >
+                    <div class="card">
+                      <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-2">
+                              <p>{{events[0].event_last_date}}</p>
+                          </div>
+                          <div class="col-md-10">
+                              <h4 class="card-title">{{events[0].event_name}}</h4>
+                              <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                              <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item col-md-4" >
+                      <div class="card">
+                        <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-2">
+                                <p>{{events[0].event_last_date}}</p>
+                            </div>
+                            <div class="col-md-10">
+                                <h4 class="card-title">{{events[0].event_name}}</h4>
+                                <p class="card-text ">{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</p>
+                                <p class="card-text text-muted">{{events[0].event_start_time}} to {{events[0].event_end_time}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>          
+         
+  </div>
+  <button class="backbut">left</button>
+  <button class="forbut">right</button>
 
 
-<section class="section-4">
+
+<!-- <section class="section-4">
 
     
         <div id="dataInfo">
@@ -145,7 +290,7 @@
         </div>
     
 
-</section>
+</section> -->
 
 
 <footer class="section-3">

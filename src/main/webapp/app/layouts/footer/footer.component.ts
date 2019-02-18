@@ -11,14 +11,13 @@ declare var require: any;
 export class FooterComponent implements OnInit {
 
   constructor() { }
+  
+
 
   ngOnInit() {
-    $('.multi-c').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-    });
+   
+ 
   }
+
 
 }

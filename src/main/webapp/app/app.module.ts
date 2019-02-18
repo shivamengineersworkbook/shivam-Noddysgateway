@@ -3,7 +3,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import {slick} from
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { UserRegistrationService } from "./service/user-registration.service";
 import { UserParametersService } from "./service/user-parameters.service";
 import { LogoutComponent, RegistrationConfirmationComponent } from "./auth/confirm/confirm.component";
@@ -78,7 +78,6 @@ import { FooterComponent } from './layouts/footer/footer.component';
     FooterComponent
   ],
   imports: [
-  import { slick } from 'node_modules/angular-slick';
   BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -97,7 +96,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
     MatExpansionModule,
     FacebookModule.forRoot(),
     CarouselModule.forRoot(),
-    Material.MatDialogModule
+    Material.MatDialogModule,
+    SlickCarouselModule
   ],
   providers: [
     CognitoUtil,

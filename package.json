@@ -36,6 +36,7 @@
     "ng2-nouislider": "^1.7.12",
     "ngx-bootstrap": "^3.2.0",
     "ngx-facebook": "^2.4.0",
+    "ngx-slick-carousel": "^0.4.4",
     "nouislider": "^11.1.0",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
