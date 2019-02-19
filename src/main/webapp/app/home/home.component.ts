@@ -108,32 +108,7 @@ records = [];
         }
       ]
     });
-
-    $('.hello-categories').slick({
-      centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 5,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
-        }
-      ]
-    });
-		
-
+    
     this.eventcategories.getfilteredevents("").subscribe(data => {
       if(data){
 
