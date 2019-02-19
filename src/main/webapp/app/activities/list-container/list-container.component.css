@@ -31,3 +31,7 @@ a.list-group-item.active small {
 .date_color{
     color:#a8a8a8
 }
+
+.noUi-tooltip {
+    display: block;
+}

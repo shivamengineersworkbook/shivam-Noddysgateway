@@ -1,52 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, OnDestroy } from '@angular/core';
 import { EventsService} from './../service/events.list.service';
+import { ModalService } from './../service/modal.service';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'jw-model',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+  @Input() id: string;
+  private element: any;
 
-  constructor(public Event: EventsService,) { }
+  constructor(public Event: EventsService,private modalService: ModalService, private el: ElementRef) {
+    this.element = el.nativeElement;
+   }
+  Id:string;
+  record:object;
 
-  record = {};
-  id: string;
-
-  public visible = false;
-  public visibleAnimate = false;
-  public keyname;
-  public occurrence;
-  public display:boolean=false;
-  public allEvents={};
-  public show(key,allEvents,display,occurrence): void {
-    this.keyname=key;
-    this.allEvents=allEvents;
-    this.display=display;
-    this.occurrence=occurrence;
-    
-    this.visible = true;
-    setTimeout(() => this.visibleAnimate = true, 100);
-  }
-  public showReset(): void{
-    this.visible = true;
-    setTimeout(() => this.visibleAnimate = true, 100);
-  }
-
-  public hide(): void {
-    this.visibleAnimate = false;
-    setTimeout(() => this.visible = false, 300);
-  }
-
-  public onContainerClicked(event: MouseEvent): void {
-    if ((<HTMLElement>event.target).classList.contains('modal')) {
-      this.hide();
-    }
-  }
-  
   ngOnInit() {
-    this.id = this.Event.returnsingleIdDetails();
-    this.Event.getoneevent(this.id).subscribe((data) => {
+    this.Id = this.Event.returnsingleIdDetails();
+    this.Event.getoneevent(this.Id).subscribe((data) => {
       if(data) {
         this.record = data;
         
@@ -54,6 +27,46 @@ export class ModalComponent implements OnInit {
       console.log(this.record);
       
     })
+
+    let modal = this;
+
+    // ensure id attribute exists
+    if (!this.id) {
+        console.error('modal must have an id');
+        return;
+    }
+
+    // move element to bottom of page (just before </body>) so it can be displayed above everything else
+    document.body.appendChild(this.element);
+
+    // close modal on background click
+    this.element.addEventListener('click', function (e: any) {
+        if (e.target.className === 'jw-modal') {
+            modal.close();
+        }
+    });
+
+    // add self (this modal instance) to the modal service so it's accessible from controllers
+    this.modalService.add(this);
+  }
+
+  // remove self from modal service when directive is destroyed
+  ngOnDestroy(): void {
+    this.modalService.remove(this.id);
+    this.element.remove();
+}
+
+
+  // open modal
+  open(): void {
+      this.element.style.display = 'block';
+      document.body.classList.add('jw-modal-open');
+  }
+
+  // close modal
+  close(): void {
+      this.element.style.display = 'none';
+      document.body.classList.remove('jw-modal-open');
   }
 
 }
