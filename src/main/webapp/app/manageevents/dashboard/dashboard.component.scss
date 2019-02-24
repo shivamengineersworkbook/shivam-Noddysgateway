@@ -1,0 +1,82 @@
+mat-card{
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.list-container{
+    padding-left: 25px;
+    padding-top: 25px;
+    height: 100%;
+    background-color: #fbfaf9;
+}
+
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+
+.heading_txt{
+    color: #f44336;
+    font-weight: 600;
+    margin-right: 20px;
+    font-size: 1.1em;
+}
+
+.date_color{
+    color:#a8a8a8
+}
+
+
+/* MODAL STYLES
+-------------------------------*/
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+ 
+    .jw-modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+ 
+        /* z-index must be higher than .jw-modal-background */
+        z-index: 1000;
+         
+        /* enables scrolling for tall modals */
+        overflow: auto;
+ 
+        .jw-modal-body {
+            padding: 20px;
+            background: #fff;
+ 
+            /* margin exposes part of the modal background */
+            margin: 40px;
+        }
+    }
+ 
+    .jw-modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+ 
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.75;
+         
+        /* z-index must be below .jw-modal and above everything else  */
+        z-index: 900;
+    }
+}
+ 
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}

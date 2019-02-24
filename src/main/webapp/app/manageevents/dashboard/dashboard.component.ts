@@ -9,12 +9,12 @@ import {
   CognitoUtil,
   LoggedInCallback
 } from "../../service/cognito.service";
-import { ModalComponent } from '../../modal/modal.component';
+import { ModalService } from './../../service/modal.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
     public userEvent: EventsService,
-    public dialog: MatDialog ) { }
+    public dialog: MatDialog,
+    private modalService: ModalService) { }
 
     records ={};
     subscribed =[];
@@ -42,11 +43,7 @@ export class DashboardComponent implements OnInit {
   console.log(this.records);
   }
 
-  OnOpen(id){
-    console.log(id);
-    this.dialog.open(ModalComponent);
-    this.userEvent.singleIdDetails(id);
-  }
+ 
 
   cognitoUser= {}
   isLoggedIn() {
@@ -58,5 +55,13 @@ export class DashboardComponent implements OnInit {
        return cognitoUser;
     }
   }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+}
+
+closeModal(id: string) {
+    this.modalService.close(id);
+}
 
 }
