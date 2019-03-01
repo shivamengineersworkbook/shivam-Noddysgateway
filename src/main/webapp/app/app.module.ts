@@ -44,6 +44,7 @@ import { UpdatefinalComponent } from './manageevents/update/updatefinal/updatefi
 import * as Material from "@angular/material";
 import { ModalComponent } from './modal/modal.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+import {MatTabsModule} from '@angular/material';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
     FacebookModule.forRoot(),
     CarouselModule.forRoot(),
     Material.MatDialogModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatTabsModule
   ],
   providers: [
     CognitoUtil,

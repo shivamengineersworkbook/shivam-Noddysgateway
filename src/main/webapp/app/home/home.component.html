@@ -8,7 +8,7 @@
       </mat-form-field>
       &nbsp;&nbsp;
       <mat-form-field>
-          <mat-select [(ngModel)]="eventDate" name="eventDate">
+          <mat-select style="color:#cc202e" [(ngModel)]="eventDate" name="eventDate">
             <mat-option *ngFor="let date of dates" [value]="date.value">
               {{date.viewValue}}
             </mat-option>

@@ -1,6 +1,6 @@
 <div class="container list-container">
   <mat-card *ngFor="let record of subscribed">
-    <mat-card-header (click)="openModal('custom-modal')">
+    <mat-card-header (click)="openModal('custom-modal-2')">
     <div class="row"> 
         <div class="media col-lg-6">
           <figure class="pull-left">
@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-lg-3">
-          <h4 class="list-group-item-heading heading_txt" (click)="openModal('custom-modal')"> {{record.event_name}} </h4>
+          <h4 class="list-group-item-heading heading_txt" (click)="openModal('custom-modal-2')"> {{record.event_name}} </h4>
           <p class="list-group-item-text"> {{record.event_min_age}} yrs to {{record.event_max_age}} yrs
           </p>
           <p class ="list-group-item-text">
@@ -25,7 +25,7 @@
   </mat-card>
 
   <mat-card *ngFor="let record of posted">
-    <mat-card-header (click)="openModal('custom-modal')">
+    <mat-card-header (click)="openModal('custom-modal-2')">
     <div class="row"> 
         <div class="media col-lg-6">
           <figure class="pull-left">
@@ -49,9 +49,11 @@
 </div>
 
 
-<jw-modal id="custom-modal">
+
+<jw-modal id="custom-modal-2">
     <h1 style="height:1000px">A Tall Custom Modal!</h1>
     <button (click)="closeModal('custom-modal-2');">Close</button>
 </jw-modal>
 
   
+ 

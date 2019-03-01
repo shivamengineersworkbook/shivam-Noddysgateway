@@ -14,7 +14,7 @@ import { ModalService } from './../../service/modal.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.less']
 })
 export class DashboardComponent implements OnInit {
 

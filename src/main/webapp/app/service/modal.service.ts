@@ -10,6 +10,7 @@ export class ModalService {
 
   add(modal: any) {
       // add modal to array of active modals
+      console.log(modal);
       this.modals.push(modal);
   }
 
@@ -21,12 +22,14 @@ export class ModalService {
   open(id: string) {
       // open modal specified by id
       let modal: any = this.modals.filter(x => x.id === id)[0];
+      console.log(modal);
       modal.open();
   }
 
   close(id: string) {
       // close modal specified by id
       let modal: any = this.modals.filter(x => x.id === id)[0];
+      console.log(this.modals);
       modal.close();
   }
 }

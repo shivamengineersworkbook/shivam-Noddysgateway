@@ -5,9 +5,9 @@ import { ModalService } from './../service/modal.service';
 @Component({
   selector: 'jw-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.less']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 
@@ -18,16 +18,6 @@ export class ModalComponent implements OnInit {
   record:object;
 
   ngOnInit() {
-    this.Id = this.Event.returnsingleIdDetails();
-    this.Event.getoneevent(this.Id).subscribe((data) => {
-      if(data) {
-        this.record = data;
-        
-      }
-      console.log(this.record);
-      
-    })
-
     let modal = this;
 
     // ensure id attribute exists
@@ -47,6 +37,7 @@ export class ModalComponent implements OnInit {
     });
 
     // add self (this modal instance) to the modal service so it's accessible from controllers
+    console.log(this);
     this.modalService.add(this);
   }
 

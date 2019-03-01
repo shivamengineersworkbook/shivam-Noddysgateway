@@ -95,9 +95,27 @@ records = [];
       nextArrow:$('.forbut'),
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 1920,
           settings: {
             slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 1080,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
           }
         },
         {
