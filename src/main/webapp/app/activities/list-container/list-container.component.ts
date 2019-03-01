@@ -3,6 +3,7 @@ import { EventsService} from '../../service/events.list.service';
 import { HomefiltercatcherService } from '../../service/homefiltercatcher.service';
 import { ServicefilterService } from './../../service/servicefilter.service';
 import { UserLoginService } from "../../service/user-login.service";
+import { ModalService } from './../../service/modal.service';
 import { Router } from "@angular/router";
 import { FacebookService, UIParams, UIResponse, InitParams } from 'ngx-facebook';
 import {
@@ -50,7 +51,8 @@ export class ListContainerComponent implements OnInit {
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
     private facebookService: FacebookService,
-    public router: Router
+    public router: Router,
+    private modalService: ModalService
     ) {
 
       // let initParams: InitParams = {
@@ -164,4 +166,11 @@ export class ListContainerComponent implements OnInit {
   // }
 
 
+  openModal(id: string) {
+    this.modalService.open(id);
+}
+
+closeModal(id: string) {
+    this.modalService.close(id);
+}
 }

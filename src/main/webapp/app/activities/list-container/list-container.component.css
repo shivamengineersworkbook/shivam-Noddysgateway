@@ -35,3 +35,7 @@ a.list-group-item.active small {
 .noUi-tooltip {
     display: block;
 }
+
+jw-modal {
+    display: none;
+}

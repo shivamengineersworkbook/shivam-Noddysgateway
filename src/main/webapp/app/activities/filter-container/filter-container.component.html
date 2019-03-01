@@ -13,7 +13,11 @@
     </div>
     <h4>TIME</h4>
     <div> 
-        <nouislider [connect]="true" [min]="0" [step]="0.5" [max]="24" [(ngModel)]="inputSpeedRange"></nouislider>
+        <nouislider [connect]="true" [min]="0" [step]="1" [max]="36" [(ngModel)]="inputSpeedRange"></nouislider>
+    </div>
+    <div>
+        <mat-slider min="0" step="1" max="35" [(ngModel)]="inputRange" thumbLabel tickInterval="1"></mat-slider>
+        {{inputRange}}
     </div>
     <!-- <div>
         {{values}}

@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-6">
             <small class="date_color"> {{record.event_last_date}} </small>
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_name}} </h4>
+          <h4 class="list-group-item-heading heading_txt" (click)="openModal('custom-modal')" > {{record.event_name}} </h4>
           <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
           </p>
           <p class ="list-group-item-text list-text">
@@ -40,4 +40,10 @@
   </mat-card-content>
   </mat-card>
 </div>
+
+<jw-modal id="custom-modal">
+  <h1 style="height:1000px">A Tall Custom Modal!</h1>
+  <button (click)="closeModal('custom-modal');">Close</button>
+</jw-modal>
+
 

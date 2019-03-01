@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
 import {ServicefilterService} from '../../service/servicefilter.service';
+import { integer } from 'aws-sdk/clients/storagegateway';
 
 @Component({
   selector: 'app-filter-container',
@@ -10,7 +11,10 @@ import {ServicefilterService} from '../../service/servicefilter.service';
 export class FilterContainerComponent implements OnInit {
   records = {};
   allevents ={};
+  inputRange = 2;
   inputSpeedRange=[5,15];
+  hr =12;
+  min =0;
   featureArr: any = { "provider": [],
                     "categories":[],
                     "ages":[],
@@ -85,4 +89,5 @@ export class FilterContainerComponent implements OnInit {
   onBookingType(data){
     this.featureArr.bookingType = data;
   }
+
 }

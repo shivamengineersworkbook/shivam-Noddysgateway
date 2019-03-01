@@ -45,6 +45,7 @@ import * as Material from "@angular/material";
 import { ModalComponent } from './modal/modal.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import {MatTabsModule} from '@angular/material';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import {MatTabsModule} from '@angular/material';
     CarouselModule.forRoot(),
     Material.MatDialogModule,
     SlickCarouselModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSliderModule
   ],
   providers: [
     CognitoUtil,
