@@ -29,15 +29,6 @@
         </div>
     </div>
   </mat-card-header>
-  <mat-card-content *ngIf="!collapsed">
-      <div class="col-lg-9">
-        <h3>Description</h3>
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_description}} </h4>
-        <h3>Venue</h3>
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_location.address.city}}, {{record.event_location.address.street}}, {{record.event_location.address.pincode}} </h4>  
-        </div>
-      <button mat-button (click)="collapsed=true">collapse Card</button>
-  </mat-card-content>
   </mat-card>
 </div>
 
