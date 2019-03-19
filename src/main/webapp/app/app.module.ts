@@ -46,6 +46,7 @@ import { ModalComponent } from './modal/modal.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import {MatTabsModule} from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
+import { FooterExtraComponent } from './footer-extra/footer-extra.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import {MatSliderModule} from '@angular/material/slider';
     UpdateComponent,
     UpdatefinalComponent,
     ModalComponent,
-    FooterComponent
+    FooterComponent,
+    FooterExtraComponent
   ],
   imports: [
   BrowserModule,

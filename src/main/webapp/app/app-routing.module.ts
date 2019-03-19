@@ -21,6 +21,7 @@ import { DashboardComponent } from './manageevents/dashboard/dashboard.component
 import {UpdateComponent} from './manageevents/update/update.component';
 import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component';
 import {FooterComponent} from './layouts/footer/footer.component';
+import { FooterExtraComponent } from './footer-extra/footer-extra.component';
 
 const appRoutes: Routes = [
   {
@@ -74,6 +75,10 @@ const appRoutes: Routes = [
       { path: "forgotPassword/:email", component: ForgotPassword2Component },
       { path: "forgotPassword", component: ForgotPasswordStep1Component }
     ]
+  },
+  {
+    path: "footextra",
+    component: FooterExtraComponent,
   }
 ];
 
