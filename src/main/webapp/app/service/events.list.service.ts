@@ -15,11 +15,11 @@ export class EventsService {
 
   getfilteredevents(details) {
     console.log(details);
-    return this.http.get<MainEvent>("http://localhost:8000/events");
+    return this.http.get<MainEvent>("http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=2");
   }
 
   getcategories(){
-    return this.http.get<category>("http://localhost:8000/categories");
+    return this.http.get<category>("http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/categories");
   }
 
   addUserEvents(userId,body){

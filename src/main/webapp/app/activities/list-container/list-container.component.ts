@@ -79,6 +79,7 @@ export class ListContainerComponent implements OnInit {
       if(data){
 
         this.records = data.events;
+        console.log(this.records);
       } else {
         console.log("no data")
       }

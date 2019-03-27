@@ -1,6 +1,9 @@
+import { ObjectId } from "aws-sdk/clients/codecommit";
+
 export interface category{
     "categories":[{
+        "_id":ObjectId,
         "category":String,
-        "image_uri":String
+        "image_url":String
     }]
 }
