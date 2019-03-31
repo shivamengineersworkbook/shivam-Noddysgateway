@@ -40,7 +40,7 @@ export class EventsService {
 
   getoneevent(id){
     console.log(id);
-    return this.http.get(`http://localhost:8000/event/${id}`);
+    return this.http.get(`http://localhost:8000/events/${id}`);
   }
 
   postEventImage(fd,id){

@@ -8,6 +8,7 @@
     font-weight: 600;
     margin-right: 20px;
     font-size: 1.1em;
+    font:playscript;
 }
 
 .toolbar_city{
@@ -34,3 +35,12 @@
     font-weight: bold;
     font-size: 0.9em;
 }
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
