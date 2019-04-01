@@ -47,6 +47,11 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import {MatTabsModule} from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
 import { FooterExtraComponent } from './footer-extra/footer-extra.component';
+import {
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule
+} from '@angular/material';
 
 
 @NgModule({
@@ -103,7 +108,10 @@ import { FooterExtraComponent } from './footer-extra/footer-extra.component';
     Material.MatDialogModule,
     SlickCarouselModule,
     MatTabsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [
     CognitoUtil,

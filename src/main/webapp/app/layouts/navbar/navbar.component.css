@@ -1,4 +1,4 @@
-.mat-toolbar{
+/* .mat-toolbar{
     background: white;
     border-bottom: 1px solid #d6d6d6;
 }
@@ -33,4 +33,13 @@
     color: #f44336;
     font-weight: bold;
     font-size: 0.9em;
-}
+} */
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

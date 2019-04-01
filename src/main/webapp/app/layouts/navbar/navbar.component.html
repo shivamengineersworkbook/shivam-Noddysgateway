@@ -1,4 +1,4 @@
-<mat-toolbar>
+<!-- <mat-toolbar>
   <span ><a routerLink = "/"  class="toolbar_logo">Noddys Club</a></span>
   <span>|</span>
   <span class="toolbar_city">
@@ -15,7 +15,57 @@
   <span *ngIf="isLoggedIn()" class="toolbar_login_events"><a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login_events "><a [routerLink]="['/manageevents/dashboard']" class="toolbar_login_events ">Manage Events  </a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login "><a [routerLink]="['/logout']"  class="toolbar_login ">Logout</a></span>
-</mat-toolbar>
+</mat-toolbar> -->
 
+<div style="height: 100vh;">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Responsive Navigation</span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a href="#" mat-button>
+          <mat-icon>notifications</mat-icon>
+          Notifications
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>message</mat-icon>
+          Messages
+        </a>
+        <a href="#" mat-button>
+          <mat-icon>account_box</mat-icon>
+          My Account
+        </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a href="#" mat-list-item>
+          <mat-icon>notifications</mat-icon>
+          Notifications
+        </a>
+        <a href="#" mat-list-item>
+          <mat-icon>message</mat-icon>
+          Messages</a>
+        <a href="#" mat-list-item>
+          <mat-icon>account_box</mat-icon>
+          My Account
+        </a>
+        <a href="#" mat-list-item>
+          <mat-icon>lock</mat-icon>
+          My Account
+        </a>
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Close
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

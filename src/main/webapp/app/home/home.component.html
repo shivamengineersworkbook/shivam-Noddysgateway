@@ -26,8 +26,8 @@
     </h1>
   <div class=" section-3_provider-items" >
 
-        <div class="section-3_provider-item" *ngFor="let record of records" (click)="savefilters('','','2','0')" [routerLink]="['/activities']">
-          <img src="{{record.image_url}}">
+        <div class="section-3_provider-item" *ngFor="let record of records" style="background-image: url('{{record.image_url}}')" (click)="savefilters('','','2','0')" [routerLink]="['/activities']">
+          <!--<img src="{{record.image_url}}"> -->
           <div>{{record.category}}</div>
         </div>
         <!-- <div class="section-3_provider-item section-3_provider-items_2" style="background-image: url('/assets/images/img4.png')" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
