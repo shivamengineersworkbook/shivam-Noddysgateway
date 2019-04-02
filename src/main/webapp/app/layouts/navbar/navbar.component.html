@@ -1,14 +1,12 @@
-<div style="height: 100vh;">
+
 <mat-toolbar>
   <mat-toolbar-row>
-  <button mat-icon-button (click)="sidenav.toggle()" fx-Show="true" fx-Hide.gt-sm>
-        <mat-icon>menu</mat-icon>
+  <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <i class="fa fa-bars"></i>
   </button>
   <span ><a routerLink = "/"  class="toolbar_logo">Noddys Club</a></span>
   <span>|</span>
-  <span class="example-spacer"></span>
-  <div fx-Show [fx-Show.gt-xs]="false">
-  <span class="toolbar_city">
+   <span class="toolbar_city">
     <mat-form-field>
       <mat-select [(value)]="LocationNav">
         <mat-option *ngFor="let city of cities" [value]="city.value" >
@@ -17,7 +15,9 @@
       </mat-select>
     </mat-form-field>
   </span>
-  <span *ngIf="!isLoggedIn()" class="toolbar_login"><a routerLink="/home/login" class="toolbar_login_events ">Log In</a></span>
+  <span class="example-spacer"></span>
+  <div fxShow="true" fxHide.lt-md="true">
+  <span *ngIf="!isLoggedIn()" class="toolbar_login" ><a routerLink="/home/login" class="toolbar_login_events ">Log In</a></span>
   <span *ngIf="!isLoggedIn()" class="toolbar_login_events"><a routerLink="/home/login" class="toolbar_login_events ">Add Event</a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login_events"><a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
   <span *ngIf="isLoggedIn()" class="toolbar_login_events "><a [routerLink]="['/manageevents/dashboard']" class="toolbar_login_events ">Manage Events  </a></span>
@@ -30,84 +30,19 @@
 <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a href="#" mat-list-item>
-          <mat-icon>notifications</mat-icon>
-          Notifications
-        </a>
-        <a href="#" mat-list-item>
-          <mat-icon>message</mat-icon>
-          Messages</a>
-        <a href="#" mat-list-item>
-          <mat-icon>account_box</mat-icon>
-          My Account
-        </a>
-        <a href="#" mat-list-item>
-          <mat-icon>lock</mat-icon>
-          My Account
-        </a>
-        <a (click)="sidenav.toggle()" mat-list-item>
-          <mat-icon>close</mat-icon> Close
-        </a>
+      <span *ngIf="!isLoggedIn()" class="toolbar_login">
+      <a routerLink="/home/login" class="toolbar_login_events " mat-list-item>Log In</a></span>
+      <span *ngIf="!isLoggedIn()" class="toolbar_login" >
+      <a routerLink="/home/login" class="toolbar_login_events " mat-list-item>Add Event</a></span>
+      <span *ngIf="isLoggedIn()" class="toolbar_login_events">
+      <a routerLink="/manageevents/addevent" class="toolbar_login_events ">Add Event</a></span>
+      <span *ngIf="isLoggedIn()" class="toolbar_login_events " mat-list-item>
+      <a [routerLink]="['/manageevents/dashboard']" class="toolbar_login_events " mat-list-item>Manage Events  </a></span>
+      <span *ngIf="isLoggedIn()" class="toolbar_login ">
+      <a [routerLink]="['/logout']"  class="toolbar_login " mat-list-item>Logout</a></span>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+    <mat-sidenav-content fxFlexFill><router-outlet></router-outlet>
+    </mat-sidenav-content>
   </mat-sidenav-container>
-</div>
 
-
-
-<!-- <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a href="#" mat-list-item>
-          <mat-icon>notifications</mat-icon>
-          Notifications
-        </a>
-        <a href="#" mat-list-item>
-          <mat-icon>message</mat-icon>
-          Messages</a>
-        <a href="#" mat-list-item>
-          <mat-icon>account_box</mat-icon>
-          My Account
-        </a>
-        <a href="#" mat-list-item>
-          <mat-icon>lock</mat-icon>
-          My Account
-        </a>
-        <a (click)="sidenav.toggle()" mat-list-item>
-          <mat-icon>close</mat-icon> Close
-        </a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-  </mat-sidenav-container>-->
-
-
-
-<!--<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>serendipity</span>
-    </mat-toolbar>
-   
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
