@@ -1,12 +1,13 @@
 
+
 <mat-toolbar>
   <mat-toolbar-row>
   <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <i class="fa fa-bars"></i>
   </button>
   <span ><a routerLink = "/"  class="toolbar_logo">Noddys Club</a></span>
-  <span>|</span>
-   <span class="toolbar_city">
+  <span fxShow="true" fxHide.lt-md="true">|</span>
+   <span class="toolbar_city" fxShow="true" fxHide.lt-md="true">
     <mat-form-field>
       <mat-select [(value)]="LocationNav">
         <mat-option *ngFor="let city of cities" [value]="city.value" >

@@ -24,30 +24,64 @@
     <h1 class="text-color">
     Categories to explore
     </h1>
-  <div class=" section-3_provider-items" >
-
-        <div class="section-3_provider-item" *ngFor="let record of records" style="background-image: url('{{record.image_url}}')" (click)="savefilters('','','2','0')" [routerLink]="['/activities']">
-          <!--<img src="{{record.image_url}}"> -->
-          <div>{{record.category}}</div>
-        </div>
-        <!-- <div class="section-3_provider-item section-3_provider-items_2" style="background-image: url('/assets/images/img4.png')" (click)="savefilters('','','2','1')" [routerLink]="['/activities']" *ngIf="records[1].category">
-          <div>{{records[1].category}}</div>
-        </div>
-        <div class="section-3_provider-item section-3_provider-items_3 " style="background-image: url('/assets/images/img5.png')" (click)="savefilters('','','2','2')" [routerLink]="['/activities']" *ngIf="records[2].category">
-          <div>{{records[2].category}}</div>
-        </div>
-        <div class="section-3_provider-item section-3_provider-items_4 " style="background-image: url('/assets/images/img6.png')" (click)="savefilters('','','2','3')" [routerLink]="['/activities']" *ngIf="records[3].category">
-            <div>{{records[3].category}}</div>
-          </div>
-          <div class="section-3_provider-item section-3_provider-items_5" style="background-image: url('/assets/images/img7.png')" (click)="savefilters('','','2','4')" [routerLink]="['/activities']" *ngIf="records[4].category">
-            <div>{{records[4].category}}</div>
-          </div>
-          <div class="section-3_provider-item section-3_provider-items_6" style="background-image: url('/assets/images/img8.png')" (click)="savefilters('','','2','5')" [routerLink]="['/activities']" *ngIf="records[5].category">
-            <div>{{records[5].category}}</div>
-          </div> -->
-         
+    <div class="container-fluid">
+    <div class= "row">
+    <div class= "col-md-1">
+      <button class="catbackbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>
     </div>
+    <div class="categoriescara col-md-10">
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[0].image_url}}" width="300" height="300">
+            <div class="centered">{{records[0].name}}</div>
+          </div>
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[1].image_url}}" width="300" height="300">
+            <div class="centered">{{records[1].name}}</div>
+          </div>
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[2].image_url}}" width="300" height="300">
+            <div class="centered">{{records[2].name}}</div>
+          </div>
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[3].image_url}}" width="300" height="300">
+            <div class="centered">{{records[3].name}}</div>
+          </div>
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[4].image_url}}" width="300" height="300">
+            <div class="centered">{{records[4].name}}</div>
+          </div>
+          <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[5].image_url}}" width="300" height="300">
+            <div class="centered">{{records[5].name}}</div>
+          </div>
+           <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[6].image_url}}" width="300" height="300">
+            <div class="centered">{{records[6].name}}</div>
+          </div>
+           <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[7].image_url}}" width="300" height="300">
+            <div class="centered">{{records[7].name}}</div>
+          </div>
+           <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[8].image_url}}" width="300" height="300">
+            <div class="centered">{{records[8].name}}</div>
+          </div>
+           <div class="carousel-item col-md-4">
+            <img class="darken" src="{{records[9].image_url}}" width="300" height="300">
+            <div class="centered">{{records[9].name}}</div>
+          </div>
+    </div>
+    <div class= "col-md-1">
+      <button class="catforbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
+    </div>
+</div>
+    </div>
+
 </section>
+
+
+
+ 
 
 <section class="section-4">
     <button class="backbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>

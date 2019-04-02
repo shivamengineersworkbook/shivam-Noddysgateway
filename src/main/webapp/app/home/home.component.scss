@@ -70,7 +70,7 @@ section {
     display: flex;
 }
 
-.section-3_provider-items div{
+.section-3_provider-items div div{
     margin:2%;
     flex-grow: 1;
     flex-basis: 0;
@@ -218,6 +218,22 @@ section {
 }
 
 
+// to centrally align text on categories
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
 
+// Darken background images of categories
+.darken {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+}
 
 

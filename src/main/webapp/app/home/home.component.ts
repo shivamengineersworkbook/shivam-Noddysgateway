@@ -5,7 +5,7 @@ import {
     Renderer2,
     AfterViewInit
 } from '@angular/core';
-import { EventsService } from '../service/events.list.service'
+import { EventsService } from '../service/events.list.service';
 import { Router } from '@angular/router';
 import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
 
@@ -14,55 +14,55 @@ declare var require: any;
 
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
   rotatingTexts = [
-    "adventure",
-    "astronaut camp",
-    "chess match",
-    "cook-off",
-    "dance recital",
-    "puppet show",
-    "storytime",
-    "swim lesson",
-    "swordfight"
+    'adventure',
+    'astronaut camp',
+    'chess match',
+    'cook-off',
+    'dance recital',
+    'puppet show',
+    'storytime',
+    'swim lesson',
+    'swordfight'
   ];
 
-  @ViewChild("rotatingText") rotatingText: ElementRef;
+  @ViewChild('rotatingText') rotatingText: ElementRef;
   events = [];
-  eventName = "";
+  eventName = '';
 
   dates = [
     {
-      value: "All Dates",
-      viewValue: "All Dates"
+      value: 'All Dates',
+      viewValue: 'All Dates'
     },
     {
-      value: "Today",
-      viewValue: "Today"
+      value: 'Today',
+      viewValue: 'Today'
     },
     {
-      value: "Tomorrow",
-      viewValue: "Tomorrow"
+      value: 'Tomorrow',
+      viewValue: 'Tomorrow'
     },
     {
-      value: "This Week",
-      viewValue: "This Week"
+      value: 'This Week',
+      viewValue: 'This Week'
     },
     {
-      value: "This Weekend",
-      viewValue: "This Weekend"
+      value: 'This Weekend',
+      viewValue: 'This Weekend'
     },
     {
-      value: "Next Week",
-      viewValue: "Next Week"
+      value: 'Next Week',
+      viewValue: 'Next Week'
     },
     {
-      value: "Next Month",
-      viewValue: "Next Month"
+      value: 'Next Month',
+      viewValue: 'Next Month'
     }
   ];
   eventDate = this.dates[0].viewValue;
@@ -71,28 +71,28 @@ export class HomeComponent implements AfterViewInit {
     private renderer: Renderer2,
     private router: Router,
     public eventcategories: EventsService,
-    public homefilters:HomefiltercatcherService
+    public homefilters: HomefiltercatcherService
   ) {}
 
 records = [];
 
   ngOnInit() {
     this.eventcategories.getcategories().subscribe(data => {
-      if(data){
+      if (data){
         this.records = data.categories;
         console.log(this.records);
       } else {
-        console.log("no data")
+        console.log('no data');
       }
-      
+
     });
 
     $('.your-class').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplaySpeed: 1500,
-      prevArrow:$('.backbut'),
-      nextArrow:$('.forbut'),
+      prevArrow: $('.backbut'),
+      nextArrow: $('.forbut'),
       responsive: [
         {
           breakpoint: 1920,
@@ -126,14 +126,55 @@ records = [];
         }
       ]
     });
-    
-    this.eventcategories.getfilteredevents("").subscribe(data => {
-      if(data){
+
+    this.eventcategories.getfilteredevents('').subscribe(data => {
+      if (data){
 
         this.events = data.events;
       } else {
-        console.log("no data")
+        console.log('no data');
       }
+    });
+
+    $('.categoriescara').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerMode: true,
+      centerPadding: '60px',
+      prevArrow: $('.catbackbut'),
+      nextArrow: $('.catforbut'),
+      responsive: [
+        {
+          breakpoint: 1920,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 1080,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
     });
 
 
@@ -161,13 +202,13 @@ records = [];
   //   });
   }
 
-  categor = ['Art','Cooking','EventsFree' ,'Activity','Language','Music','Open Play','Private Lessons','Science','Swim']
+  categor = ['Art', 'Cooking', 'EventsFree' , 'Activity', 'Language', 'Music', 'Open Play', 'Private Lessons', 'Science', 'Swim'];
   ngAfterViewInit() {
     let i = 0;
     setInterval(() => {
       this.renderer.setProperty(
         this.rotatingText.nativeElement,
-        "innerHTML",
+        'innerHTML',
         this.categor[i]
       );
       i++;
@@ -175,36 +216,36 @@ records = [];
     }, 500);
   }
 
-  filters={
-    search:"",
-    date:"",
-    age:"",
-    categorie:""
-  }
- savefilters(search="", date="", age="",categorie="") {
-  if(search == ""){
-    console.log("empty serach")
+  filters = {
+    search: '',
+    date: '',
+    age: '',
+    categorie: ''
+  };
+ savefilters(search= '', date= '', age= '', categorie= '') {
+  if (search == ''){
+    console.log('empty serach');
   } else {
     console.log(search);
     this.filters.search = search;
   }
 
-  if(date == ""){
-    console.log("empty date")
+  if (date == ''){
+    console.log('empty date');
   } else {
     console.log(date);
     this.filters.date = date;
   }
 
-  if(age == ""){
-    console.log("empty age")
+  if (age == ''){
+    console.log('empty age');
   } else {
     console.log(age);
     this.filters.age = age;
   }
 
-  if(categorie == ""){
-    console.log("empty categorie")
+  if (categorie == ''){
+    console.log('empty categorie');
   } else {
     console.log(categorie);
     this.filters.categorie = categorie;
@@ -213,5 +254,5 @@ records = [];
   this.homefilters.sendingfilters(this.filters);
  }
 
- 
+
 }

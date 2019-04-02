@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
 import { HomefiltercatcherService } from '../../service/homefiltercatcher.service';
 import { ServicefilterService } from './../../service/servicefilter.service';
-import { UserLoginService } from "../../service/user-login.service";
+import { UserLoginService } from '../../service/user-login.service';
 import { ModalService } from './../../service/modal.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { FacebookService, UIParams, UIResponse, InitParams } from 'ngx-facebook';
 import {
   CognitoCallback,
   CognitoUtil,
   LoggedInCallback
-} from "../../service/cognito.service";
+} from '../../service/cognito.service';
 
 @Component({
-  selector: "app-list-container",
-  templateUrl: "./list-container.component.html",
-  styleUrls: ["./list-container.component.css"]
+  selector: 'app-list-container',
+  templateUrl: './list-container.component.html',
+  styleUrls: ['./list-container.component.css']
 })
 export class ListContainerComponent implements OnInit {
   records = {}; 
@@ -23,26 +23,26 @@ export class ListContainerComponent implements OnInit {
   curMonth = this.curDate.getMonth() + 1;
   changed = false;
   dates = [
-    "January",
-    "Febuary",
-    "March",
-    "April",    
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    'January',
+    'Febuary',
+    'March',
+    'April',    
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
   ];
  
   month = (this.curMonth);
   nowDate =
-    ("0" + this.curDate.getDate()).slice(-2) +
-    " " +
+    ('0' + this.curDate.getDate()).slice(-2) +
+    ' ' +
     this.dates[this.month-1] +
-    ", " +
+    ', ' +
     this.curDate.getFullYear();
 
   constructor(public events: EventsService,
@@ -81,7 +81,7 @@ export class ListContainerComponent implements OnInit {
         this.records = data.events;
         console.log(this.records);
       } else {
-        console.log("no data")
+        console.log('no data')
       }
     });
 
@@ -101,7 +101,7 @@ export class ListContainerComponent implements OnInit {
 
   
   share(url: string, title: string, imgUrl: string, venueName: string, price, date) {
-    url = url.split(" ").join("%20");
+    url = url.split(' ').join('%20');
 
     /* let params: UIParams = {
      // href: 'https://github.com/zyra/ngx-facebook',
@@ -119,7 +119,7 @@ export class ListContainerComponent implements OnInit {
         object: {
           'og:url': url,
           'og:title': title,
-          'og:description': "Price: ₹ " + price + " Date: " + date + " Venue: " + venueName,
+          'og:description': 'Price: ₹ ' + price + ' Date: ' + date + ' Venue: ' + venueName,
           // 'og:image': url + '/assets/images/logo.png',
           'og:image': imgUrl,
           'og:image:width': '1200',
