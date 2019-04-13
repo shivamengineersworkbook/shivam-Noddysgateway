@@ -36,8 +36,39 @@
 
   <div class="container">
     <div class="row">
-      <img src="modalobject.event_image_url" width="100%" height="400px">
+      <img src="modalobject.event_image_url" width="100%" height="450px">
     </div>
+    <div class="row">
+    <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_name}} </h4>  
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+      <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{modalobject.event_start_time}} to {{modalobject.event_end_time}}
+      <p class ="list-group-item-text list-text">
+              <i class="fa fa-rupee"></i> {{modalobject.event_price}} 
+      </p>
+      <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
+      </div>
+      <div class="col-md-6">
+      <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+          <p *ngIf="!bAuthenticated">U need to log in to register</p>
+      <div class="row" style="margin:4px; float: right;"> 
+            <button class="btn btn-info" style="margin:4px" (click)="share(modal.event_booking.url,modalobject.event_name,modalobject.event_image_url,modalobject.event_location.address.city,modalobject.event_price,modalobject.event_last_date)"><i class="fa fa-facebook"></i></button>
+            <button class="btn btn-dark" style="margin:4px"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
+      </div>    
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-md-12" [innerHTML]="modalobject.event_description">      
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-md-6">
+      
+      </div>
+    </div>
+
   </div>
   
   <button (click)="closeModal('custom-modal');">Close</button>
