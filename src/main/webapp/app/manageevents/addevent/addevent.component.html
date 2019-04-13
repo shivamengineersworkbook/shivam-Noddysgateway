@@ -190,10 +190,20 @@
               <div  class="form-group">
                 <div  class="row">
                   <div  class="col-sm-6">
+                  <div class="row">
+                  <div  class="col-sm-6">
                     <label >Image url</label>
-                    <input  (change)="OnFileSelected($event)" type="file"  [(ngModel)]="event.event_Image_url" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="I_url">
+                  </div>  
+                  </div>
+                   <div class="row">
+                   <div  class="col-sm-8">
+                    <input  (change)="OnFileSelected($event)" type="file" #image accept="image/*">
                     <input  (click)="OnSubmitPhoto()" class="btn btn-primary" type="button" value="Upload">
-                    <img src="{{selectedFile}}" height=200 width=200>
+                    <img src="{{selectedImageUrl}}" height=200 width=200>
+                    </div>
+                  </div>
+                  
+                    
                   </div>
                   <div  class="col-sm-6">
                     <label >Booking Url</label>

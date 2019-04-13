@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     posted =[];
   ngOnInit() {
     this.cognitoUser = this.isLoggedIn();
+    console.log(this.cognitoUser);
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
     if(data){
 

@@ -22,6 +22,8 @@ export class ListContainerComponent implements OnInit {
   curDate = new Date();
   curMonth = this.curDate.getMonth() + 1;
   changed = false;
+  modalobject = {};
+  modalId: string = "";
   dates = [
     'January',
     'Febuary',
@@ -75,7 +77,7 @@ export class ListContainerComponent implements OnInit {
   ngOnInit() {
     this.homedetails = this.homefilters.returningfilters();
     console.log(this.homedetails);
-    this.events.getfilteredevents(this.homedetails).subscribe(data => {
+    this.events.getfilteredevents('').subscribe(data => {
       if(data){
 
         this.records = data.events;
@@ -168,6 +170,15 @@ export class ListContainerComponent implements OnInit {
 
 
   openModal(id: string) {
+    this.events.getoneevent("PTD_Batch_Request_User_1001").subscribe(data =>{
+      if(data){
+
+        this.modalobject = data;
+        console.log(this.modalobject);
+      } else {
+        console.log('no data')
+      }
+    })
     this.modalService.open(id);
 }
 
