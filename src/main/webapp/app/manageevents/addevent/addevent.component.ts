@@ -22,7 +22,7 @@ import { validateConfig } from '@angular/router/src/config';
 export class AddeventComponent implements OnInit {
   errorMessage: string = null;
   selectedFile: File = null;
-  selectedImageUrl = '../../assets/images/intro-bg.jpg';
+  selectedImageUrl = '../../assets/images/addimage.png';
 
   constructor(public router: Router,
     public userService: UserLoginService,
