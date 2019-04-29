@@ -31,7 +31,7 @@
   </mat-card-header>
   </mat-card>
 </div>
-
+<!--
 <jw-modal id="custom-modal">
 
   <div class="container">
@@ -75,13 +75,13 @@
       
       <div class="col-md-12"  >
 
-        <h4 class="list-group-item-heading heading_txt" ngIf="modalobject.event_booking.inquiry_url">URLs </h4>
-        <h5 ngIf="modalobject.event_booking.inquiry_url">Inquiry List</h5> 
+        <h4 class="list-group-item-heading heading_txt" *ngIf="modalobject.event_booking.inquiry_url">URLs </h4>
+        <h5 *ngIf="modalobject.event_booking.inquiry_url">Inquiry List</h5> 
         <p class ="list-group-item-text list-text">
            {{modalobject.event_booking.inquiry_url}} 
       </p>
 
-      <h5 ngIf="modalobject.event_booking.booking_url">Booking Url</h5>
+      <h5 *ngIf="modalobject.event_booking.booking_url">Booking Url</h5>
       <p class ="list-group-item-text list-text">
            {{modalobject.event_booking.booking_url}} 
       </p>
@@ -93,5 +93,5 @@
   
   <button (click)="closeModal('custom-modal');">Close</button>
 </jw-modal>
-
+-->
 
