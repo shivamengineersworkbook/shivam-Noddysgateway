@@ -30,7 +30,15 @@
     </div>
   </mat-card-header>
   </mat-card>
+  <nav aria-label="Page navigation" class="align-bottom">
+  <ul class="pagination  text-center">
+    <li class="page-item"><button class="page-link" (click)="prevpagecall()">Previous</button></li>
+    <li class="page-item"><button class="page-link" >{{pagenav}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="nextpagecall()">Next</button></li>
+  </ul>
+</nav>
 </div>
+
 
 <jw-modal id="custom-modal">
 
@@ -71,22 +79,7 @@
       </p>
       </div>
     </div>
-    <div class="row">
-      
-      <div class="col-md-12"  >
 
-        <h4 class="list-group-item-heading heading_txt">URLs </h4>
-        <h5 >Inquiry List</h5> 
-        <p class ="list-group-item-text list-text">
-           {{modalobject.event_booking.inquiry_url}} 
-      </p>
-
-      <h5>Booking Url</h5>
-      <p class ="list-group-item-text list-text">
-           {{modalobject.event_booking.booking_url}} 
-      </p>
-      </div>
-    </div>
 
 
   </div>

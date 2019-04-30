@@ -13,9 +13,15 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
+  baseurl = "http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000";
+
   getfilteredevents(details) {
     console.log(details);
-    return this.http.get<MainEvent>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=2');
+    return this.http.get<MainEvent>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=1');
+  }
+
+  getfilterevents(page:number) {
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}`);
   }
 
   getcategories(){
