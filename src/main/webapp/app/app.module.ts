@@ -54,6 +54,7 @@ import {
   MatSidenavModule
 } from '@angular/material';
 import {FlexLayoutModule } from '@angular/flex-layout';
+import { ServicefilterService } from './service/servicefilter.service';
 
 
 @NgModule({
@@ -89,7 +90,7 @@ import {FlexLayoutModule } from '@angular/flex-layout';
     FooterExtraComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MatToolbarModule,
@@ -123,7 +124,8 @@ import {FlexLayoutModule } from '@angular/flex-layout';
     UserRegistrationService,
     UserLoginService,
     UserParametersService,
-    EventsService
+    EventsService,
+    ServicefilterService
   ],
   bootstrap: [AppComponent],
   entryComponents:[ModalComponent]

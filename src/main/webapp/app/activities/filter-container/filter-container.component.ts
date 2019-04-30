@@ -22,28 +22,22 @@ export class FilterContainerComponent implements OnInit {
                     "location":String,
                     "bookingType":String };
   location:string="";
-  
+
+  //this is a list of static providers
+  staticproviderslist = ['hello','main','second','senile'];
   constructor(public events: EventsService,
               public filter: ServicefilterService) { }
 
   ngOnInit() {
     this.events.getcategories().subscribe(data => {
       if(data){
-        console.log(this.records);
+        console.log(data);
         this.records = data.categories;
       } else {
         console.log("no categories available");
       }
 
     });
-
-    this.events.getfilteredevents("").subscribe(data => {
-      if(data){
-        this.allevents = data.events;
-      } else {
-        console.log("no providers available");
-      }
-    })
     
   }
 
@@ -82,7 +76,6 @@ export class FilterContainerComponent implements OnInit {
     this.featureArr.timeinputs="";
     this.featureArr.location ="";
     this.featureArr.bookingType="";
-    console.log(this.featureArr);
     this.filter.sendfilters(this.featureArr);
   }
 

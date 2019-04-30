@@ -5,6 +5,7 @@ import { userInfo } from 'os';
 import { Record } from './../interfaces/getuserevents';
 import { category } from './../interfaces/eventcategories';
 import { MainEvent } from './../interfaces/getallevents';
+import { filters } from './../interfaces/filters';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class EventsService {
     return this.http.get<MainEvent>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=1');
   }
 
-  getfilterevents(page:number) {
+  getfilterevents(details:filters, page:number) {
+    console.log(details);
     return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}`);
   }
 

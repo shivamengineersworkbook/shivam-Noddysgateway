@@ -11,6 +11,7 @@ import {
   CognitoUtil,
   LoggedInCallback
 } from '../../service/cognito.service';
+import { filters } from './../../interfaces/filters';
 
 @Component({
   selector: 'app-list-container',
@@ -22,6 +23,8 @@ export class ListContainerComponent implements OnInit {
   private pagenav:number = 1;
   //This is to get the event id from the list
   private modaleventId:string;
+  //filters from the filter component
+  private filters:filters;
   records = {};
   curDate = new Date();
   curMonth = this.curDate.getMonth() + 1;
@@ -79,16 +82,21 @@ export class ListContainerComponent implements OnInit {
   homedetails = {};
   bAuthenticated = false;
   ngOnInit() {
-    this.homedetails = this.homefilters.returningfilters();
-    console.log(this.homedetails);
-    this.events.getfilteredevents('').subscribe(data => {
-      if (data) {
-
-        this.records = data.events;
-        console.log(this.records);
-      } else {
-        console.log('no data');
-      }
+    // this.homedetails = this.homefilters.returningfilters();
+    // console.log(this.homedetails);
+    this.filterService.cast.subscribe((filters) => {
+      this.filters = filters;
+      //this all will be called when there is a change in the filters
+      this.events.getfilterevents(this.filters,this.pagenav).subscribe(data => {
+        if (data) {
+  
+          this.records = data.events;
+          console.log(this.records);
+        } else {
+          console.log('no data');
+        }
+      });
+      
     });
 
     this.isLoggedIn();
@@ -192,7 +200,7 @@ closeModal(id: string) {
 
 nextpagecall() {
   ++this.pagenav;
-  this.events.getfilterevents(this.pagenav).subscribe(data => {
+  this.events.getfilterevents(this.filters,this.pagenav).subscribe(data => {
     if (data) {
 
       this.records = data.events;
@@ -215,7 +223,7 @@ prevpagecall() {
     this.pagenav=1;
   }
   
-  this.events.getfilterevents(this.pagenav).subscribe(data => {
+  this.events.getfilterevents(this.filters,this.pagenav).subscribe(data => {
     if (data) {
 
       this.records = data.events;
