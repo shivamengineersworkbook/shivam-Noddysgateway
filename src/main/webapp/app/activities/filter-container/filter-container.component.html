@@ -1,7 +1,7 @@
 
 <div class="filter-container">
     <h4>BOOKING TYPE</h4>
-    <div>
+    <div class="row">
         <button mat-raised-button (click)="onBookingType('Drop-in')">Drop-in</button>
         <button mat-raised-button (click)="onBookingType('Semester')">Semester</button>
         <button mat-raised-button (click)="onBookingType('Camp')">Camp</button>
@@ -16,14 +16,7 @@
     <div> 
         <nouislider [connect]="true" [min]="0" [step]="1" [max]="36" [(ngModel)]="inputSpeedRange"></nouislider>
     </div>
-    <div>
-        <mat-slider min="0" step="1" max="35" [(ngModel)]="inputRange" thumbLabel tickInterval="1"></mat-slider>
-        {{inputRange}}
-    </div> 
     
-    <!-- <div>
-        {{values}}
-    </div> -->
     
     <div class="row">
             <div class="mat-raised-button box col-md-2">
@@ -46,7 +39,6 @@
                     <mat-checkbox (change)="onChangeAges($event, '14')">less than 14</mat-checkbox>
                     <mat-checkbox (change)="onChangeAges($event, '18')">less than 18</mat-checkbox>
                     <mat-checkbox (change)="onChangeAges($event, '22')">less than 22</mat-checkbox>
-                    <mat-checkbox (change)="onChangeAges($event, 'No Adult Required')">No Adult Required</mat-checkbox>
                 </div>
                 <div class="filter-container_age-panel-right">
                     <mat-checkbox (change)="onChangeAges($event, '4')">less than 4</mat-checkbox>
@@ -54,7 +46,6 @@
                     <mat-checkbox (change)="onChangeAges($event, '12')">less than 12</mat-checkbox>
                     <mat-checkbox (change)="onChangeAges($event, '16')">less than 16</mat-checkbox>
                     <mat-checkbox (change)="onChangeAges($event, '20')">less than 20</mat-checkbox>
-                    <mat-checkbox (change)="onChangeAges($event, 'Adult')">Adult</mat-checkbox>
                 </div>
             </div>
         </mat-expansion-panel>

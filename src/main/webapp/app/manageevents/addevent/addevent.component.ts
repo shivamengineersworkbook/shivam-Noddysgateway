@@ -116,8 +116,9 @@ export class AddeventComponent implements OnInit {
   res = {};
   OnSubmit() {
     this.cognitoUser = this.isLoggedIn();
-    this.validateData()
-    if (this.errorMessage){
+    this.errorMessage = " ";
+    // this.validateData();
+    if (this.errorMessage!=" "){
       console.log('no request made')
     } else {
       this.userEvent.addUserEvents(this.cognitoUser, this.event).subscribe((data) => {

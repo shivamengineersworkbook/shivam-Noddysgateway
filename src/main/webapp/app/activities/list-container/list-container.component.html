@@ -9,7 +9,7 @@
           </figure>
         </div>
         <div class="col-lg-6">
-            <small class="date_color"> {{record.event_last_date}} </small>
+            <small class="date_color"> {{getmonth(record.event_start_date)}} </small>
           <h4 class="list-group-item-heading heading_txt" (click)="gettingevent(record._id);openModal('custom-modal')"> {{record.event_name}} </h4>
           <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
           </p>

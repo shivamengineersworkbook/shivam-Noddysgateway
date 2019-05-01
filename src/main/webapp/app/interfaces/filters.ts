@@ -1,7 +1,7 @@
 export interface filters {
-    provider: [],
-    categories:[],
-    ages:[],
+    provider: Array<String>,
+    categories:Array<String>,
+    ages:Array<String>,
     timerange:String,
     location:String,
     bookingType:String

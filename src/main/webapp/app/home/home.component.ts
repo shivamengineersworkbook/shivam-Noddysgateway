@@ -8,6 +8,7 @@ import {
 import { EventsService } from '../service/events.list.service';
 import { Router } from '@angular/router';
 import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
+import { ModalService } from './../service/modal.service';
 
 declare var $: any;
 declare var require: any;
@@ -19,6 +20,18 @@ declare var require: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
+  //This is to get the time and date from a certain timestamp
+  dateandtime:Array<string>;
+  //this is to get just the date
+  date:Array<string>;
+  //this is to get the month and date sperately
+  month:string;
+  day:string;
+  //This is to get the event id from the list
+  private modaleventId:string;
+  modalobject = {};
+
+
   rotatingTexts = [
     'adventure',
     'astronaut camp',
@@ -34,6 +47,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('rotatingText') rotatingText: ElementRef;
   events = [];
   eventName = '';
+
 
   dates = [
     {
@@ -71,7 +85,8 @@ export class HomeComponent implements AfterViewInit {
     private renderer: Renderer2,
     private router: Router,
     public eventcategories: EventsService,
-    public homefilters: HomefiltercatcherService
+    public homefilters: HomefiltercatcherService,
+    private modalService: ModalService
   ) {}
 
 records = [];
@@ -254,5 +269,64 @@ records = [];
   this.homefilters.sendingfilters(this.filters);
  }
 
+ //This function returns the month fro the time stamp
+ getmonth(timestamp) {
+    this.dateandtime = timestamp.split("T");
+    this.date = this.dateandtime[0].split("-");
+    this.day = this.date[2];
+    this.month = this.date[1];
+    if(this.month == "01"){
+      this.month = "Jan"
+    } else if(this.month == "02"){
+      this.month = "Feb"
+    } else if(this.month == "03"){
+      this.month = "Mar"
+    } else if(this.month == "04"){
+      this.month = "Apr"
+    } else if(this.month == "05"){
+      this.month = "May"
+    } else if(this.month == "06"){
+      this.month = "Jun"
+    } else if(this.month == "07"){
+      this.month = "Jul"
+    } else if(this.month == "08"){
+      this.month = "Aug"
+    } else if(this.month == "09"){
+      this.month = "Sept"
+    } else if(this.month == "10"){
+      this.month = "Oct"
+    } else if(this.month == "11"){
+      this.month = "Nov"
+    } else{
+      this.month = "Dec"
+    }
 
+    return `${this.day}, ${this.month}`;
+ }
+
+
+ //opens model window
+ openModal(id: string) {
+  this.eventcategories.getoneevent(`${this.modaleventId}`).subscribe(data => {
+    if (data) {
+
+      this.modalobject = data;
+      console.log(this.modalobject);
+    } else {
+      console.log('no data');
+    }
+  });
+  this.modalService.open(id);
+}
+
+//closes model window
+closeModal(id: string) {
+  this.modalService.close(id);
+}
+
+//getting model event id
+gettingevent(eventId:string){
+  console.log(eventId);
+  this.modaleventId = eventId;
+}
 }
