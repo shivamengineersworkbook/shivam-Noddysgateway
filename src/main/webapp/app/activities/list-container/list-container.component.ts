@@ -93,6 +93,7 @@ export class ListContainerComponent implements OnInit {
     // console.log(this.homedetails);
     this.filterService.cast.subscribe((filters) => {
       this.filters = filters;
+      this.pagenav = 1;
       //this all will be called when there is a change in the filters
       this.events.getfilterevents(this.filters,this.pagenav).subscribe(data => {
         if (data) {

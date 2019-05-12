@@ -21,7 +21,7 @@
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
           <div class="row" style="margin:4px; float: right;"> 
             <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-dark" style="margin:4px" (click)="openModal('custom-modal')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-dark" style="margin:4px" (click)="gettingevent(record._id);openModal('custom-modal')"><i class="fa fa-plus"></i></button>
             <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
           </div>
          

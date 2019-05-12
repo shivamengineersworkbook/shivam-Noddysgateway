@@ -23,7 +23,7 @@ export class EventsService {
 
   getfilterevents(details:filters, page:number) {
     console.log(details);
-    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&category=${details.categories[0]}`);
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}`);
   }
 
   getcategories(){
@@ -57,7 +57,7 @@ export class EventsService {
     const form = new FormData();
     form.append('image', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
-    return this.http.post(`https://y1dew9orfj.execute-api.ap-south-1.amazonaws.com/dev/users/userId/image`, form, { headers: {'Content-Type': 'multipart/form-data'} });
+    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/shivamkalra2013/image`, form, { headers: {'Content-Type': 'multipart/form-data'} });
   }
 
   user: string;

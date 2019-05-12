@@ -31,6 +31,7 @@ export class AddeventComponent implements OnInit {
      }
 
   event = {
+    event_type: 'posted',
     event_name: '',
     event_description: '',
     event_category: '',

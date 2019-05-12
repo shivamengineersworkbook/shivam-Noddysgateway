@@ -1,3 +1,18 @@
+
+
+
+
+@font-face {
+  font-family: 'Playlist-Script';
+  src:url('../../../assets/fonts/Playlist-Script.ttf.woff') format('woff'),
+      url('../../../assets/fonts/Playlist-Script.ttf.svg#Playlist-Script') format('svg'),
+      url('../../../assets/fonts/Playlist-Script.ttf.eot'),
+      url('../../../assets/fonts/Playlist-Script.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .mat-toolbar{
     background: white;
     border-bottom: 1px solid #d6d6d6;
@@ -8,6 +23,7 @@
     font-weight: 600;
     margin-right: 20px;
     font-size: 1.1em;
+    font-family: 'Playlist-Script';
 }
 
 .toolbar_city{
@@ -58,3 +74,5 @@
     z-index: 1;
   } */
   
+
+

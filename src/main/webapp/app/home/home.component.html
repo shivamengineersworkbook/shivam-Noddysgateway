@@ -98,7 +98,7 @@
                   <p>{{getmonth(events[0].event_start_date)}}</p>
               </div>
               <div class="col-md-10">
-                  <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[0].event_name}}</h4>
+                  <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[0]._id);openModal('custom-modal-1')">{{events[0].event_name}}</h4>
                   <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</small></p>
                   <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[0].event_start_time}} to {{events[0].event_end_time}}</small></p>
               </div>
@@ -115,7 +115,7 @@
                     <p>{{getmonth(events[1].event_start_date)}}</p>
                 </div>
                 <div class="col-md-10">
-                    <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[1].event_name}}</h4>
+                    <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[1]._id);openModal('custom-modal-1')">{{events[1].event_name}}</h4>
                     <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[1].event_location.address.street}} , {{events[1].event_location.address.city}}</small></p>
                     <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[1].event_start_time}} to {{events[1].event_end_time}}</small></p>
                 </div>
@@ -132,7 +132,7 @@
                       <p>{{getmonth(events[2].event_start_date)}}</p>
                   </div>
                   <div class="col-md-10">
-                      <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[2].event_name}}</h4>
+                      <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[2]._id);openModal('custom-modal-1')">{{events[2].event_name}}</h4>
                       <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[2].event_location.address.street}} , {{events[2].event_location.address.city}}</small></p>
                       <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[2].event_start_time}} to {{events[2].event_end_time}}</small></p>
                   </div>
@@ -150,7 +150,7 @@
                         <p>{{getmonth(events[3].event_start_date)}}</p>
                     </div>
                     <div class="col-md-10">
-                        <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[3].event_name}}</h4>
+                        <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[3]._id);openModal('custom-modal-1')">{{events[3].event_name}}</h4>
                         <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[3].event_location.address.street}} , {{events[3].event_location.address.city}}</small></p>
                         <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[3].event_start_time}} to {{events[3].event_end_time}}</small></p>
                     </div>
@@ -167,7 +167,7 @@
                           <p>{{getmonth(events[4].event_start_date)}}</p>
                       </div>
                       <div class="col-md-10">
-                          <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[4].event_name}}</h4>
+                          <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[4]._id);openModal('custom-modal-1')">{{events[4].event_name}}</h4>
                           <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[4].event_location.address.street}} , {{events[4].event_location.address.city}}</small></p>
                           <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[4].event_start_time}} to {{events[4].event_end_time}}</small></p>
                       </div>
@@ -184,7 +184,7 @@
                             <p>{{getmonth(events[5].event_start_date)}}</p>
                         </div>
                         <div class="col-md-10">
-                            <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[5].event_name}}</h4>
+                            <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[5]._id);openModal('custom-modal-1')">{{events[5].event_name}}</h4>
                             <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[5].event_location.address.street}} , {{events[5].event_location.address.city}}</small></p>
                             <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[5].event_start_time}} to {{events[5].event_end_time}}</small></p>
                         </div>
@@ -201,7 +201,7 @@
                               <p>{{getmonth(events[6].event_start_date)}}</p>
                           </div>
                           <div class="col-md-10">
-                              <h4 class="card-title" style="color: crimson" (click)="gettingevent(record._id);openModal('custom-modal')">{{events[6].event_name}}</h4>
+                              <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[6]._id);openModal('custom-modal-1')">{{events[6].event_name}}</h4>
                               <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[6].event_location.address.street}} , {{events[6].event_location.address.city}}</small></p>
                               <p class="card-text text-muted" *ngIf="events[0].event_start_time"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[6].event_start_time}} to {{events[6].event_end_time}}</small></p>
                           </div>
@@ -313,7 +313,7 @@
 
 </section> -->
 
-<jw-modal id="custom-modal">
+<jw-modal id="custom-modal-1">
 
   <div class="container">
     <div class="row">
@@ -357,7 +357,7 @@
 
   </div>
   
-  <button (click)="closeModal('custom-modal');">Close</button>
+  <button (click)="closeModal('custom-modal-1');">Close</button>
 </jw-modal>
 
 
