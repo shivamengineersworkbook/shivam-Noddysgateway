@@ -12,6 +12,7 @@ import {
   LoggedInCallback
 } from '../../service/cognito.service';
 import { filters } from './../../interfaces/filters';
+import { ModelEvent } from './../../interfaces/singleevent';
 
 @Component({
   selector: 'app-list-container',
@@ -27,7 +28,7 @@ export class ListContainerComponent implements OnInit {
    months:string;
    day:string;
   //This is to hold the pagination no.
-  private pagenav:number = 1;
+  public pagenav:number = 1;
   //This is to get the event id from the list
   private modaleventId:string;
   //filters from the filter component
@@ -36,7 +37,7 @@ export class ListContainerComponent implements OnInit {
   curDate = new Date();
   curMonth = this.curDate.getMonth() + 1;
   changed = false;
-  modalobject = {};
+  modalobject:ModelEvent;
   modalId = '';
   dates = [
     'January',

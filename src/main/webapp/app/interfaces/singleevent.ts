@@ -1,0 +1,34 @@
+export interface ModelEvent{
+            _id:string,
+            event_category:string,
+            event_subcategory:string,
+            event_location:{
+                longitude:string,
+                latitude:string,
+                address:{
+                    id:string,
+                    city:string,
+                    street:string,
+                    pin:string
+                },
+                within:string
+            },
+            event_name:string,
+            event_description:string,
+            event_image_url:string,
+            event_start_date:string,
+            event_last_date:string,
+            event_start_time:string,
+            event_end_time:string,
+            event_min_age:string,
+            event_max_age:string,
+            event_price:string,
+            event_booking:{
+                url:string,
+                inquiry_url:string
+            },
+            event_organizer:{
+                name:string,
+                url:string
+            }
+}

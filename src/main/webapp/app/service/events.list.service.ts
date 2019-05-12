@@ -6,6 +6,7 @@ import { Record } from './../interfaces/getuserevents';
 import { category } from './../interfaces/eventcategories';
 import { MainEvent } from './../interfaces/getallevents';
 import { filters } from './../interfaces/filters';
+import { ModelEvent } from './../interfaces/singleevent';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,7 @@ export class EventsService {
 
   getoneevent(id){
     console.log(id);
-    return this.http.get(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events/${id}`);
+    return this.http.get<ModelEvent>(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events/${id}`);
   }
 
   postEventImage(fd: File){

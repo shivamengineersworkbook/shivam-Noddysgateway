@@ -9,6 +9,14 @@ import { EventsService } from '../service/events.list.service';
 import { Router } from '@angular/router';
 import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
 import { ModalService } from './../service/modal.service';
+import { ModelEvent } from './../interfaces/singleevent';
+import {
+  CognitoCallback,
+  CognitoUtil,
+  LoggedInCallback
+} from './../service/cognito.service';
+import { UserLoginService } from './../service/user-login.service';
+
 
 declare var $: any;
 declare var require: any;
@@ -29,7 +37,8 @@ export class HomeComponent implements AfterViewInit {
   day:string;
   //This is to get the event id from the list
   private modaleventId:string;
-  modalobject = {};
+  modalobject:ModelEvent;
+  bAuthenticated = false;
 
 
   rotatingTexts = [
@@ -86,7 +95,9 @@ export class HomeComponent implements AfterViewInit {
     private router: Router,
     public eventcategories: EventsService,
     public homefilters: HomefiltercatcherService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    public userService: UserLoginService,
+    public cognitoutil: CognitoUtil
   ) {}
 
 records = [];
@@ -215,7 +226,19 @@ records = [];
   //       }
   //     }
   //   });
+  
+  this.isLoggedIn();
+}
+
+isLoggedIn() {
+  const cognitoUser = this.cognitoutil.getCurrentUser();
+  if (cognitoUser == null) {
+    this.bAuthenticated = false;
+  } else {
+    this.bAuthenticated = true;
   }
+  return this.bAuthenticated;
+}
 
   categor = ['Art', 'Cooking', 'EventsFree' , 'Activity', 'Language', 'Music', 'Open Play', 'Private Lessons', 'Science', 'Swim'];
   ngAfterViewInit() {
