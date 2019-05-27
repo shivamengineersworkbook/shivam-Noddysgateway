@@ -29,15 +29,15 @@ declare var require: any;
 })
 export class HomeComponent implements AfterViewInit {
   //This is to get the time and date from a certain timestamp
-  dateandtime:Array<string>;
+  dateandtime: Array<string>;
   //this is to get just the date
-  date:Array<string>;
+  date: Array<string>;
   //this is to get the month and date sperately
-  month:string;
-  day:string;
+  month: string;
+  day: string;
   //This is to get the event id from the list
-  private modaleventId:string;
-  modalobject:ModelEvent;
+  private modaleventId: string;
+  modalobject: ModelEvent;
   bAuthenticated = false;
 
 
@@ -55,7 +55,7 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild('rotatingText') rotatingText: ElementRef;
   events = [];
-  eventName = '';
+  eventName: string;
 
 
   dates = [
@@ -157,6 +157,7 @@ records = [];
       if (data){
 
         this.events = data.events;
+        console.log(this.events);
       } else {
         console.log('no data');
       }
@@ -204,29 +205,6 @@ records = [];
     });
 
 
-  //   $("#myCarousel").on("slide.bs.carousel", function(e) {
-  //     var $e = $(e.relatedTarget);
-  //     var idx = $e.index();
-  //     var itemsPerSlide = 3;
-  //     var totalItems = $(".carousel-item").length;
-
-  //     if (idx >= totalItems - (itemsPerSlide - 1)) {
-  //       var it = itemsPerSlide - (totalItems - idx);
-  //       for (var i = 0; i < it; i++) {
-  //         // append slides to end
-  //         if (e.direction == "left") {
-  //           $(".carousel-item")
-  //             .eq(i)
-  //             .appendTo(".carousel-inner");
-  //         } else {
-  //           $(".carousel-item")
-  //             .eq(0)
-  //             .appendTo($(this).find(".carousel-inner"));
-  //         }
-  //       }
-  //     }
-  //   });
-  
   this.isLoggedIn();
 }
 
@@ -240,49 +218,51 @@ isLoggedIn() {
   return this.bAuthenticated;
 }
 
-  categor = ['Art', 'Cooking', 'EventsFree' , 'Activity', 'Language', 'Music', 'Open Play', 'Private Lessons', 'Science', 'Swim'];
   ngAfterViewInit() {
     let i = 0;
     setInterval(() => {
       this.renderer.setProperty(
         this.rotatingText.nativeElement,
         'innerHTML',
-        this.categor[i]
+        this.rotatingTexts[i]
       );
       i++;
-      if (i == 8) i = 0;
+      if (i === 8) { i = 0; }
     }, 500);
   }
 
+// tslint:disable-next-line: member-ordering
   filters = {
     search: '',
     date: '',
     age: '',
     categorie: ''
   };
+
+ // sending filters to activities page
  savefilters(search= '', date= '', age= '', categorie= '') {
-  if (search == ''){
+  if (search === ''){
     console.log('empty serach');
   } else {
     console.log(search);
     this.filters.search = search;
   }
 
-  if (date == ''){
+  if (date === ''){
     console.log('empty date');
   } else {
     console.log(date);
     this.filters.date = date;
   }
 
-  if (age == ''){
+  if (age === ''){
     console.log('empty age');
   } else {
     console.log(age);
     this.filters.age = age;
   }
 
-  if (categorie == ''){
+  if (categorie === ''){
     console.log('empty categorie');
   } else {
     console.log(categorie);
@@ -294,34 +274,34 @@ isLoggedIn() {
 
  //This function returns the month fro the time stamp
  getmonth(timestamp) {
-    this.dateandtime = timestamp.split("T");
-    this.date = this.dateandtime[0].split("-");
+    this.dateandtime = timestamp.split('T');
+    this.date = this.dateandtime[0].split('-');
     this.day = this.date[2];
     this.month = this.date[1];
-    if(this.month == "01"){
-      this.month = "Jan"
-    } else if(this.month == "02"){
-      this.month = "Feb"
-    } else if(this.month == "03"){
-      this.month = "Mar"
-    } else if(this.month == "04"){
-      this.month = "Apr"
-    } else if(this.month == "05"){
-      this.month = "May"
-    } else if(this.month == "06"){
-      this.month = "Jun"
-    } else if(this.month == "07"){
-      this.month = "Jul"
-    } else if(this.month == "08"){
-      this.month = "Aug"
-    } else if(this.month == "09"){
-      this.month = "Sept"
-    } else if(this.month == "10"){
-      this.month = "Oct"
-    } else if(this.month == "11"){
-      this.month = "Nov"
+    if (this.month === '01'){
+      this.month = 'Jan'
+    } else if (this.month === '02'){
+      this.month = 'Feb'
+    } else if (this.month === '03'){
+      this.month = 'Mar'
+    } else if (this.month === '04'){
+      this.month = 'Apr'
+    } else if (this.month === '05'){
+      this.month = 'May'
+    } else if (this.month === '06'){
+      this.month = 'Jun'
+    } else if (this.month === '07'){
+      this.month = 'Jul'
+    } else if (this.month === '08'){
+      this.month = 'Aug'
+    } else if (this.month === '09'){
+      this.month = 'Sept'
+    } else if (this.month === '10'){
+      this.month = 'Oct'
+    } else if (this.month === '11'){
+      this.month = 'Nov'
     } else{
-      this.month = "Dec"
+      this.month = 'Dec'
     }
 
     return `${this.day}, ${this.month}`;
@@ -348,7 +328,7 @@ closeModal(id: string) {
 }
 
 //getting model event id
-gettingevent(eventId:string){
+gettingevent(eventId: string){
   console.log(eventId);
   this.modaleventId = eventId;
 }
