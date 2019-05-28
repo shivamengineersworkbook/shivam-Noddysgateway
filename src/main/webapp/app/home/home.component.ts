@@ -25,7 +25,7 @@ declare var require: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements AfterViewInit {
   //This is to get the time and date from a certain timestamp
@@ -240,37 +240,37 @@ isLoggedIn() {
   };
 
  // sending filters to activities page
- savefilters(search= '', date= '', age= '', categorie= '') {
-  if (search === ''){
-    console.log('empty serach');
-  } else {
-    console.log(search);
-    this.filters.search = search;
-  }
+//  savefilters(search= '', date= '', age= '', categorie= '') {
+//   if (search === ''){
+//     console.log('empty serach');
+//   } else {
+//     console.log(search);
+//     this.filters.search = search;
+//   }
 
-  if (date === ''){
-    console.log('empty date');
-  } else {
-    console.log(date);
-    this.filters.date = date;
-  }
+//   if (date === ''){
+//     console.log('empty date');
+//   } else {
+//     console.log(date);
+//     this.filters.date = date;
+//   }
 
-  if (age === ''){
-    console.log('empty age');
-  } else {
-    console.log(age);
-    this.filters.age = age;
-  }
+//   if (age === ''){
+//     console.log('empty age');
+//   } else {
+//     console.log(age);
+//     this.filters.age = age;
+//   }
 
-  if (categorie === ''){
-    console.log('empty categorie');
-  } else {
-    console.log(categorie);
-    this.filters.categorie = categorie;
-  }
+//   if (categorie === ''){
+//     console.log('empty categorie');
+//   } else {
+//     console.log(categorie);
+//     this.filters.categorie = categorie;
+//   }
 
-  this.homefilters.sendingfilters(this.filters);
- }
+//   this.homefilters.sendingfilters(this.filters);
+//  }
 
  //This function returns the month fro the time stamp
  getmonth(timestamp) {

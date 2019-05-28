@@ -15,6 +15,14 @@ export class FilterContainerComponent implements OnInit {
   inputSpeedRange=[5,15];
   hr =12;
   min =0;
+  // To display start time
+  startTime:string;
+ 
+
+
+
+  // To Display End Time
+  endTime:string;
   featureArr: any = { "provider": [],
                     "categories":[],
                     "ages":[],
@@ -82,5 +90,15 @@ export class FilterContainerComponent implements OnInit {
   onBookingType(data){
     this.featureArr.bookingType = data;
   }
+
+
+  // startTimeCalculator(){
+  //   let hour;
+  // hour = 12 + (this.inputSpeedRange[0]*20)%60
+  // let min = (this.inputSpeedRange[0]*20)%60
+  // min = (this.inputSpeedRange[0]-(3*(this.inputSpeedRange[0]%3)))*20
+  // this.startTime = hour + "  hr" + min + " min";
+  // console.log(this.startTime); 
+  // }
 
 }

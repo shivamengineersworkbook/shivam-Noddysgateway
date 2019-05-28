@@ -1,6 +1,7 @@
-body {
+body{
   overflow-x: hidden;
 }
+
 
 section {
     min-height: 500px;
@@ -166,7 +167,7 @@ section {
   display: block;
   visibility: visible;
 }
-
+/* 
 .multi-item-carousel{
     .carousel-inner{
       > .item{
@@ -201,7 +202,7 @@ section {
         background-image: none;
       }
     }
-  }
+  } */
 
   .btn-circle.btn-xl {
     width: 70px;
@@ -223,7 +224,7 @@ section {
 }
 
 
-// to centrally align text on categories
+/*  to centrally align text on categories */
 .centered {
   position: absolute;
   top: 50%;
@@ -232,7 +233,7 @@ section {
   color: white;
 }
 
-// Darken background images of categories
+ /* Darken background images of categories */
 .darken {
   background-image: 
     linear-gradient(

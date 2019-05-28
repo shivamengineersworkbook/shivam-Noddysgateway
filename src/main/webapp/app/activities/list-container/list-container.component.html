@@ -1,4 +1,4 @@
-<div class="container list-container">
+ <div class="container list-container">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
   <mat-card *ngFor="let record of records"  >
     <mat-card-header >
@@ -42,6 +42,7 @@
 <jw-modal id="custom-modal">
 
   <div class="container">
+    <div class="row" ><button class="btn btn-danger" style="margin:4px; border-radius:50%;" (click)="closeModal('custom-modal');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
     <div class="row">
       <img src="{{modalobject.event_image_url}}" width="100%" height="450px">
     </div>
@@ -61,7 +62,6 @@
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
       <div class="row" style="margin:4px; float: right;"> 
             <button class="btn btn-info" style="margin:4px" (click)="share(modalobject.event_booking.url,modalobject.event_name,modalobject.event_image_url,modalobject.event_location.address.city,modalobject.event_price,modalobject.event_last_date)"><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-dark" style="margin:4px"><i class="fa fa-plus"></i></button>
             <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
       </div>    
       </div>
