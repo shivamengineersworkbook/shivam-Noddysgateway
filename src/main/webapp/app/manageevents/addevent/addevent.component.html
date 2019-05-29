@@ -44,7 +44,7 @@
                   <label >Category</label>
                   <select [(ngModel)]="event.event_category" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" id="category">
                     <option  value="" >Choose a category</option>
-                    <!----><option  >Indoors/Arts &amp; Crafts</option><option >Sports &amp; Outdoors</option><option >Science &amp; Tech</option><option >Live Events</option><option >Performing Arts</option>
+                    <option *ngFor="let cat of categories" > {{cat.name}} </option>
 
                   </select>
 
@@ -88,7 +88,7 @@
 
                 <div  class="col-sm-6">
                   <label >End Date</label>
-                  <input  [(ngModel)]="event.event_end_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
+                  <input  [(ngModel)]="event.event_last_date" [ngModelOptions]="{standalone: true}" class="form-control ng-untouched ng-pristine ng-valid" type="date">
                   
                 </div>
                 <div  class="col-sm-6">
@@ -241,12 +241,12 @@
           </div>
         </div>
   
-        <div *ngIf="errorMessage!=null" class="alert alert-danger">
-          {{ errorMessage }}
+        <div *ngIf="errorMessage!=null" >
+          <h3 class="alert alert-danger">{{ errorMessage }}</h3>
         </div>
-        <div *ngIf="res!=null" class="alert alert-danger">
+        <!-- <div *ngIf="res!=null" class="alert alert-danger">
           {{ res.event }}
-        </div>
+        </div> -->
 
         <div >
 
@@ -257,8 +257,8 @@
           <input  class="btn btn-primary" type="submit" value="Submit">
           <br >
           <p  class=" hidden-xs">
-            <small >* event will be published
-              <br > once our team approves it </small>
+            <small  style="color:#8B0000">** event will be published once our team approves it 
+              <br>*Mandatory Fields include description, location fields,category and booking details </small>
           </p>
         </div>
 

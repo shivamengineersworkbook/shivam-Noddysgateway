@@ -25,27 +25,13 @@ export class DashboardComponent implements OnInit {
     public dialog: MatDialog,
     private modalService: ModalService) { }
 
-    records ={};
-    subscribed =[];
-    posted =[];
   ngOnInit() {
     this.cognitoUser = this.isLoggedIn();
     console.log(this.cognitoUser);
-    this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
-    if(data){
-
-      this.records = data.events;
-      this.subscribed = data.events.subscribed;
-      this.posted = data.events.posted;
-    } else {
-      console.log("no data")
-    }
-  });
-  console.log(this.records);
   }
 
  
-
+  // Object Getting the user...
   cognitoUser= {}
   isLoggedIn() {
     let cognitoUser = this.cognitoutil.getCurrentUser();

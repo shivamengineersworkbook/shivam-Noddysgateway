@@ -56,9 +56,9 @@ export class EventsService {
     console.log(fd);
     console.log(fd.name);
     const form = new FormData();
-    form.append('image', <File>fd, fd.name);
+    form.append('file', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
-    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/shivamkalra2013/image`, form, { headers: {'Content-Type': 'multipart/form-data'} });
+    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/shivamkalra2013/image`, form);
   }
 
   user: string;

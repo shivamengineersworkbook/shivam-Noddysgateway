@@ -155,7 +155,6 @@ records = [];
 
     this.eventcategories.getfilteredevents('').subscribe(data => {
       if (data){
-
         this.events = data.events;
         console.log(this.events);
       } else {

@@ -12,6 +12,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Event } from './../../interfaces/postuserevent';
 import { getViewData } from '@angular/core/src/render3/instructions';
 import { validateConfig } from '@angular/router/src/config';
+import {category} from './../../interfaces/eventcategories';
 
 
 @Component({
@@ -23,6 +24,11 @@ export class AddeventComponent implements OnInit {
   errorMessage: string = null;
   selectedFile: File = null;
   selectedImageUrl = '../../assets/images/addimage.png';
+  //  To store the categories got from the service
+  categories = [];
+  // sending event is the on being sent for the request to the service
+  sendingevent = {};
+
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -39,7 +45,7 @@ export class AddeventComponent implements OnInit {
     event_Min_age: '',
     event_Max_age: '',
     event_start_date: '',
-    event_end_date: '',
+    event_last_date: '',
     event_start_time: '',
     event_end_time: '',
     event_city: '',
@@ -58,6 +64,17 @@ export class AddeventComponent implements OnInit {
 
   ngOnInit() {
     this.errorMessage = null;
+    // This is to get categories from the server
+    this.userEvent.getcategories().subscribe((data) => {
+      if(data){
+        this.categories = data.categories;
+        console.log(this.categories);
+      } else {
+        this.errorMessage = 'server is down, categories not recieved';
+      }
+
+    });
+
   }
 
   OnFileSelected(event) {
@@ -68,7 +85,11 @@ export class AddeventComponent implements OnInit {
 
   OnSubmitPhoto() {
     this.userEvent.postEventImage(this.selectedFile).subscribe((data) => {
-      console.log(data);
+      if(data){
+        console.log(data);
+      } else {
+        console.log("image not uploaded");
+      }
     });
   }
 
@@ -91,8 +112,6 @@ export class AddeventComponent implements OnInit {
       this.errorMessage = 'enter event description'
     }else if (this.event.event_category == ''){
       this.errorMessage = 'enter event category'
-    }else if (this.event.event_subcategory == ''){
-      this.errorMessage = 'enter event sub category'
     }else if (this.event.event_Min_age == ''){
       this.errorMessage = 'enter event min age'
     }else if (this.event.event_Max_age == ''){
@@ -101,7 +120,7 @@ export class AddeventComponent implements OnInit {
       this.errorMessage = 'enter event start date'
     }else if (this.event.event_end_time == ''){
       this.errorMessage = 'enter event end time'
-    }else if (this.event.event_end_date == ''){
+    }else if (this.event.event_last_date == ''){
       this.errorMessage = 'enter event end date'
     }else if (this.event.event_city == ''){
       this.errorMessage = 'enter event city'
@@ -111,18 +130,52 @@ export class AddeventComponent implements OnInit {
       this.errorMessage = 'enter event booking url'
     }else if ( this.event.event_address == ''){
       this.errorMessage = 'enter event address'
+    }else {
+      this.errorMessage = null;
     }
   }
 
   res = {};
   OnSubmit() {
     this.cognitoUser = this.isLoggedIn();
-    this.errorMessage = " ";
-    // this.validateData();
-    if (this.errorMessage!=" "){
-      console.log('no request made')
+    this.validateData();
+    if (this.errorMessage!=null){
+      console.log("no request made");
     } else {
-      this.userEvent.addUserEvents(this.cognitoUser, this.event).subscribe((data) => {
+      
+      this.sendingevent = {
+        event_type: this.event.event_type,
+        event_name: this.event.event_name,
+        event_description: this.event.event_description,
+        event_category: this.event.event_category,
+        event_subcategory: this.event.event_subcategory,
+        event_min_age: this.event.event_Min_age,
+        event_max_age: this.event.event_Max_age,
+        event_start_date: this.event.event_start_date,
+        event_last_date: this.event.event_last_date,
+        event_start_time: this.event.event_start_time,
+        event_end_time: this.event.event_end_time,
+        event_location:{
+          longitude:"",
+          latitude:"",
+          address:{
+            id:"",
+	          city:this.event.event_city,
+	          street:this.event.event_street,
+	          pin:this.event.event_pincode
+          }
+        },
+        event_booking:{
+          url:this.event.event_booking_url,
+          inquiry_url:this.event.event_organizer_website 
+        },
+        organizer_email:this.event.event_email,
+        event_price: this.event.event_price
+    };
+
+
+
+      this.userEvent.addUserEvents(this.cognitoUser, this.sendingevent).subscribe((data) => {
         console.log(data);
         if (data) {
           this.res = data.event;
