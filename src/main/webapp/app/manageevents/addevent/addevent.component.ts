@@ -172,7 +172,7 @@ export class AddeventComponent implements OnInit {
         organizer_email:this.event.event_email,
         event_price: this.event.event_price,
         original_event:{},
-        image_url:this.selectedImageUrl
+        event_image_url:this.selectedImageUrl
     };
 
 

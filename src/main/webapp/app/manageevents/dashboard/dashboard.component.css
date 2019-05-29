@@ -1,0 +1,51 @@
+mat-card{
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.list-container{
+    padding-left: 25px;
+    padding-top: 25px;
+    height: 100%;
+    background-color: #fbfaf9;
+}
+
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+
+.list-text{
+    margin: 0%;
+}
+.heading_txt{
+    color: #f44336;
+    font-weight: 600;
+    margin-right: 20px;
+    font-size: 1.1em;
+}
+
+.date_color{
+    color:#a8a8a8
+}
+
+.noUi-tooltip {
+    display: block;
+}
+
+jw-modal {
+    display: none;
+}
+
+
+
+ 
+
+
+
+
+
+

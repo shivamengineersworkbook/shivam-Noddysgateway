@@ -22,6 +22,7 @@ import {UpdateComponent} from './manageevents/update/update.component';
 import {UpdatefinalComponent} from './manageevents/update/updatefinal/updatefinal.component';
 import {FooterComponent} from './layouts/footer/footer.component';
 import { FooterExtraComponent } from './footer-extra/footer-extra.component';
+import { FooterAboutComponent} from './footer-about/footer-about.component';
 
 const appRoutes: Routes = [
   {
@@ -79,6 +80,10 @@ const appRoutes: Routes = [
   {
     path: "footextra",
     component: FooterExtraComponent,
+  },
+  {
+    path: "footabout",
+    component: FooterAboutComponent
   }
 ];
 
@@ -87,6 +92,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule {}

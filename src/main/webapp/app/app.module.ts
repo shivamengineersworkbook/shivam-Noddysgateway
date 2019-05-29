@@ -55,6 +55,7 @@ import {
 } from '@angular/material';
 import {FlexLayoutModule } from '@angular/flex-layout';
 import { ServicefilterService } from './service/servicefilter.service';
+import { FooterAboutComponent } from './footer-about/footer-about.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { ServicefilterService } from './service/servicefilter.service';
     UpdatefinalComponent,
     ModalComponent,
     FooterComponent,
-    FooterExtraComponent
+    FooterExtraComponent,
+    FooterAboutComponent
   ],
   imports: [
     BrowserModule,

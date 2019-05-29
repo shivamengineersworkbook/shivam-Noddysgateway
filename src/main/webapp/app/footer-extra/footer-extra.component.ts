@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class FooterExtraComponent implements OnInit {
 
   constructor() { }
-  pagetype = true;
 
   ngOnInit() {
   }

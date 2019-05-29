@@ -96,11 +96,11 @@
           <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
           <div class="card-body">
             <div class="row">
-              <div class="col-md-2 card-title" style="color: red">
-                  <p>{{getmonth(events[0].event_start_date)}}</p>
-              </div>
+             <div class="col-md-2 card-title" style="color: red">
+                  <p>{{events[0].event_start_date}}</p>
+              </div> 
               <div class="col-md-10">
-                  <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[0]._id);openModal('custom-modal-1')">{{events[0].event_name}}</h4>
+                  <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[0]._id);openModal('custom-modal-1')">{{events[0].event_name}}</h4>    
                   <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</small></p>
                   <p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[0].event_start_time}} to {{events[0].event_end_time}}</small></p>
               </div>
@@ -108,13 +108,16 @@
           </div>
         </div>
       </div>
+
+      
+      
       <div class="carousel-item col-md-4" >
           <div class="card">
             <img class="card-img-top img-fluid" src={{events[1].event_image_url}}  width="100" height="100">
             <div class="card-body">
               <div class="row">
                 <div class="col-md-2" style="color: red">
-                    <p>{{getmonth(events[1].event_start_date)}}</p>
+                    <p>{{events[1].event_start_date}}</p>
                 </div>
                 <div class="col-md-10">
                     <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[1]._id);openModal('custom-modal-1')">{{events[1].event_name}}</h4>
@@ -131,7 +134,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-2" style="color: red">
-                      <p>{{getmonth(events[2].event_start_date)}}</p>
+                      <p>{{events[2].event_start_date}}</p>
                   </div>
                   <div class="col-md-10">
                       <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[2]._id);openModal('custom-modal-1')">{{events[2].event_name}}</h4>
@@ -149,7 +152,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-2" style="color: red">
-                        <p>{{getmonth(events[3].event_start_date)}}</p>
+                        <p>{{events[3].event_start_date}}</p>
                     </div>
                     <div class="col-md-10">
                         <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[3]._id);openModal('custom-modal-1')">{{events[3].event_name}}</h4>
@@ -166,7 +169,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-2" style="color: red">
-                          <p>{{getmonth(events[4].event_start_date)}}</p>
+                          <p>{{events[4].event_start_date}}</p>
                       </div>
                       <div class="col-md-10">
                           <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[4]._id);openModal('custom-modal-1')">{{events[4].event_name}}</h4>
@@ -183,7 +186,7 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-2" style="color: red">
-                            <p>{{getmonth(events[5].event_start_date)}}</p>
+                            <p>{{events[5].event_start_date}}</p>
                         </div>
                         <div class="col-md-10">
                             <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[5]._id);openModal('custom-modal-1')">{{events[5].event_name}}</h4>
@@ -200,7 +203,7 @@
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-2" style="color: red">
-                              <p>{{getmonth(events[6].event_start_date)}}</p>
+                              <p>{{events[6].event_start_date}}</p>
                           </div>
                           <div class="col-md-10">
                               <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[6]._id);openModal('custom-modal-1')">{{events[6].event_name}}</h4>
@@ -210,7 +213,9 @@
                         </div>
                       </div>
                     </div>
-                  </div>       
+                  </div>   
+
+                     
          
   </div>
 
@@ -219,16 +224,20 @@
 
 
 <jw-modal id="custom-modal-1">
-
+  
   <div class="container">
-    <div class="row" ><button class="btn btn-danger" style="margin:4px, border-radius:50%" (click)="closeModal('custom-modal-1');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
-    <div class="row">
+  
+    
+    <div class="row" *ngIf="modalobject!=null"><button class="btn btn-danger" style="margin:4px, border-radius:50%" (click)="closeModal('custom-modal-1');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
+    
+    <div class="row" *ngIf="modalobject!=null">
       <img src="{{modalobject.event_image_url}}" width="100%" height="450px">
-    </div>
-    <div class="row">
+    </div> 
+    
+    <div class="row" *ngIf="modalobject!=null">
     <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_name}} </h4>  
-    </div>
-    <div class="row">
+    </div> 
+    <div class="row" *ngIf="modalobject!=null">
       <div class="col-md-6">
       <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{modalobject.event_start_time}} to {{modalobject.event_end_time}}
       <p class ="list-group-item-text list-text">
@@ -236,6 +245,7 @@
       </p>
       <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
       </div>
+      
       <div class="col-md-6">
       <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
@@ -244,24 +254,24 @@
             <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
       </div>    
       </div>
-    </div>
-     <div class="row">
+    </div> 
+    
+     <div class="row" *ngIf="modalobject!=null">
       <div class="col-md-12" [innerHTML]="modalobject.event_description">      
       </div>
-    </div>
+    </div> 
     <div class="row">
       <div class="col-md-12" >
-        <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_organizer.name}} </h4> 
-        <p class ="list-group-item-text list-text">
+        <h4 class="list-group-item-heading heading_txt" *ngIf="modalobject!=null"> {{modalobject.event_organizer.name}} </h4> 
+        <p class ="list-group-item-text list-text" *ngIf="modalobject!=null">
            {{modalobject.event_organizer.url}} 
       </p>
       </div>
-    </div>
+    </div> 
+    
 
-
-
-  </div>
-  
+      
+  </div> 
   <button (click)="closeModal('custom-modal-1');">Close</button>
 </jw-modal>
 

@@ -14,9 +14,14 @@ import { ModalService } from './../../service/modal.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.less']
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // to hold the events recieved from the survice
+  records = {};
+  // to seprate the two events
+  subscribed = [];
+  posted = [];
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -28,6 +33,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.cognitoUser = this.isLoggedIn();
     console.log(this.cognitoUser);
+    this.userEvent.getuserevents(this.cognitoUser).subscribe((data) => {
+      if(data){
+        this.subscribed = data.events.subscribed;
+        this.posted = data.events.posted;
+        console.log(this.posted);
+      } else {
+        console.log("server is down");
+      }
+
+    })
   }
 
  
@@ -43,12 +58,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  openModal(id: string) {
-    this.modalService.open(id);
-}
 
-closeModal(id: string) {
-    this.modalService.close(id);
-}
 
 }
