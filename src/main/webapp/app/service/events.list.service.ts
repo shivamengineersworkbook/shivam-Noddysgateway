@@ -33,7 +33,7 @@ export class EventsService {
 
   addUserEvents(userId, body){
     console.log(body);
-    return this.http.post<Event>(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events`, body);
+    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events`, body, {responseType:'text'});
   }
   getuserevents(userId){
     return this.http.get< Record>(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events`);
@@ -52,13 +52,13 @@ export class EventsService {
     return this.http.get<ModelEvent >(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events/${id}`);
   }
 
-  postEventImage(fd: File){
+  postEventImage(fd: File, user){
     console.log(fd);
     console.log(fd.name);
     const form = new FormData();
     form.append('file', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
-    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/shivamkalra2013/image`, form);
+    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${user.username}/image`, form, {responseType:'text'});
   }
 
   user: string;

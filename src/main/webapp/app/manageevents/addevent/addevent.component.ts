@@ -80,13 +80,13 @@ export class AddeventComponent implements OnInit {
   OnFileSelected(event) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
-    this.selectedImageUrl = event.target.files[0];
   }
 
   OnSubmitPhoto() {
-    this.userEvent.postEventImage(this.selectedFile).subscribe((data) => {
+    this.cognitoUser = this.isLoggedIn();
+    this.userEvent.postEventImage(this.selectedFile, this.cognitoUser).subscribe((data) => {
       if(data){
-        console.log(data);
+        this.selectedImageUrl = data;
       } else {
         console.log("image not uploaded");
       }
@@ -148,11 +148,11 @@ export class AddeventComponent implements OnInit {
         event_name: this.event.event_name,
         event_description: this.event.event_description,
         event_category: this.event.event_category,
-        event_subcategory: this.event.event_subcategory,
+        // event_subcategory: this.event.event_subcategory,
         event_min_age: this.event.event_Min_age,
         event_max_age: this.event.event_Max_age,
-        event_start_date: this.event.event_start_date,
-        event_last_date: this.event.event_last_date,
+        event_start_date: this.event.event_start_date + "T" + this.event.event_start_time + ":00",
+        event_end_date: this.event.event_last_date + "T" + this.event.event_end_time + ":00",
         event_start_time: this.event.event_start_time,
         event_end_time: this.event.event_end_time,
         event_location:{
@@ -170,16 +170,19 @@ export class AddeventComponent implements OnInit {
           inquiry_url:this.event.event_organizer_website 
         },
         organizer_email:this.event.event_email,
-        event_price: this.event.event_price
+        event_price: this.event.event_price,
+        original_event:{},
+        image_url:this.selectedImageUrl
     };
 
 
-
+    console.log(this.sendingevent);
       this.userEvent.addUserEvents(this.cognitoUser, this.sendingevent).subscribe((data) => {
-        console.log(data);
         if (data) {
-          this.res = data.event;
-          console.log(this.res)
+          this.res = data;
+          console.log(this.res);
+          this.router.navigate(['/manageevents/dashboard'])
+
         }  else {
           this.errorMessage = 'Server is Down Come Back Later';
         }
