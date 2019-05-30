@@ -17,14 +17,27 @@ export class EventsService {
 
   baseurl = "http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000";
 
+  // This function is being called for the front page
   getfilteredevents(details) {
     console.log(details);
     return this.http.get<MainEvent>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=1');
   }
 
+  //this function is being called for the activities page
   getfilterevents(details:filters, page:number) {
     console.log(details);
-    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}`);
+    let max = 0;
+    let age:number;
+    for(age of details.ages){
+      if( age > max){
+        max = age;
+      }
+    }
+    if(max === 0){
+      max = 555;
+    }
+    // return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories}&event_provider=${details.provider}&event_max_age=${max}`);
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories[0]}`);
   }
 
   getcategories(){

@@ -271,40 +271,40 @@ isLoggedIn() {
 //   this.homefilters.sendingfilters(this.filters);
 //  }
 
- //This function returns the month fro the time stamp
-//  getmonth(timestamp) {
-//     this.dateandtime = timestamp.split('T');
-//     this.date = this.dateandtime[0].split('-');
-//     this.day = this.date[2];
-//     this.month = this.date[1];
-//     if (this.month === '01'){
-//       this.month = 'Jan'
-//     } else if (this.month === '02'){
-//       this.month = 'Feb'
-//     } else if (this.month === '03'){
-//       this.month = 'Mar'
-//     } else if (this.month === '04'){
-//       this.month = 'Apr'
-//     } else if (this.month === '05'){
-//       this.month = 'May'
-//     } else if (this.month === '06'){
-//       this.month = 'Jun'
-//     } else if (this.month === '07'){
-//       this.month = 'Jul'
-//     } else if (this.month === '08'){
-//       this.month = 'Aug'
-//     } else if (this.month === '09'){
-//       this.month = 'Sept'
-//     } else if (this.month === '10'){
-//       this.month = 'Oct'
-//     } else if (this.month === '11'){
-//       this.month = 'Nov'
-//     } else{
-//       this.month = 'Dec'
-//     }
+ //This function returns the month from the time stamp
+ getmonth(timestamp) {
+    this.dateandtime = timestamp.split('T');
+    this.date = this.dateandtime[0].split('-');
+    this.day = this.date[2];
+    this.month = this.date[1];
+    if (this.month === '01'){
+      this.month = 'Jan'
+    } else if (this.month === '02'){
+      this.month = 'Feb'
+    } else if (this.month === '03'){
+      this.month = 'Mar'
+    } else if (this.month === '04'){
+      this.month = 'Apr'
+    } else if (this.month === '05'){
+      this.month = 'May'
+    } else if (this.month === '06'){
+      this.month = 'Jun'
+    } else if (this.month === '07'){
+      this.month = 'Jul'
+    } else if (this.month === '08'){
+      this.month = 'Aug'
+    } else if (this.month === '09'){
+      this.month = 'Sept'
+    } else if (this.month === '10'){
+      this.month = 'Oct'
+    } else if (this.month === '11'){
+      this.month = 'Nov'
+    } else{
+      this.month = 'Dec'
+    }
 
-//     return `${this.day}, ${this.month}`;
-//  }
+    return `${this.day}, ${this.month}`;
+ }
 
 
  //opens model window
