@@ -10,6 +10,7 @@ import {
   LoggedInCallback
 } from "../../service/cognito.service";
 import { ModalService } from './../../service/modal.service';
+import { ModelEvent } from './../../interfaces/singleevent';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,16 @@ export class DashboardComponent implements OnInit {
   // to seprate the two events
   subscribed = [];
   posted = [];
+ //This is to get the time and date from a certain timestamp
+ dateandtime:Array<string>;
+ //this is to get just the date
+ date:Array<string>;
+ //this is to get the month and date sperately
+ months:string;
+ day:string;  
+  //This is to get the event id from the list
+  private modaleventId:string;
+  modalobject:ModelEvent;
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -58,6 +69,66 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  //opens model window
+  openModal(id: string) {
+    this.userEvent.getoneevent(`${this.modaleventId}`).subscribe(data => {
+      if (data) {
 
+        this.modalobject = data;
+        console.log(this.modalobject);
+      } else {
+        console.log('no data');
+      }
+    });
+    this.modalService.open(id);
+}
+
+//closes model window
+closeModal(id: string) {
+    this.modalService.close(id);
+}
+
+
+
+//getting model event id
+gettingevent(eventId:string){
+  console.log(eventId);
+  this.modaleventId = eventId;
+}
+
+ //This function returns the month fro the time stamp
+ getmonth(timestamp) {
+  this.dateandtime = timestamp.split("T");
+  this.date = this.dateandtime[0].split("-");
+  this.day = this.date[2];
+  this.months = this.date[1];
+  if(this.months == "01"){
+    this.months = "Jan"
+  } else if(this.months == "02"){
+    this.months = "Feb"
+  } else if(this.months == "03"){
+    this.months = "Mar"
+  } else if(this.months == "04"){
+    this.months = "Apr"
+  } else if(this.months == "05"){
+    this.months = "May"
+  } else if(this.months == "06"){
+    this.months = "Jun"
+  } else if(this.months == "07"){
+    this.months = "Jul"
+  } else if(this.months == "08"){
+    this.months = "Aug"
+  } else if(this.months == "09"){
+    this.months = "Sept"
+  } else if(this.months == "10"){
+    this.months = "Oct"
+  } else if(this.months == "11"){
+    this.months = "Nov"
+  } else{
+    this.months = "Dec"
+  }
+
+  return `${this.day}, ${this.months}`;
+}
 
 }

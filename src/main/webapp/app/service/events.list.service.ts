@@ -33,11 +33,8 @@ export class EventsService {
         max = age;
       }
     }
-    if(max === 0){
-      max = 555;
-    }
-    // return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories}&event_provider=${details.provider}&event_max_age=${max}`);
-    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories[0]}`);
+    // return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories[0]}&event_provider=${details.provider}&event_max_age=${max}`);
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}`);
   }
 
   getcategories(){
