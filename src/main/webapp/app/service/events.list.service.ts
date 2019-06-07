@@ -13,6 +13,8 @@ import { ModelEvent } from './../interfaces/singleevent';
 })
 export class EventsService {
 
+  
+
   constructor(private http: HttpClient) { }
 
   baseurl = "http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000";
@@ -26,15 +28,37 @@ export class EventsService {
   //this function is being called for the activities page
   getfilterevents(details:filters, page:number) {
     console.log(details);
-    let max = 0;
-    let age:number;
-    for(age of details.ages){
-      if( age > max){
-        max = age;
-      }
-    }
+    let filter = '';
+    if(details.location!=""){
+      filter = filter + '&city=' + details.location;
+    } 
+    if(details.categories.length > 0){
+      filter = filter + '&event_category=' + details.categories[0];
+      console.log(filter)
+    } 
+    // if(details.ages.length>0){
+    //   let max = 0;
+    // let age:number;
+    // for(age of details.ages){
+    //   if( age > max){
+    //     max = age;
+    //   }
+    // }
+    //   this.filter = this.filter + `&event_max_age_to=` + max;
+    //   console.log(this.filter)
+    // } 
+    if(details.provider.length > 0){
+      filter = filter + '&event_provider=' + details.provider[0];
+    } 
+    // if(details.location){
+    //   this.filter = this.filter + '&city=' + details.location;
+    // } 
+    // if(details.location){
+    //   this.filter = this.filter + '&city=' + details.location;
+    // } 
+
     // return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories[0]}&event_provider=${details.provider}&event_max_age=${max}`);
-    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}`);
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}${filter}`);
   }
 
   getcategories(){
