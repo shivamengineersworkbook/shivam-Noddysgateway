@@ -68,7 +68,7 @@ export class EventsService {
     const form = new FormData();
     form.append('file', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
-    return this.http.post(`${this.baseurl} /users/${user.username}/image`, form, {responseType:'text'});
+    return this.http.post(`${this.baseurl}/users/${user.username}/image`, form,{responseType:'text'});
   }
 
   user: string;

@@ -13,6 +13,7 @@ import { Event } from './../../interfaces/postuserevent';
 import { getViewData } from '@angular/core/src/render3/instructions';
 import { validateConfig } from '@angular/router/src/config';
 import {category} from './../../interfaces/eventcategories';
+import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -88,7 +89,6 @@ export class AddeventComponent implements OnInit {
       if(data){
         console.log(data);
         this.selectedImageUrl = data;
-        console.log(data);
       } else {
         console.log("image not uploaded");
       }
