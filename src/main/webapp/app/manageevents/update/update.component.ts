@@ -18,13 +18,20 @@ export class UpdateComponent implements OnInit {
   errorMessage:string;
   res= {};
   update:boolean;
+  //This is to get the time and date from a certain timestamp
+ dateandtime:Array<string>;
+ //this is to get just the date
+ date:Array<string>;
+ //this is to get the month and date sperately
+ months:string;
+ day:string;  
 
   constructor(public router: Router,
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil,
     public userEvent: EventsService) { }
 
-  records ={};
+  records =[];
   ngOnInit() {
     this.update = false;
     this.errorMessage = null;
@@ -32,7 +39,8 @@ export class UpdateComponent implements OnInit {
     this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
     if(data){  
 
-      this.records = data.events;
+      this.records = data.events.posted;
+      console.log(this.records)
     } else {
       console.log("no data")
     }
@@ -55,10 +63,10 @@ export class UpdateComponent implements OnInit {
   deleteevent(eventid) {
     this.userEvent.deleteuserevents(this.cognitoUser,eventid).subscribe((data) => {
       console.log(this.cognitoUser);
-      
       if(data){
-        this.res = data;  
-      }else if(!data) {
+        this.res = data; 
+        this.router.navigate(['/manageevents/dashboard'])
+      }else {
         this.errorMessage = "event cannot be deleted";
       }
     });
@@ -72,4 +80,39 @@ export class UpdateComponent implements OnInit {
     this.userEvent.savingDetails(this.cognitoUser,eventid);
 
   }
+
+   //This function returns the month fro the time stamp
+ getmonth(timestamp) {
+  this.dateandtime = timestamp.split("T");
+  this.date = this.dateandtime[0].split("-");
+  this.day = this.date[2];
+  this.months = this.date[1];
+  if(this.months == "01"){
+    this.months = "Jan"
+  } else if(this.months == "02"){
+    this.months = "Feb"
+  } else if(this.months == "03"){
+    this.months = "Mar"
+  } else if(this.months == "04"){
+    this.months = "Apr"
+  } else if(this.months == "05"){
+    this.months = "May"
+  } else if(this.months == "06"){
+    this.months = "Jun"
+  } else if(this.months == "07"){
+    this.months = "Jul"
+  } else if(this.months == "08"){
+    this.months = "Aug"
+  } else if(this.months == "09"){
+    this.months = "Sept"
+  } else if(this.months == "10"){
+    this.months = "Oct"
+  } else if(this.months == "11"){
+    this.months = "Nov"
+  } else{
+    this.months = "Dec"
+  }
+
+  return `${this.day}, ${this.months}`;
+}
 }

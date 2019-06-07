@@ -20,7 +20,7 @@ export class EventsService {
   // This function is being called for the front page
   getfilteredevents(details) {
     console.log(details);
-    return this.http.get<MainEvent>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events?page=1');
+    return this.http.get<MainEvent>(`${this.baseurl}/events?page=1`);
   }
 
   //this function is being called for the activities page
@@ -38,28 +38,28 @@ export class EventsService {
   }
 
   getcategories(){
-    return this.http.get<category>('http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/categories');
+    return this.http.get<category>(`${this.baseurl}/categories`);
   }
 
   addUserEvents(userId, body){
     console.log(body);
-    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events`, body, {responseType:'text'});
+    return this.http.post(`${this.baseurl}/users/${userId.username}/events`, body, {responseType:'text'});
   }
   getuserevents(userId){
-    return this.http.get< Record>(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events`);
+    return this.http.get< Record>(`${this.baseurl}/users/${userId.username}/events`);
   }
 
   deleteuserevents(userId, eventId) {
-    return this.http.delete(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${userId.username}/events/${eventId}`);
+    return this.http.delete(`${this.baseurl}/users/${userId.username}/events/${eventId}`,{responseType:'text'} );
   }
 
   updateuserevents(userId, eventId, body) {
-    return this.http.put<Event>(`http://localhost:8000/users/${userId.username}/events/${eventId}`, body);
+    return this.http.put<Event>(`${this.baseurl}/users/${userId.username}/events/${eventId}`, body);
   }
 
   getoneevent(id){
     console.log(id);
-    return this.http.get<ModelEvent >(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/events/${id}`);
+    return this.http.get<ModelEvent >(`${this.baseurl}/events/${id}`);
   }
 
   postEventImage(fd: File, user){
@@ -68,7 +68,7 @@ export class EventsService {
     const form = new FormData();
     form.append('file', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
-    return this.http.post(`http://ec2-13-232-59-194.ap-south-1.compute.amazonaws.com:9000/users/${user.username}/image`, form, {responseType:'text'});
+    return this.http.post(`${this.baseurl} /users/${user.username}/image`, form, {responseType:'text'});
   }
 
   user: string;

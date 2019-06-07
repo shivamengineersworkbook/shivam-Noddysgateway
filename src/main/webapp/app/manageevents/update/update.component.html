@@ -10,39 +10,43 @@
 </div>
 <div class="container list-container" *ngIf="!update">
   <h3 style="margin-top: 0">{{nowDate}}</h3>
-  <mat-card *ngFor="let record of records.posted"  >
-    <mat-card-header (click)="collapsed=false">
-    <div class="row"> 
+            <mat-card *ngIf="!records?.length > 0">
+            <mat-card-header>
+                No Events To Show
+            </mat-card-header>
+            </mat-card>
+  <mat-card *ngFor="let record of records"  >
+    <mat-card-header >
+     <div class="row"> 
         <div class="media col-lg-6">
           <figure class="pull-left">
-            <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/350x250">
+            <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/300x200">
           </figure>
         </div>
-        <div class="col-lg-3">
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_name}} </h4>
-          <p class="list-group-item-text"> {{record.event_min_age}} yrs to {{record.event_max_age}} yrs
+        <div class="col-lg-6">
+            <small class="date_color" *ngIf="record.event_start_date!=null"> {{getmonth(record.event_start_date)}} </small>
+          <h4 class="list-group-item-heading heading_txt"> {{record.event_name}} </h4>
+          <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
           </p>
-          <p class ="list-group-item-text">
-            Rs {{record.event_price}} 
+          <p class ="list-group-item-text list-text">
+              <i class="fa fa-rupee"></i> {{record.event_price}} 
           </p>
-        </div>
-        <div class="col-lg-3 text-center">
-          <h2 class="date_color"> {{record.event_location.address.city}} <small> {{record.event_last_date}} </small></h2>
-        </div>
+          <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{record.event_location.address.street}} , {{record.event_location.address.city}} </p>
+          <div class="row" style="margin:4px; float: right;"> 
+            <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
 
+            <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
+          </div>
+         
+        </div>
     </div>
   </mat-card-header>
-  <mat-card-content *ngIf="!collapsed">
+  <mat-card-content>
       <div class="col-lg-9">
-        <h3>Description</h3>
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_description}} </h4>
-        <h3>Venue</h3>
-          <h4 class="list-group-item-heading heading_txt" > {{record.event_location.address.city}}, {{record.event_location.address.street}}, {{record.event_location.address.pincode}} </h4>  
-        </div>
       <button mat-button (click)="deleteevent(record._id)">Delete Event</button>
       <button mat-button (click)="Updateevent(record._id)" [routerLink]="['/manageevents/update/updateid']">Update Event</button>
       
-      
+      </div>
   </mat-card-content>
   </mat-card>
 </div>

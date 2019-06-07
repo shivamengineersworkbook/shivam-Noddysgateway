@@ -86,7 +86,9 @@ export class AddeventComponent implements OnInit {
     this.cognitoUser = this.isLoggedIn();
     this.userEvent.postEventImage(this.selectedFile, this.cognitoUser).subscribe((data) => {
       if(data){
+        console.log(data);
         this.selectedImageUrl = data;
+        console.log(data);
       } else {
         console.log("image not uploaded");
       }
