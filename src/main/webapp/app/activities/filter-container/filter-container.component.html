@@ -13,6 +13,12 @@
             <input type="text" [(ngModel)]="location" matInput placeholder="Enter address or neighbor">
         </mat-form-field>
     </div>
+    <h4>Event Name</h4>
+    <div class="filter-container_location">
+        <mat-form-field>
+            <input type="text" [(ngModel)]="eventName" matInput placeholder="Enter Event Name to search">
+        </mat-form-field>
+    </div>
     <h4>TIME</h4>
     <div> 
         <nouislider [connect]="true" [min]="0" [step]="1" [max]="24" [(ngModel)]="inputSpeedRange"></nouislider>

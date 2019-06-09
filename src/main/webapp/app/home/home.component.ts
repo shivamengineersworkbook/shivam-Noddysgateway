@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { EventsService } from '../service/events.list.service';
 import { Router } from '@angular/router';
-import { HomefiltercatcherService } from './../service/homefiltercatcher.service';
 import { ModalService } from './../service/modal.service';
 import { ModelEvent } from './../interfaces/singleevent';
 import {
@@ -28,14 +27,14 @@ declare var require: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements AfterViewInit {
-  //This is to get the time and date from a certain timestamp
+  // This is to get the time and date from a certain timestamp
   dateandtime: Array<string>;
-  //this is to get just the date
+  // this is to get just the date
   date: Array<string>;
-  //this is to get the month and date sperately
+  // this is to get the month and date sperately
   month: string;
   day: string;
-  //This is to get the event id from the list
+  // This is to get the event id from the list
   private modaleventId: string;
   modalobject: ModelEvent;
   bAuthenticated = false;
@@ -55,7 +54,7 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild('rotatingText') rotatingText: ElementRef;
   events = [];
-  eventName: string;
+  eventName = "";
 
 
   dates = [
@@ -94,7 +93,6 @@ export class HomeComponent implements AfterViewInit {
     private renderer: Renderer2,
     private router: Router,
     public eventcategories: EventsService,
-    public homefilters: HomefiltercatcherService,
     private modalService: ModalService,
     public userService: UserLoginService,
     public cognitoutil: CognitoUtil
@@ -230,46 +228,8 @@ isLoggedIn() {
     }, 500);
   }
 
-// tslint:disable-next-line: member-ordering
-  filters = {
-    search: '',
-    date: '',
-    age: '',
-    categorie: ''
-  };
 
- // sending filters to activities page
-//  savefilters(search= '', date= '', age= '', categorie= '') {
-//   if (search === ''){
-//     console.log('empty serach');
-//   } else {
-//     console.log(search);
-//     this.filters.search = search;
-//   }
 
-//   if (date === ''){
-//     console.log('empty date');
-//   } else {
-//     console.log(date);
-//     this.filters.date = date;
-//   }
-
-//   if (age === ''){
-//     console.log('empty age');
-//   } else {
-//     console.log(age);
-//     this.filters.age = age;
-//   }
-
-//   if (categorie === ''){
-//     console.log('empty categorie');
-//   } else {
-//     console.log(categorie);
-//     this.filters.categorie = categorie;
-//   }
-
-//   this.homefilters.sendingfilters(this.filters);
-//  }
 
  //This function returns the month from the time stamp
  getmonth(timestamp) {
@@ -330,5 +290,11 @@ closeModal(id: string) {
 gettingevent(eventId: string){
   console.log(eventId);
   this.modaleventId = eventId;
+}
+
+
+// This is to send the home filters to the events service
+savefilters(eventDate) {
+ this.eventcategories.gettingHomeFilters(this.eventName, eventDate); 
 }
 }

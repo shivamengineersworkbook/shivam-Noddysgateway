@@ -26,10 +26,15 @@ export class FilterContainerComponent implements OnInit {
   featureArr: any = { "provider": [],
                     "categories":[],
                     "ages":[],
-                    "timerange":String,
-                    "location":String,
-                    "bookingType":String };
-  location:string="";
+                    "timerange":"",
+                    "location":"",
+                    // bookingType is now joined to dates 
+                    "bookingType":"",
+                    "eventName":"" };
+  location ="";
+  eventName ="";
+  eventNameCheck = "";
+  eventDateCheck = "";
 
   //this is a list of static providers
   staticproviderslist = ['hello','main','second','senile'];
@@ -37,6 +42,18 @@ export class FilterContainerComponent implements OnInit {
               public filter: ServicefilterService) { }
 
   ngOnInit() {
+    this.eventNameCheck = this.events.returningHomeName();
+    if(this.eventNameCheck!=undefined) {
+      this.featureArr.eventName = this.eventNameCheck;
+    }
+    this.eventDateCheck = this.events.returningHomeDate();
+    if(this.eventDateCheck!=undefined) {
+      this.featureArr.bookingType = this.eventDateCheck;
+    }
+    
+    this.filter.sendfilters(this.featureArr);
+    
+
     this.events.getcategories().subscribe(data => {
       if(data){
         console.log(data);
@@ -56,11 +73,33 @@ export class FilterContainerComponent implements OnInit {
   }
 
   onChangeCategorie(event, cat: any){ // Use appropriate model type instead of any
-    this.featureArr.categories.push(cat);
+    if(this.featureArr.categories.find( (element) => {
+      return element === cat
+    })===undefined){
+      this.featureArr.categories.push(cat);
+    } else {
+      let index = this.featureArr.categories.findIndex( (element) => {
+        return element === cat
+      })
+      this.featureArr.categories.splice(index, 1);
+    }
+
+    console.log(this.featureArr.categories)
+    
   }
 
   onChangeAges(event, cat: any){ // Use appropriate model type instead of any
-    this.featureArr.ages.push(cat);
+    if(this.featureArr.ages.find( (element) => {
+      return element === cat
+    })===undefined){
+      this.featureArr.ages.push(cat);
+    } else {
+      let index = this.featureArr.ages.findIndex( (element) => {
+        return element === cat
+      })
+      this.featureArr.ages.splice(index, 1);
+    }
+    
   }
 
   onChangetimes(event, cat: any){ // Use appropriate model type instead of any
@@ -71,6 +110,7 @@ export class FilterContainerComponent implements OnInit {
 
     this.featureArr.timerange = this.inputSpeedRange;
     this.featureArr.location = this.location;
+    this.featureArr.eventName = this.eventName;
     console.log(this.featureArr);
     this.filter.sendfilters(this.featureArr);
 
@@ -84,6 +124,7 @@ export class FilterContainerComponent implements OnInit {
     this.featureArr.timeinputs="";
     this.featureArr.location ="";
     this.featureArr.bookingType="";
+    this.featureArr.eventName="";
     this.filter.sendfilters(this.featureArr);
   }
 

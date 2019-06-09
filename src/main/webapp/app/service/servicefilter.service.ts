@@ -20,7 +20,8 @@ export class ServicefilterService {
     ages:[],
     timerange:"",
     location:"",
-    bookingType:""});
+    bookingType:"",
+    eventName:""});
   cast = this.filters.asObservable();
 
   sendfilters(obj:filters){

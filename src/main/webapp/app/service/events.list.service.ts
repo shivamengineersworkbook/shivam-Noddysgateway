@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Event } from './../interfaces/postuserevent';
-import { userInfo } from 'os';
 import { Record } from './../interfaces/getuserevents';
 import { category } from './../interfaces/eventcategories';
 import { MainEvent } from './../interfaces/getallevents';
@@ -29,40 +28,42 @@ export class EventsService {
   getfilterevents(details:filters, page:number) {
     console.log(details);
     let filter = '';
-    if(details.location!=""){
+    if(details.location!="") {
+      
       filter = filter + '&city=' + details.location;
     } 
     if(details.categories.length > 0){
       filter = filter + '&event_category=' + details.categories[0];
       console.log(filter)
     } 
-    // if(details.ages.length>0){
-    //   let max = 0;
-    // let age:number;
-    // for(age of details.ages){
-    //   if( age > max){
-    //     max = age;
-    //   }
-    // }
-    //   this.filter = this.filter + `&event_max_age_to=` + max;
-    //   console.log(this.filter)
-    // } 
+    if(details.ages.length > 0) {
+      let max = 0;
+    let age:number;
+    for(age of details.ages){
+      if( age > max){
+        max = age;
+      }
+    }
+      filter = filter + `&event_max_age_to=` + max;
+      console.log(filter);
+    } 
     if(details.provider.length > 0){
       filter = filter + '&event_provider=' + details.provider[0];
     } 
+    if(details.eventName!="") {
+      filter = filter + '&event_name=' + details.eventName;
+    }
     // if(details.location){
     //   this.filter = this.filter + '&city=' + details.location;
     // } 
     // if(details.location){
     //   this.filter = this.filter + '&city=' + details.location;
     // } 
-
-    // return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}&city=${details.location}&category=${details.categories[0]}&event_provider=${details.provider}&event_max_age=${max}`);
     return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}${filter}`);
   }
 
   getcategories(){
-    return this.http.get<category>(`${this.baseurl}/categories`);
+    return this.http.get<category>(`${this.baseurl}/categories?size=20`);
   }
 
   addUserEvents(userId, body){
@@ -97,6 +98,22 @@ export class EventsService {
 
   user: string;
   event: string;
+  eventName: string;
+  eventDate: string;
+  gettingHomeFilters(Name, evDate) {
+    this.eventName = Name;
+    this.eventDate = evDate; 
+  }
+
+  returningHomeDate() {
+    return this.eventDate;
+  }
+
+  returningHomeName() {
+    return this.eventName;
+  }
+
+
   savingDetails(userId, eventId) {
       this.user = userId.username;
       this.event = eventId;

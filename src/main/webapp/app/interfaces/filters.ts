@@ -4,5 +4,6 @@ export interface filters {
     ages:Array<number>,
     timerange:String,
     location:String,
-    bookingType:String
+    bookingType:String,
+    eventName:String
 }
