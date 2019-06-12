@@ -53,12 +53,14 @@ export class EventsService {
     if(details.eventName!="") {
       filter = filter + '&event_name=' + details.eventName;
     }
+    if(details.timerange.length > 0) {
+      filter = filter + '&event_end_time_to=' + details.timerange[1] + ':00';
+      filter = filter + '&event_start_time_from=' + details.timerange[0] + ':00';
+    }
     // if(details.location){
     //   this.filter = this.filter + '&city=' + details.location;
     // } 
-    // if(details.location){
-    //   this.filter = this.filter + '&city=' + details.location;
-    // } 
+    console.log(filter);
     return this.http.get<MainEvent>(`${this.baseurl}/events?page=${page}${filter}`);
   }
 
