@@ -39,12 +39,12 @@
 
         </mat-tab>
         <mat-tab label="Subscribed">
-        <mat-card *ngIf="!Subscribed?.length > 0">
+        <mat-card *ngIf="!subscribed?.length > 0">
         <mat-card-header >
             No Events To Show
         </mat-card-header>
         </mat-card>
-         <mat-card *ngFor="let record of Subscribed"  >
+         <mat-card *ngFor="let record of subscribed"  >
     <mat-card-header >
     <div class="row"> 
         <div class="media col-lg-6">

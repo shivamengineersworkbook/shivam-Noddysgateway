@@ -17,7 +17,8 @@ import { Response } from 'selenium-webdriver/http';
 })
 export class UpdatefinalComponent implements OnInit {
   errorMessage:string;
-  records = {};
+  // This is for getting the one single event
+  record = {};
   eventId:string;
 
   constructor(public router: Router,
@@ -80,26 +81,27 @@ mainrecord = {
 
 ngOnInit() {
   this.errorMessage= null;
-  this.eventId = this.userEvent.returningDetails()
-  this.userEvent.getuserevents(this.cognitoUser).subscribe(data => {
+  this.eventId = this.userEvent.returningDetails();
+  console.log(this.eventId);
+
+  this.userEvent.getoneevent(this.eventId).subscribe(data => {
     if(data){
 
-      this.records = data;
-      for(var i =0; i<data.events.posted.length; i++){
-        if(data.events[i]._id == this.eventId){
+      this.record = data;
+      console.log(this.record);
           console.log(this.mainrecord);
           this.mainrecord = {
-            event_name:data.events[i].event_name,
-            event_description:data.events[i].event_description,
-            event_category:data.events[i].event_category,
-            event_subcategory:data.events[i].event_subcategory,
-            event_Min_age:data.events[i].event_Min_age,
-            event_Max_age:data.events[i].event_Max_age,
-            event_start_date:data.events[i].event_start_date,
-            event_end_date:data.events[i].event_end_date,
-            event_start_time:data.events[i].event_start_time,
-            event_end_time:data.events[i].event_end_time,
-            event_city:data.events[i].event_location.address.city,
+            event_name:data.event_name,
+            event_description:data.event_description,
+            event_category:data.event_category,
+            event_subcategory:data.event_subcategory,
+            event_Min_age:data.event_min_age,
+            event_Max_age:data.event_max_age,
+            event_start_date:data.event_start_date,
+            event_end_date:data.event_last_date,
+            event_start_time:data.event_start_time,
+            event_end_time:data.event_end_time,
+            event_city:data.event_location.address.city,
             event_place:"",
             event_street:"",
             event_address:"",
@@ -111,17 +113,10 @@ ngOnInit() {
             event_Image_url:"",
             event_booking_url:"",
             event_enquiry_url:"",
-            event_price:data.events[i].event_price    
+            event_price:data.event_price    
           };
         }
-      }
-     
-
-      console.log(this.records);
-    } else {
-      console.log("no data")
-    }
-  });
+      });
 
 
 }

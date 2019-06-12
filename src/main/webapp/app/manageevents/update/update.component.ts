@@ -73,9 +73,6 @@ export class UpdateComponent implements OnInit {
   }
 
   Updateevent(eventid) {
-    // this.userEvent.updateuserevents(this.cognitoUser,eventid,body).subscribe((data) => {
-      
-    // })
     this.update = true;
     this.userEvent.savingDetails(this.cognitoUser,eventid);
 
