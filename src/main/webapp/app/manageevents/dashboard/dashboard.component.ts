@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
  day:string;  
   //This is to get the event id from the list
   private modaleventId:string;
-  modalobject:{};
+  modalobject:ModelEvent;
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -73,8 +73,8 @@ export class DashboardComponent implements OnInit {
   openModal(id: string) {
     this.userEvent.getoneevent(`${this.modaleventId}`).subscribe(data => {
       if (data) {
-
         this.modalobject = data;
+        console.log(this.modalobject);
       } else {
         console.log('no data');
       }

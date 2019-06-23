@@ -88,6 +88,7 @@ export class ListContainerComponent implements OnInit {
   homedetails = {};
   bAuthenticated = false;
   ngOnInit() {
+    console.log(Date.now())
     this.filterService.cast.subscribe((filters) => {
       this.filters = filters;
       this.pagenav = 1;

@@ -26,7 +26,7 @@ export class EventsService {
 
   //this function is being called for the activities page
   getfilterevents(details:filters, page:number) {
-    console.log(details);
+    let curDate = new Date();
     let filter = '';
     if(details.location!="") {
       
@@ -57,6 +57,12 @@ export class EventsService {
       filter = filter + '&event_end_time_to=' + details.timerange[1] + ':00';
       filter = filter + '&event_start_time_from=' + details.timerange[0] + ':00';
     }
+    // if(details.bookingType!="") {
+    //   switch(details.bookingType){
+    //     case "Today": filter = filter + '&event;
+
+    //   }
+    // }
     // if(details.location){
     //   this.filter = this.filter + '&city=' + details.location;
     // } 

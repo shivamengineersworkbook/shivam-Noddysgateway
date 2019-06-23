@@ -6,92 +6,59 @@
                 No Events To Show
             </mat-card-header>
             </mat-card>
-             <mat-card *ngFor="let record of posted"  >
-    <mat-card-header >
-    <div class="row"> 
-        <div class="media col-lg-6">
-          <figure class="pull-left">
-            <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/300x200">
-          </figure>
-        </div>
-        <div class="col-lg-6">
-            <small class="date_color" *ngIf="record.event_start_date!=null"> {{getmonth(record.event_start_date)}} </small>
-          <h4 class="list-group-item-heading heading_txt" (click)="gettingevent(record._id);openModal('custom-modal')"> {{record.event_name}} </h4>
-          <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
-          </p>
-          <p class ="list-group-item-text list-text">
-              <i class="fa fa-rupee"></i> {{record.event_price}} 
-          </p>
-          <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{record.event_location.address.street}} , {{record.event_location.address.city}} </p>
-          <a target="_blank" href={{record.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
-          <p *ngIf="!bAuthenticated">U need to log in to register</p>
-          <div class="row" style="margin:4px; float: right;"> 
-            <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-dark" style="margin:4px" (click)="gettingevent(record._id);openModal('custom-modal')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
-          </div>
-         
-        </div>
-    </div>
-  </mat-card-header>
-  </mat-card>
-
-
+            <mat-card *ngFor="let record of posted"  >
+              <mat-card-header >
+              <div class="row"> 
+                  <div class="media col-lg-6">
+                    <figure class="pull-left">
+                      <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/300x200">
+                    </figure>
+                  </div>
+                  <div class="col-lg-6">
+                      <small class="date_color" *ngIf="record.event_start_date!=null"> {{getmonth(record.event_start_date)}} </small>
+                    <h4 class="list-group-item-heading heading_txt" (click)="gettingevent(record._id);openModal('custom-modal-1')"> {{record.event_name}} </h4>
+                    <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
+                    </p>
+                    <p class ="list-group-item-text list-text">
+                        <i class="fa fa-rupee"></i> {{record.event_price}} 
+                    </p>
+                    <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{record.event_location.address.street}} , {{record.event_location.address.city}} </p>
+                    <a target="_blank" href={{record.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+                    <p *ngIf="!bAuthenticated">U need to log in to register</p>
+                    <div class="row" style="margin:4px; float: right;"> 
+                      <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
+                      <button class="btn btn-dark" style="margin:4px" (click)="gettingevent(record._id);openModal('custom-modal')"><i class="fa fa-plus"></i></button>
+                      <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
+                    </div>
+                  
+                  </div>
+              </div>
+              </mat-card-header>
+            </mat-card>
         </mat-tab>
         <mat-tab label="Subscribed">
-        <mat-card *ngIf="!subscribed?.length > 0">
-        <mat-card-header >
-            No Events To Show
-        </mat-card-header>
-        </mat-card>
-         <mat-card *ngFor="let record of subscribed"  >
-    <mat-card-header >
-    <div class="row"> 
-        <div class="media col-lg-6">
-          <figure class="pull-left">
-            <img class="media-object img-rounded img-fluid" src={{record.event_image_url}} alt="placehold.it/300x200">
-          </figure>
-        </div>
-        <div class="col-lg-6">
-            <small class="date_color" *ngIf="record.event_start_date!=null"> {{getmonth(record.event_start_date)}} </small>
-          <h4 class="list-group-item-heading heading_txt" (click)="gettingevent(record._id);openModal('custom-modal')"> {{record.event_name}} </h4>
-          <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{record.event_start_time}} to {{record.event_end_time}}
-          </p>
-          <p class ="list-group-item-text list-text">
-              <i class="fa fa-rupee"></i> {{record.event_price}} 
-          </p>
-          <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{record.event_location.address.street}} , {{record.event_location.address.city}} </p>
-          <a target="_blank" href={{record.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
-          <p *ngIf="!bAuthenticated">U need to log in to register</p>
-          <div class="row" style="margin:4px; float: right;"> 
-            <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-dark" style="margin:4px" (click)="gettingevent(record._id);openModal('custom-modal')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
-          </div>
-         
-        </div>
-    </div>
-  </mat-card-header>
-  </mat-card>
-
-           
-        </mat-tab>
-      </mat-tab-group>
-
-      
+          <mat-card *ngIf="!subscribed?.length > 0">
+          <mat-card-header >
+              No Events To Show
+          </mat-card-header>
+          </mat-card>
+        </mat-tab>  
+    </mat-tab-group>
 </div>
 
 
-<jw-modal id="custom-modal">
-
-  <div class="container">
-    <div class="row" *ngIf="modalobject!=null" ><button class="btn btn-danger" style="margin:4px; border-radius:50%;" (click)="closeModal('custom-modal');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
+<jw-modal id="custom-modal-1">
+  
+  <div class="container">     
+    <div class="row" *ngIf="modalobject!=null"><button class="btn btn-danger" style="margin:4px, border-radius:50%" (click)="closeModal('custom-modal-1');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
+    
     <div class="row" *ngIf="modalobject!=null">
       <img src="{{modalobject.event_image_url}}" width="100%" height="450px">
-    </div>
+    </div> 
+    
     <div class="row" *ngIf="modalobject!=null">
     <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_name}} </h4>  
-    </div>
+    </div> 
     <div class="row" *ngIf="modalobject!=null">
       <div class="col-md-6">
       <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{modalobject.event_start_time}} to {{modalobject.event_end_time}}
@@ -100,34 +67,34 @@
       </p>
       <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
       </div>
+      
       <div class="col-md-6">
       <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
       <div class="row" style="margin:4px; float: right;"> 
-            <button class="btn btn-info" style="margin:4px" (click)="share(modalobject.event_booking.url,modalobject.event_name,modalobject.event_image_url,modalobject.event_location.address.city,modalobject.event_price,modalobject.event_last_date)"><i class="fa fa-facebook"></i></button>
+            <button class="btn btn-info" style="margin:4px" ><i class="fa fa-facebook"></i></button>
             <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
       </div>    
       </div>
-    </div>
+    </div> 
+    
      <div class="row" *ngIf="modalobject!=null">
       <div class="col-md-12" [innerHTML]="modalobject.event_description">      
       </div>
-    </div>
+    </div> 
     <div class="row">
-      <div class="col-md-12" *ngIf="modalobject!=null">
-        <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_organizer.name}} </h4> 
-        <p class ="list-group-item-text list-text">
+      <div class="col-md-12" >
+        <h4 class="list-group-item-heading heading_txt" *ngIf="modalobject!=null"> {{modalobject.event_organizer.name}} </h4> 
+        <p class ="list-group-item-text list-text" *ngIf="modalobject!=null">
            {{modalobject.event_organizer.url}} 
       </p>
       </div>
-    </div>
+    </div> 
 
-
-
-  </div>
-  
-  <button (click)="closeModal('custom-modal');">Close</button>
-</jw-modal>
+    
+  </div>  
+   <button (click)="closeModal('custom-modal-1');">Close</button>
+</jw-modal>  
 
 
 
