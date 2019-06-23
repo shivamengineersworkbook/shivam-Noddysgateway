@@ -10,7 +10,7 @@ import {
   LoggedInCallback
 } from "../../service/cognito.service";
 import { ModalService } from './../../service/modal.service';
-import { ModelEvent } from './../../interfaces/singleevent';
+// import { ModelEvent } from './../../interfaces/singleevent';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,8 +31,8 @@ export class DashboardComponent implements OnInit {
  months:string;
  day:string;  
   //This is to get the event id from the list
-  private modaleventId:string;
-  modalobject:ModelEvent;
+  // private modaleventId:string;
+  // modalobject:ModelEvent;
 
   constructor(public router: Router,
     public userService: UserLoginService,
@@ -69,31 +69,31 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  //opens model window
-  openModal(id: string) {
-    this.userEvent.getoneevent(`${this.modaleventId}`).subscribe(data => {
-      if (data) {
-        this.modalobject = data;
-        console.log(this.modalobject);
-      } else {
-        console.log('no data');
-      }
-    });
-    this.modalService.open(id);
-}
+//   //opens model window
+//   openModal(id: string) {
+//     this.userEvent.getoneevent(`${this.modaleventId}`).subscribe(data => {
+//       if (data) {
+//         this.modalobject = data;
+//         console.log(this.modalobject);
+//       } else {
+//         console.log('no data');
+//       }
+//     });
+//     this.modalService.open(id);
+// }
 
-//closes model window
-closeModal(id: string) {
-    this.modalService.close(id);
-}
+// //closes model window
+// closeModal(id: string) {
+//     this.modalService.close(id);
+// }
 
 
 
-//getting model event id
-gettingevent(eventId:string){
-  console.log(eventId);
-  this.modaleventId = eventId;
-}
+// //getting model event id
+// gettingevent(eventId:string){
+//   console.log(eventId);
+//   this.modaleventId = eventId;
+// }
 
  //This function returns the month fro the time stamp
  getmonth(timestamp) {
