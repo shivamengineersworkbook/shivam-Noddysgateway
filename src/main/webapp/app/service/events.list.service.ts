@@ -37,14 +37,11 @@ export class EventsService {
       console.log(filter)
     } 
     if(details.ages.length > 0) {
-      let max = 0;
-    let age:number;
-    for(age of details.ages){
-      if( age > max){
-        max = age;
-      }
-    }
-      filter = filter + `&event_max_age_to=` + max;
+      var maxValue:Number = Math.max.apply(null, details.ages);
+      var minValue:Number = Math.min.apply(null, details.ages);
+    
+      filter = filter + `&event_max_age_to=` + maxValue;
+      filter = filter + `&event_min_age_from=` + minValue;
       console.log(filter);
     } 
     if(details.provider.length > 0){
