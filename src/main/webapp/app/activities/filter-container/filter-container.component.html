@@ -3,11 +3,11 @@
    
     <h4>BOOKING TYPE</h4>
     <div class="row">
-        <button mat-raised-button (click)="onBookingType('Current date')">Current</button>
+        <button mat-raised-button (click)="onBookingType('Current date')">Current Week</button>
         <button mat-raised-button (click)="onBookingType('Next date')">Next Week</button>
         <button mat-raised-button (click)="onBookingType('Later')">Later</button>
     </div><br>
-    <h4>LOCATION</h4>
+    <h4>Location</h4>
     <div class="filter-container_location">
         <mat-form-field>
             <input type="text" [(ngModel)]="location" matInput placeholder="Enter address or neighbor">
