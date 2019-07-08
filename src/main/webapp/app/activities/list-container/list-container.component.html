@@ -17,7 +17,7 @@
               <i class="fa fa-rupee"></i> {{record.event_price}} 
           </p>
           <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{record.event_location.address.street}} , {{record.event_location.address.city}} </p>
-          <a target="_blank" href={{record.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+          <a target="_blank" href={{record.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" (click)="subscribe(record._id)" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
           <div class="row" style="margin:4px; float: right;"> 
             <button class="btn btn-info" style="margin:4px" (click)="share(record.event_booking.url,record.event_name,record.event_image_url,record.event_location.address.city,record.event_price,record.event_last_date)"><i class="fa fa-facebook"></i></button>
@@ -58,7 +58,7 @@
       <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
       </div>
       <div class="col-md-6">
-      <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+      <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" ng-click="subscribe(record._id)" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
           <p *ngIf="!bAuthenticated">U need to log in to register</p>
       <div class="row" style="margin:4px; float: right;"> 
             <button class="btn btn-info" style="margin:4px" (click)="share(modalobject.event_booking.url,modalobject.event_name,modalobject.event_image_url,modalobject.event_location.address.city,modalobject.event_price,modalobject.event_last_date)"><i class="fa fa-facebook"></i></button>

@@ -12,6 +12,7 @@ import {
 } from '../../service/cognito.service';
 import { filters } from './../../interfaces/filters';
 import { ModelEvent } from './../../interfaces/singleevent';
+import { CognitoUser } from 'amazon-cognito-identity-js';
 
 @Component({
   selector: 'app-list-container',
@@ -38,6 +39,7 @@ export class ListContainerComponent implements OnInit {
   changed = false;
   modalobject:ModelEvent;
   modalId = '';
+  cognitoUser = {};
   dates = [
     'January',
     'Febuary',
@@ -109,8 +111,8 @@ export class ListContainerComponent implements OnInit {
   }
 
   isLoggedIn() {
-    const cognitoUser = this.cognitoutil.getCurrentUser();
-    if (cognitoUser == null) {
+    this.cognitoUser = this.cognitoutil.getCurrentUser();
+    if (this.cognitoUser == null) {
       this.bAuthenticated = false;
     } else {
       this.bAuthenticated = true;
@@ -244,6 +246,21 @@ prevpagecall() {
   });
 
 }
+
+  subscribe(id) {
+    this.events.getoneevent(`${id}`).subscribe(data => {
+      if (data) {
+        data.posted_event_id = id;
+        data.event_type = "subscribed";
+        data._id=null;
+        console.log(this.cognitoUser)
+        this.events.subscribeEvent(this.cognitoUser,data)  
+      } else {
+        console.log('no data');
+      }
+    });
+ 
+  }
 
  //This function returns the month fro the time stamp
  getmonth(timestamp) {

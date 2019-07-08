@@ -13,8 +13,7 @@
 
 .filter-container{
     padding: 25px;
-    height: 600px;
-    overflow: auto;
+    width:350px;
     background-color: #f3f0eb;
 }
 

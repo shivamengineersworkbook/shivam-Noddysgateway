@@ -92,6 +92,12 @@ export class EventsService {
     return this.http.get<ModelEvent >(`${this.baseurl}/events/${id}`);
   }
 
+  subscribeEvent(userId, body){
+    console.log(body);
+    console.log(`${this.baseurl}/users/${userId.username}/subscribeEvent`)
+    return this.http.post(`${this.baseurl}/users/${userId.username}/subscribeEvent`, body);
+  }
+
   postEventImage(fd: File, user){
     console.log(fd);
     console.log(fd.name);

@@ -2,6 +2,7 @@ export interface ModelEvent{
             _id:string,
             event_category:string,
             event_subcategory:string,
+            event_type:string,
             event_location:{
                 longitude:string,
                 latitude:string,
@@ -23,6 +24,7 @@ export interface ModelEvent{
             event_min_age:string,
             event_max_age:string,
             event_price:string,
+            posted_event_id:string,
             event_booking:{
                 url:string,
                 inquiry_url:string
