@@ -1,12 +1,12 @@
 <div class="container list-container">
     <mat-tab-group>
         <mat-tab label="Posted">
-            <mat-card *ngIf="!posted?.length > 0">
-            <mat-card-header>
-                No Events To Show
-            </mat-card-header>
-            </mat-card>
             <ng-template matTabContent>
+            <mat-card *ngIf="posted?.length === 0">
+              <mat-card-header>
+                  No Events To Show
+              </mat-card-header>
+            </mat-card>
             <mat-card *ngFor="let record of posted"  >
               <mat-card-header >
               <div class="row"> 
@@ -39,12 +39,12 @@
              </ng-template>
         </mat-tab>
         <mat-tab label="Subscribed">
-          <mat-card *ngIf="!subscribed?.length > 0">
-          <mat-card-header >
-              No Events To Show
-          </mat-card-header>
-          </mat-card>
            <ng-template matTabContent> 
+            <mat-card *ngIf="subscribed?.length == 0">
+              <mat-card-header >
+                No Events To Show
+              </mat-card-header>
+            </mat-card>
             <mat-card *ngFor="let record of subscribed"  >
               <mat-card-header >
               <div class="row"> 

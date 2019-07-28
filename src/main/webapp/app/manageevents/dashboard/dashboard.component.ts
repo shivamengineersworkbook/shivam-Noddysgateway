@@ -43,12 +43,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.cognitoUser = this.isLoggedIn();
-    console.log(this.cognitoUser);
     this.userEvent.getuserevents(this.cognitoUser).subscribe((data) => {
       if(data){
         this.subscribed = data.events.subscribed;
         this.posted = data.events.posted;
-        console.log(this.posted);
+        console.log(this.subscribed)
       } else {
         console.log("server is down");
       }

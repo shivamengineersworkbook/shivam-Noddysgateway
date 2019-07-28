@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Provider } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Event } from './../interfaces/postuserevent';
 import { Record } from './../interfaces/getuserevents';
@@ -6,7 +6,7 @@ import { category } from './../interfaces/eventcategories';
 import { MainEvent } from './../interfaces/getallevents';
 import { filters } from './../interfaces/filters';
 import { ModelEvent } from './../interfaces/singleevent';
-
+import { Providers } from './../interfaces/eventproviders';
 @Injectable({
   providedIn: 'root'
 })
@@ -105,6 +105,10 @@ export class EventsService {
     form.append('file', <File>fd, fd.name);
 // tslint:disable-next-line: max-line-length
     return this.http.post(`${this.baseurl}/users/${user.username}/image`, form,{responseType:'text'});
+  }
+
+  getProviders(){
+    return this.http.get<Providers>(`${this.baseurl}/providers`);
   }
 
   user: string;

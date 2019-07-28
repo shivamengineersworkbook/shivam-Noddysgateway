@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService} from '../../service/events.list.service';
 import {ServicefilterService} from '../../service/servicefilter.service';
 import { integer } from 'aws-sdk/clients/storagegateway';
-
 @Component({
   selector: 'app-filter-container',
   templateUrl: './filter-container.component.html',
@@ -17,9 +16,6 @@ export class FilterContainerComponent implements OnInit {
   min =0;
   // To display start time
   startTime:string;
- 
-
-
 
   // To Display End Time
   endTime:string;
@@ -37,7 +33,7 @@ export class FilterContainerComponent implements OnInit {
   eventDateCheck = "";
 
   //this is a list of static providers
-  staticproviderslist = ['hello','main','second','senile'];
+  staticproviderslist = [];
   constructor(public events: EventsService,
               public filter: ServicefilterService) { }
 
@@ -50,9 +46,15 @@ export class FilterContainerComponent implements OnInit {
     if(this.eventDateCheck!=undefined) {
       this.featureArr.bookingType = this.eventDateCheck;
     }
-    
+
     this.filter.sendfilters(this.featureArr);
-    
+
+    this.events.getProviders().subscribe(data => {
+
+      if (data) {
+        this.staticproviderslist = data.providers;
+      }
+    });
 
     this.events.getcategories().subscribe(data => {
       if(data){

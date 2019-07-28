@@ -74,7 +74,7 @@
             </mat-expansion-panel-header>
             <div class="filter-container_category-panel" >
                     <div class="filter-container_category-panel-left">
-                        <mat-checkbox *ngFor="let provider of  staticproviderslist" (change)="onChangeProvider($event, event)">{{provider}}</mat-checkbox>
+                        <mat-checkbox *ngFor="let provider of  staticproviderslist" (change)="onChangeProvider($event, event)">{{provider.name}}</mat-checkbox>
                     </div>
             </div>
         </mat-expansion-panel>
