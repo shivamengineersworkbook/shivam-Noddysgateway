@@ -1,84 +1,103 @@
 
 <section class="section-1">
 
-  <div class="section-1_text-1">Discover your child’s next</div>
-  <div #rotatingText class="section-1_text-2"></div> 
-  <div>
-    <form>
-      <mat-form-field>
-          <input type="text" matInput placeholder="Search Events" [(ngModel)]="eventName" name="eventName">
-      </mat-form-field>
-      &nbsp;&nbsp;
-      <mat-form-field>
-          <mat-select [(ngModel)]="eventDate" name="eventDate">
-            <mat-option *ngFor="let date of dates" [value]="date.value">
-              {{date.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        &nbsp;&nbsp;
-        <button mat-raised-button color="warn" (click)="savefilters(eventDate)" [routerLink]="['/activities']">Search</button>
-  </form>
-  </div>
+	<div class="section-1_text-1">
+		Discover your child’s next
+	</div>
+	<div #rotatingText class="rotating-text"></div> 
+	<div>
+		<form>
+			<mat-form-field>
+				<input type="text" matInput placeholder="Search Events" [(ngModel)]="eventName" name="eventName">
+			</mat-form-field>
+			&nbsp;&nbsp;
+			<mat-form-field>
+				<mat-select [(ngModel)]="eventDate" name="eventDate">
+					<mat-option *ngFor="let date of dates" [value]="date.value">
+						{{date.viewValue}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+			&nbsp;&nbsp;
+			<button mat-raised-button color="warn" (click)="savefilters(eventDate)" [routerLink]="['/activities']">Search</button>
+		</form>
+	</div>
 </section>
 
 <section class="section-3">
-    <h1 class="text-color">
-    Categories to explore
-    </h1>
-    <div class="container-fluid">
-    <div class= "row">
-    <div class= "col-md-1">
-      <button class="catbackbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>
-    </div>
-    <div class="categoriescara col-md-10">
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[0].image_url}}" width="300" height="300" ></a>
-            <div class="centered">{{records[0].name}}</div>
-          </div>
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[1].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[1].name}}</div>
-          </div>
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[2].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[2].name}}</div>
-          </div>
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[3].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[3].name}}</div>
-          </div>
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[4].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[4].name}}</div>
-          </div>
-          <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[5].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[5].name}}</div>
-          </div>
-           <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[6].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[6].name}}</div>
-          </div>
-           <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[7].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[7].name}}</div>
-          </div>
-           <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[8].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[8].name}}</div>
-          </div>
-           <div class="carousel-item col-md-4">
-            <a [routerLink]="['/activities']" ><img class="darken" src="{{records[9].image_url}}" width="300" height="300"></a>
-            <div class="centered">{{records[9].name}}</div>
-          </div>
-    </div>
-    <div class= "col-md-1">
-      <button class="catforbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
-    </div>
-</div>
-    </div>
-
+	<h1 class="text-color">
+		Categories to explore
+	</h1>
+	<div class="container-fluid">
+		<div class= "row">
+			<div class= "col-md-1">
+				<button class="catbackbut btn btn-danger btn-circle btn-xl" style="margin:1em">
+					<i class="fa fa-long-arrow-left"></i>
+				</button>
+			</div>
+			<div class="categoriescara col-md-10">
+				<div class="carousel-item" *ngIf="records[0]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[0].image_url }}" width="300" height="300" ></a>
+					<div class="centered">
+						{{ records[0].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[1]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[1].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[1].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[2]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[2].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[2].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[3]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[3].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[3].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[4]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[4].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[4].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[5]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[5].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[5].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[6]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[6].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[6].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[7]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[7].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[7].name }}
+					</div>
+				</div>
+				<div class="carousel-item" *ngIf="records[8]">
+					<a [routerLink]="['/activities']" ><img class="darken" src="{{ records[8].image_url }}" width="300" height="300"></a>
+					<div class="centered">
+						{{ records[8].name }}
+					</div>
+				</div>
+				
+			</div>
+			<div class= "col-md-1">
+				<button class="catforbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
+			</div>
+		</div>
+	</div>
+	<ng-template #loading><h2 class="text-color">Loading Catgories...</h2></ng-template>
 </section>
 
 
@@ -86,199 +105,192 @@
  
 
 <section class="section-4">
-    <button class="backbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>
-    <button class="forbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
+	<button class="backbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-left"></i></button>
+	<button class="forbut btn btn-danger btn-circle btn-xl" style="margin:1em"><i class="fa fa-long-arrow-right"></i></button>
 </section>
 
 <div class="your-class">
-    <div class="carousel-item col-md-4" >
-        <div class="card">
-          <img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
-          <div class="card-body">
-            <div class="row">
-             <div class="col-md-2 card-title" style="color: red" *ngIf="events[0].event_start_date!=null" >
-                  <p >{{getmonth(events[0].event_start_date)}}</p>
-              </div> 
-              <div class="col-md-10">
-                  <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[0]._id);openModal('custom-modal-1')">{{events[0].event_name}}</h4>    
-                  <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</small></p>
-                  <p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[0].event_start_time}} to {{events[0].event_end_time}}</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      
-      <div class="carousel-item col-md-4" >
-          <div class="card">
-            <img class="card-img-top img-fluid" src={{events[1].event_image_url}}  width="100" height="100">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-2" style="color: red" *ngIf="events[1].event_start_date!=null">
-                    <p>{{getmonth(events[1].event_start_date)}}</p>
-                </div>
-                <div class="col-md-10">
-                    <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[1]._id);openModal('custom-modal-1')">{{events[1].event_name}}</h4>
-                    <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[1].event_location.address.street}} , {{events[1].event_location.address.city}}</small></p>
-                    <p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[1].event_start_time}} to {{events[1].event_end_time}}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-        <div class="carousel-item col-md-4" >
-            <div class="card">
-              <img class="card-img-top img-fluid" src={{events[2].event_image_url}}  width="100" height="100">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-2" style="color: red" *ngIf="events[2].event_start_date!=null">
-                      <p>{{getmonth(events[2].event_start_date)}}</p>
-                  </div>
-                  <div class="col-md-10">
-                      <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[2]._id);openModal('custom-modal-1')">{{events[2].event_name}}</h4>
-                      <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[2].event_location.address.street}} , {{events[2].event_location.address.city}}</small></p>
-                      <p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[2].event_start_time}} to {{events[2].event_end_time}}</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>    
-
-          <div class="carousel-item col-md-4" >
-              <div class="card">
-                <img class="card-img-top img-fluid" src={{events[3].event_image_url}}  width="100" height="100">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-2" style="color: red" *ngIf="events[3].event_start_date!=null">
-                        <p>{{getmonth(events[3].event_start_date)}}</p>
-                    </div>
-                    <div class="col-md-10">
-                        <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[3]._id);openModal('custom-modal-1')">{{events[3].event_name}}</h4>
-                        <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[3].event_location.address.street}} , {{events[3].event_location.address.city}}</small></p>
-                        <p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[3].event_start_time}} to {{events[3].event_end_time}}</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item col-md-4" >
-                <div class="card">
-                  <img class="card-img-top img-fluid" src={{events[4].event_image_url}}  width="100" height="100">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-2" style="color: red" *ngIf="events[4].event_start_date!=null">
-                          <p>{{getmonth(events[4].event_start_date)}}</p>
-                      </div>
-                      <div class="col-md-10">
-                          <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[4]._id);openModal('custom-modal-1')">{{events[4].event_name}}</h4>
-                          <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[4].event_location.address.street}} , {{events[4].event_location.address.city}}</small></p>
-                          <p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[4].event_start_time}} to {{events[4].event_end_time}}</small></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item col-md-4" >
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src={{events[5].event_image_url}}  width="100" height="100">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-2" style="color: red" *ngIf="events[5].event_start_date!=null">
-                            <p>{{getmonth(events[5].event_start_date)}}</p>
-                        </div>
-                        <div class="col-md-10">
-                            <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[5]._id);openModal('custom-modal-1')">{{events[5].event_name}}</h4>
-                            <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[5].event_location.address.street}} , {{events[5].event_location.address.city}}</small></p>
-                            <p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[5].event_start_time}} to {{events[5].event_end_time}}</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4" >
-                    <div class="card">
-                      <img class="card-img-top img-fluid" src={{events[6].event_image_url}}  width="100" height="100">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-2" style="color: red" *ngIf="events[6].event_start_date!=null">
-                              <p>{{getmonth(events[6].event_start_date)}}</p>
-                          </div>
-                          <div class="col-md-10">
-                              <h4 class="card-title" style="color: crimson" (click)="gettingevent(events[6]._id);openModal('custom-modal-1')">{{events[6].event_name}}</h4>
-                              <p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[6].event_location.address.street}} , {{events[6].event_location.address.city}}</small></p>
-                              <p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[6].event_start_time}} to {{events[6].event_end_time}}</small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>   
-
-                     
-         
-  </div>
+	<div class="carousel-item col-md-4" *ngIf="events[0]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[0].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2 card-title" style="color: red" *ngIf="events[0].event_start_date!=null" >
+							<p >{{getmonth(events[0].event_start_date)}}</p>
+					</div> 
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[0]._id);openModal('custom-modal-1')">{{events[0].event_name}}</h4>    
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[0].event_location.address.street}} , {{events[0].event_location.address.city}}</small></p>
+							<p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[0].event_start_time}} to {{events[0].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="carousel-item col-md-4" *ngIf="events[1]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[1].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[1].event_start_date!=null">
+							<p>{{getmonth(events[1].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[1]._id);openModal('custom-modal-1')">{{events[1].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[1].event_location.address.street}} , {{events[1].event_location.address.city}}</small></p>
+							<p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[1].event_start_time}} to {{events[1].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	<div class="carousel-item col-md-4" *ngIf="events[2]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[2].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[2].event_start_date!=null">
+							<p>{{getmonth(events[2].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[2]._id);openModal('custom-modal-1')">{{events[2].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[2].event_location.address.street}} , {{events[2].event_location.address.city}}</small></p>
+							<p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[2].event_start_time}} to {{events[2].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>    
+	<div class="carousel-item col-md-4" *ngIf="events[3]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[3].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[3].event_start_date!=null">
+							<p>{{getmonth(events[3].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[3]._id);openModal('custom-modal-1')">{{events[3].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[3].event_location.address.street}} , {{events[3].event_location.address.city}}</small></p>
+							<p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[3].event_start_time}} to {{events[3].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="carousel-item col-md-4" *ngIf="events[4]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[4].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[4].event_start_date!=null">
+							<p>{{getmonth(events[4].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[4]._id);openModal('custom-modal-1')">{{events[4].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[4].event_location.address.street}} , {{events[4].event_location.address.city}}</small></p>
+							<p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[4].event_start_time}} to {{events[4].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="carousel-item col-md-4" *ngIf="events[5]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[5].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[5].event_start_date!=null">
+							<p>{{getmonth(events[5].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[5]._id);openModal('custom-modal-1')">{{events[5].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[5].event_location.address.street}} , {{events[5].event_location.address.city}}</small></p>
+							<p class="card-text text-muted" ><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[5].event_start_time}} to {{events[5].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="carousel-item col-md-4" *ngIf="events[6]">
+		<div class="card">
+			<img class="card-img-top img-fluid" src={{events[6].event_image_url}}  width="100" height="100">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="color: red" *ngIf="events[6].event_start_date!=null">
+							<p>{{getmonth(events[6].event_start_date)}}</p>
+					</div>
+					<div class="col-md-10">
+							<h4 class="card-title" style="color: crimson" (click)="gettingevent(events[6]._id);openModal('custom-modal-1')">{{events[6].event_name}}</h4>
+							<p class="card-text "><small><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{events[6].event_location.address.street}} , {{events[6].event_location.address.city}}</small></p>
+							<p class="card-text text-muted"><small><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{events[6].event_start_time}} to {{events[6].event_end_time}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>  
+</div>
 
 
 
-
+<!-- 
 
 <jw-modal id="custom-modal-1">
-  
-  <div class="container">
-  
-    
-    <div class="row" *ngIf="modalobject!=null"><button class="btn btn-danger" style="margin:4px, border-radius:50%" (click)="closeModal('custom-modal-1');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
-    
-    <div class="row" *ngIf="modalobject!=null">
-      <img src="{{modalobject.event_image_url}}" width="100%" height="450px">
-    </div> 
-    
-    <div class="row" *ngIf="modalobject!=null">
-    <h4 class="list-group-item-heading heading_txt"> {{modalobject.event_name}} </h4>  
-    </div> 
-    <div class="row" *ngIf="modalobject!=null">
-      <div class="col-md-6">
-      <p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{modalobject.event_start_time}} to {{modalobject.event_end_time}}
-      <p class ="list-group-item-text list-text">
-              <i class="fa fa-rupee"></i> {{modalobject.event_price}} 
-      </p>
-      <p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
-      </div>
-      
-      <div class="col-md-6">
-      <a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
-          <p *ngIf="!bAuthenticated">U need to log in to register</p>
-      <div class="row" style="margin:4px; float: right;"> 
-            <button class="btn btn-info" style="margin:4px" ><i class="fa fa-facebook"></i></button>
-            <button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
-      </div>    
-      </div>
-    </div> 
-    
-     <div class="row" *ngIf="modalobject!=null">
-      <div class="col-md-12" [innerHTML]="modalobject.event_description">      
-      </div>
-    </div> 
-    <div class="row">
-      <div class="col-md-12" >
-        <h4 class="list-group-item-heading heading_txt" *ngIf="modalobject!=null"> {{modalobject.event_organizer.name}} </h4> 
-        <p class ="list-group-item-text list-text" *ngIf="modalobject!=null">
-           {{modalobject.event_organizer.url}} 
-      </p>
-      </div>
-    </div> 
-    
+	
+	<div class="container">
+	
+		
+		<div class="row" *ngIf="modalobject!=null"><button class="btn btn-danger" style="margin:4px, border-radius:50%" (click)="closeModal('custom-modal-1');"><i class="fa fa-close" style="font-size:24px"></i></button></div>
+		
+		<div class="row" *ngIf="modalobject!=null">
+			<img src="{{modalobject.event_image_url}}" width="100%" height="450px">
+		</div> 
+		
+		<div class="row" *ngIf="modalobject!=null">
+		<h4 class="list-group-item-heading heading_txt"> {{modalobject.event_name}} </h4>  
+		</div> 
+		<div class="row" *ngIf="modalobject!=null">
+			<div class="col-md-6">
+			<p class="list-group-item-text list-text"><i class="fa fa-clock-o" aria-hidden="true"></i> {{modalobject.event_start_time}} to {{modalobject.event_end_time}}
+			<p class ="list-group-item-text list-text">
+							<i class="fa fa-rupee"></i> {{modalobject.event_price}} 
+			</p>
+			<p class="list-group-item-text list-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{modalobject.event_location.address.street}} , {{modalobject.event_location.address.city}} </p>
+			</div>
+			
+			<div class="col-md-6">
+			<a target="_blank" href={{modalobject.event_booking.url}}><button style="margin:12px" *ngIf="bAuthenticated" type="button" class="btn btn-default btn-lg btn-block" > Register now</button></a>
+					<p *ngIf="!bAuthenticated">U need to log in to register</p>
+			<div class="row" style="margin:4px; float: right;"> 
+						<button class="btn btn-info" style="margin:4px" ><i class="fa fa-facebook"></i></button>
+						<button class="btn btn-danger" style="margin:4px" ><i class="fa fa-instagram" style="color:azure"></i></button>
+			</div>    
+			</div>
+		</div> 
+		
+		 <div class="row" *ngIf="modalobject!=null">
+			<div class="col-md-12" [innerHTML]="modalobject.event_description">      
+			</div>
+		</div> 
+		<div class="row">
+			<div class="col-md-12" >
+				<h4 class="list-group-item-heading heading_txt" *ngIf="modalobject!=null"> {{modalobject.event_organizer.name}} </h4> 
+				<p class ="list-group-item-text list-text" *ngIf="modalobject!=null">
+					 {{modalobject.event_organizer.url}} 
+			</p>
+			</div>
+		</div> 
+		
 
-      
-  </div> 
-  <button (click)="closeModal('custom-modal-1');">Close</button>
-</jw-modal>
-
-
+			
+	</div> 
+	<button (click)="closeModal('custom-modal-1');">Close</button>
+</jw-modal> -->
 
 
 
 
-  
-    
+
+
+	
+		

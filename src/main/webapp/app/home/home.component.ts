@@ -15,6 +15,9 @@ import {
   LoggedInCallback
 } from './../service/cognito.service';
 import { UserLoginService } from './../service/user-login.service';
+import { delay, share } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { category } from './../interfaces/eventcategories';
 
 
 declare var $: any;
@@ -98,17 +101,27 @@ export class HomeComponent implements AfterViewInit {
     public cognitoutil: CognitoUtil
   ) {}
 
-records = [];
+records = []
 
   ngOnInit() {
     this.eventcategories.getcategories().subscribe(data => {
+		if (data){
+			this.loaded = true;
+			this.records = data.categories;
+			console.log(this.records);
+      	} else {
+        	console.log('no data');
+      	}
+
+    });
+
+    this.eventcategories.getfilteredevents('').subscribe(data => {
       if (data){
-        this.records = data.categories;
-        console.log(this.records);
+        this.events = data.events;
+        console.log(this.events);
       } else {
         console.log('no data');
       }
-
     });
 
     $('.your-class').slick({
@@ -151,15 +164,6 @@ records = [];
       ]
     });
 
-    this.eventcategories.getfilteredevents('').subscribe(data => {
-      if (data){
-        this.events = data.events;
-        console.log(this.events);
-      } else {
-        console.log('no data');
-      }
-    });
-
     $('.categoriescara').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -168,12 +172,6 @@ records = [];
       prevArrow: $('.catbackbut'),
       nextArrow: $('.catforbut'),
       responsive: [
-        {
-          breakpoint: 1920,
-          settings: {
-            slidesToShow: 3
-          }
-        },
         {
           breakpoint: 1080,
           settings: {
@@ -186,18 +184,6 @@ records = [];
             slidesToShow: 1
           }
         },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1
-          }
-        }
       ]
     });
 
